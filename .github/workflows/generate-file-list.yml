@@ -57,8 +57,7 @@ jobs:
                                       ja_pdf = subdir / 'ja.pdf'
                                       en_pdf = subdir / 'en.pdf'
                                       
-                                      html_content += f'    <li>{subdir.name}<br>\n'
-                                      html_content += '        '
+                                      html_content += f'    <li>{subdir.name} [ '
                                       
                                       if ja_pdf.exists():
                                           relative_path = ja_pdf.relative_to(Path('.'))
@@ -74,7 +73,7 @@ jobs:
                                       else:
                                           html_content += 'English'
                                       
-                                      html_content += '</li>\n'
+                                      html_content += ' ]</li>\n'
                               html_content += '</ul>\n'
                           else:
                               html_content += '<p>{blank}</p>\n'
@@ -89,8 +88,7 @@ jobs:
                                       ja_pdf = subdir / 'ja.pdf'
                                       en_pdf = subdir / 'en.pdf'
                                       
-                                      html_content += f'    <li>{subdir.name}<br>\n'
-                                      html_content += '        '
+                                      html_content += f'    <li>{subdir.name} [ '
                                       
                                       if ja_pdf.exists():
                                           relative_path = ja_pdf.relative_to(Path('.'))
@@ -106,7 +104,7 @@ jobs:
                                       else:
                                           html_content += 'English'
                                       
-                                      html_content += '</li>\n'
+                                      html_content += ' ]</li>\n'
                               html_content += '</ul>\n'
                           else:
                               html_content += '<p>{blank}</p>\n'
