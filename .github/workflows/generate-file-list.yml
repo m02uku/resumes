@@ -57,7 +57,7 @@ jobs:
                                       ja_pdf = subdir / 'ja.pdf'
                                       en_pdf = subdir / 'en.pdf'
                                       
-                                      html_content += f'    <li>- {subdir.name}<br>\n'
+                                      html_content += f'    <li>{subdir.name}<br>\n'
                                       html_content += '        '
                                       
                                       if ja_pdf.exists():
@@ -89,7 +89,7 @@ jobs:
                                       ja_pdf = subdir / 'ja.pdf'
                                       en_pdf = subdir / 'en.pdf'
                                       
-                                      html_content += f'    <li>- {subdir.name}<br>\n'
+                                      html_content += f'    <li>{subdir.name}<br>\n'
                                       html_content += '        '
                                       
                                       if ja_pdf.exists():
