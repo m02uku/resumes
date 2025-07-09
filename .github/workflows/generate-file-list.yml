@@ -52,10 +52,12 @@ jobs:
                           html_content += '<h2>papers/</h2>\n'
                           if papers_path.exists() and any(papers_path.iterdir()):
                               html_content += '<ul>\n'
-                              for file in sorted(papers_path.rglob('*')):
-                                  if file.is_file():
-                                      relative_path = file.relative_to(Path('.'))
-                                      html_content += f'    <li><a href="{relative_path}">{file.name}</a></li>\n'
+                              for subdir in sorted(papers_path.iterdir()):
+                                  if subdir.is_dir():
+                                      main_pdf = subdir / 'main.pdf'
+                                      if main_pdf.exists():
+                                          relative_path = main_pdf.relative_to(Path('.'))
+                                          html_content += f'    <li><a href="{relative_path}">{subdir.name}</a></li>\n'
                               html_content += '</ul>\n'
                           else:
                               html_content += '<p>(空のフォルダ)</p>\n'
@@ -63,20 +65,17 @@ jobs:
                           # slides フォルダ
                           slides_path = public_path / 'slides'
                           html_content += '<h2>slides/</h2>\n'
-                          if slides_path.exists():
+                          if slides_path.exists() and any(slides_path.iterdir()):
+                              html_content += '<ul>\n'
                               for subdir in sorted(slides_path.iterdir()):
                                   if subdir.is_dir():
-                                      html_content += f'<h3>{subdir.name}/</h3>\n'
-                                      files = list(subdir.glob('*'))
-                                      if files:
-                                          html_content += '<ul>\n'
-                                          for file in sorted(files):
-                                              if file.is_file():
-                                                  relative_path = file.relative_to(Path('.'))
-                                                  html_content += f'    <li><a href="{relative_path}">{file.name}</a></li>\n'
-                                          html_content += '</ul>\n'
-                                      else:
-                                          html_content += '<p>(空のフォルダ)</p>\n'
+                                      main_pdf = subdir / 'main.pdf'
+                                      if main_pdf.exists():
+                                          relative_path = main_pdf.relative_to(Path('.'))
+                                          html_content += f'    <li><a href="{relative_path}">{subdir.name}</a></li>\n'
+                              html_content += '</ul>\n'
+                          else:
+                              html_content += '<p>(空のフォルダ)</p>\n'
                       
                       html_content += '''</body>
                   </html>'''
