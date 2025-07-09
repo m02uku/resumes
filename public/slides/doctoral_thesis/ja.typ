@@ -914,7 +914,7 @@
 
 #text(size: 12pt)[
   #bibliography(
-    "../references.bib",
+    "../../../static/references.bib",
     style: "apa",
     title: "参考文献",
   )
