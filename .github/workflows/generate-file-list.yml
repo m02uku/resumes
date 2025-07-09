@@ -61,17 +61,17 @@ jobs:
                                       
                                       if ja_pdf.exists():
                                           relative_path = ja_pdf.relative_to(Path('.'))
-                                          html_content += f'<a href="{relative_path}">日本語</a>'
+                                          html_content += f'<a href="{relative_path}">ja</a>'
                                       else:
-                                          html_content += '日本語'
+                                          html_content += 'ja'
                                       
                                       html_content += ' / '
                                       
                                       if en_pdf.exists():
                                           relative_path = en_pdf.relative_to(Path('.'))
-                                          html_content += f'<a href="{relative_path}">English</a>'
+                                          html_content += f'<a href="{relative_path}">en</a>'
                                       else:
-                                          html_content += 'English'
+                                          html_content += 'en'
                                       
                                       html_content += ' ]</li>\n'
                               html_content += '</ul>\n'
@@ -92,17 +92,17 @@ jobs:
                                       
                                       if ja_pdf.exists():
                                           relative_path = ja_pdf.relative_to(Path('.'))
-                                          html_content += f'<a href="{relative_path}">日本語</a>'
+                                          html_content += f'<a href="{relative_path}">ja</a>'
                                       else:
-                                          html_content += '日本語'
+                                          html_content += 'ja'
                                       
                                       html_content += ' / '
                                       
                                       if en_pdf.exists():
                                           relative_path = en_pdf.relative_to(Path('.'))
-                                          html_content += f'<a href="{relative_path}">English</a>'
+                                          html_content += f'<a href="{relative_path}">en</a>'
                                       else:
-                                          html_content += 'English'
+                                          html_content += 'en'
                                       
                                       html_content += ' ]</li>\n'
                               html_content += '</ul>\n'
