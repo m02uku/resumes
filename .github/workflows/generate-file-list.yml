@@ -60,7 +60,7 @@ jobs:
                                           html_content += f'    <li><a href="{relative_path}">{subdir.name}</a></li>\n'
                               html_content += '</ul>\n'
                           else:
-                              html_content += '<p>(空のフォルダ)</p>\n'
+                              html_content += '<p>{blank}</p>\n'
                           
                           # slides フォルダ
                           slides_path = public_path / 'slides'
@@ -75,7 +75,7 @@ jobs:
                                           html_content += f'    <li><a href="{relative_path}">{subdir.name}</a></li>\n'
                               html_content += '</ul>\n'
                           else:
-                              html_content += '<p>(空のフォルダ)</p>\n'
+                              html_content += '<p>{blank}</p>\n'
                       
                       html_content += '''</body>
                   </html>'''
