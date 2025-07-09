@@ -55,8 +55,7 @@ jobs:
                               for file in sorted(papers_path.rglob('*')):
                                   if file.is_file():
                                       relative_path = file.relative_to(Path('.'))
-                                      target_attr = ' target="_blank"' if file.suffix.lower() == '.pdf' else ''
-                                      html_content += f'    <li><a href="{relative_path}"{target_attr}>{file.name}</a></li>\n'
+                                      html_content += f'    <li><a href="{relative_path}">{file.name}</a></li>\n'
                               html_content += '</ul>\n'
                           else:
                               html_content += '<p>(空のフォルダ)</p>\n'
@@ -74,8 +73,7 @@ jobs:
                                           for file in sorted(files):
                                               if file.is_file():
                                                   relative_path = file.relative_to(Path('.'))
-                                                  target_attr = ' target="_blank"' if file.suffix.lower() == '.pdf' else ''
-                                                  html_content += f'    <li><a href="{relative_path}"{target_attr}>{file.name}</a></li>\n'
+                                                  html_content += f'    <li><a href="{relative_path}">{file.name}</a></li>\n'
                                           html_content += '</ul>\n'
                                       else:
                                           html_content += '<p>(空のフォルダ)</p>\n'
