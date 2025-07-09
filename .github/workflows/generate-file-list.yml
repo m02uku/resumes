@@ -1,0 +1,81 @@
+name: Generate File List
+
+on:
+    push:
+        paths:
+            - "public/**"
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    generate-file-list:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Generate file list
+              run: |
+                  # HTMLヘッダーを生成
+                  cat > index.html << 'EOF'
+                  <!DOCTYPE html>
+                  <html lang="ja">
+                  <head>
+                      <meta charset="UTF-8">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <title>Public Files</title>
+                  </head>
+                  <body>
+                      <h1>Public Files</h1>
+                  EOF
+
+                  echo "    <p>最終更新: $(date '+%Y年%m月%d日 %H:%M:%S')</p>" >> index.html
+
+                  # papers フォルダの処理
+                  echo "    <h2>papers/</h2>" >> index.html
+                  if [ -z "$(find public/papers -type f 2>/dev/null)" ]; then
+                    echo "    <p>(空のフォルダ)</p>" >> index.html
+                  else
+                    echo "    <ul>" >> index.html
+                    find public/papers -type f | sort | while read file; do
+                      filename=$(basename "$file")
+                      echo "        <li><a href=\"$file\">$filename</a></li>" >> index.html
+                    done
+                    echo "    </ul>" >> index.html
+                  fi
+
+                  # slides フォルダの処理
+                  echo "    <h2>slides/</h2>" >> index.html
+                  for dir in public/slides/*/; do
+                    if [ -d "$dir" ]; then
+                      dirname=$(basename "$dir")
+                      echo "    <h3>$dirname/</h3>" >> index.html
+                      echo "    <ul>" >> index.html
+                      find "$dir" -maxdepth 1 -type f | sort | while read file; do
+                        filename=$(basename "$file")
+                        echo "        <li><a href=\"$file\">$filename</a></li>" >> index.html
+                      done
+                      echo "    </ul>" >> index.html
+                    fi
+                  done
+
+                  # HTMLフッターを追加
+                  cat >> index.html << 'EOF'
+                  </body>
+                  </html>
+                  EOF
+
+            - name: Commit changes
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git add index.html
+                  if git diff --staged --quiet; then
+                    echo "No changes to commit"
+                  else
+                    git commit -m "Auto-update file list"
+                    git push
+                  fi
