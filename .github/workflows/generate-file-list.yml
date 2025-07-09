@@ -17,11 +17,20 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: Generate file list
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.9"
+
+            - name: Generate file list with Python
               run: |
-                  # HTMLヘッダーを生成
-                  cat > index.html << 'EOF'
-                  <!DOCTYPE html>
+                  python << 'EOF'
+                  import os
+                  import datetime
+                  from pathlib import Path
+
+                  def generate_file_list():
+                      html_content = '''<!DOCTYPE html>
                   <html lang="ja">
                   <head>
                       <meta charset="UTF-8">
@@ -30,42 +39,54 @@ jobs:
                   </head>
                   <body>
                       <h1>Public Files</h1>
-                  EOF
+                      <p>最終更新: {}</p>
+                  '''.format(datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S'))
+                      
+                      public_path = Path('public')
+                      
+                      if not public_path.exists():
+                          html_content += '<p>publicフォルダが見つかりません</p>'
+                      else:
+                          # papers フォルダ
+                          papers_path = public_path / 'papers'
+                          html_content += '<h2>papers/</h2>\n'
+                          if papers_path.exists() and any(papers_path.iterdir()):
+                              html_content += '<ul>\n'
+                              for file in sorted(papers_path.rglob('*')):
+                                  if file.is_file():
+                                      relative_path = file.relative_to(Path('.'))
+                                      html_content += f'    <li><a href="{relative_path}">{file.name}</a></li>\n'
+                              html_content += '</ul>\n'
+                          else:
+                              html_content += '<p>(空のフォルダ)</p>\n'
+                          
+                          # slides フォルダ
+                          slides_path = public_path / 'slides'
+                          html_content += '<h2>slides/</h2>\n'
+                          if slides_path.exists():
+                              for subdir in sorted(slides_path.iterdir()):
+                                  if subdir.is_dir():
+                                      html_content += f'<h3>{subdir.name}/</h3>\n'
+                                      files = list(subdir.glob('*'))
+                                      if files:
+                                          html_content += '<ul>\n'
+                                          for file in sorted(files):
+                                              if file.is_file():
+                                                  relative_path = file.relative_to(Path('.'))
+                                                  html_content += f'    <li><a href="{relative_path}">{file.name}</a></li>\n'
+                                          html_content += '</ul>\n'
+                                      else:
+                                          html_content += '<p>(空のフォルダ)</p>\n'
+                      
+                      html_content += '''</body>
+                  </html>'''
+                      
+                      with open('index.html', 'w', encoding='utf-8') as f:
+                          f.write(html_content)
+                      
+                      print("index.html が生成されました")
 
-                  echo "    <p>最終更新: $(date '+%Y年%m月%d日 %H:%M:%S')</p>" >> index.html
-
-                  # papers フォルダの処理
-                  echo "    <h2>papers/</h2>" >> index.html
-                  if [ -z "$(find public/papers -type f 2>/dev/null)" ]; then
-                    echo "    <p>(空のフォルダ)</p>" >> index.html
-                  else
-                    echo "    <ul>" >> index.html
-                    find public/papers -type f | sort | while read file; do
-                      filename=$(basename "$file")
-                      echo "        <li><a href=\"$file\">$filename</a></li>" >> index.html
-                    done
-                    echo "    </ul>" >> index.html
-                  fi
-
-                  # slides フォルダの処理
-                  echo "    <h2>slides/</h2>" >> index.html
-                  for dir in public/slides/*/; do
-                    if [ -d "$dir" ]; then
-                      dirname=$(basename "$dir")
-                      echo "    <h3>$dirname/</h3>" >> index.html
-                      echo "    <ul>" >> index.html
-                      find "$dir" -maxdepth 1 -type f | sort | while read file; do
-                        filename=$(basename "$file")
-                        echo "        <li><a href=\"$file\">$filename</a></li>" >> index.html
-                      done
-                      echo "    </ul>" >> index.html
-                    fi
-                  done
-
-                  # HTMLフッターを追加
-                  cat >> index.html << 'EOF'
-                  </body>
-                  </html>
+                  generate_file_list()
                   EOF
 
             - name: Commit changes
@@ -76,6 +97,6 @@ jobs:
                   if git diff --staged --quiet; then
                     echo "No changes to commit"
                   else
-                    git commit -m "Auto-update file list"
+                    git commit -m "Auto-update file list [bot]"
                     git push
                   fi
