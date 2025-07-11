@@ -2,7 +2,6 @@
 #import "@preview/touying:0.6.1": *
 #import themes.university: *
 #import "@preview/numbly:0.1.0": numbly
-#import "@preview/touying:0.6.1": *
 #import "@preview/cetz:0.4.0"
 #import cetz.draw: *
 #import "@preview/fletcher:0.5.8" as fletcher: *
@@ -19,6 +18,7 @@
 #import "@preview/acrostiche:0.5.2": *
 #import "@preview/ascii-ipa:2.0.0": *
 #import "@preview/eggs:0.1.0": *
+#import "@preview/cjk-unbreak:0.1.0": remove-cjk-break-space
 
 
 // --- Theme Settings ---
@@ -38,6 +38,7 @@
 #show heading.where(level: 3): it => [
   #block(it.body)
 ]
+#show: remove-cjk-break-space
 
 
 // --- Functions ---
