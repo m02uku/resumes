@@ -70,7 +70,7 @@
 
 #text(size: 12pt)[
   #bibliography(
-    "../../static/references.bib",
+    "../../../static/references.bib",
     style: "apa",
     title: "References",
   )
