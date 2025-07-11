@@ -28,8 +28,12 @@ jobs:
                   import os
                   import datetime
                   from pathlib import Path
+                  from zoneinfo import ZoneInfo
 
                   def generate_file_list():
+                      # 日本時間（JST）での現在時刻を取得
+                      now_jst = datetime.datetime.now(ZoneInfo("Asia/Tokyo"))
+                      
                       html_content = '''<!DOCTYPE html>
                   <html lang="ja">
                   <head>
@@ -39,8 +43,8 @@ jobs:
                   </head>
                   <body>
                       <h1>Public Files</h1>
-                      <p>最終更新: {}</p>
-                  '''.format(datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S'))
+                      <p>最終更新（日本時間）: {}</p>
+                  '''.format(now_jst.strftime('%Y年%m月%d日 %H:%M:%S'))
                       
                       public_path = Path('public')
                       
