@@ -913,9 +913,11 @@
 #pagebreak()
 
 #text(size: 12pt)[
+  Note: Reference file path needs to be adjusted for compilation
   #bibliography(
     "../../../static/references.bib",
     style: "apa",
     title: "参考文献",
   )
 ]
+
