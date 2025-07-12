@@ -16,18 +16,18 @@
 #import "@preview/acrostiche:0.5.2": *
 #import "@preview/ascii-ipa:2.0.0": *
 #import "@preview/eggs:0.1.0": *
-#import "@preview/cjk-unbreak:0.1.0": remove-cjk-break-space
+#import "@preview/cjk-unbreak:0.1.1": remove-cjk-break-space
 
 
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
-  title: [日本語のタイトル],
-  title-en: [English Title],
+  title: [暗号解読],
+  title-en: [Decoding Cryptography],
   authors: [永野 颯],
   authors-en: [Sora NAGANO],
-  abstract: [#lorem(80)],
-  keywords: ([Typst], [conference paper writing], [manuscript format]),
+  // abstract: [#lorem(80)],
+  // keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
   font-heading: "Noto Sans CJK JP", // サンセリフ体、ゴシック体などの指定を推奨
   font-main: "Noto Serif CJK JP", // セリフ体、明朝体などの指定を推奨
@@ -81,36 +81,19 @@
 
 = はじめに
 
-== ごあいさつ
+この論文では、暗号解読の基本的な手法とその応用について述べます。特に、古典的な暗号方式から現代の暗号技術までの進化を追い、実際の暗号解読の例を通じてそのプロセスを説明します。
+暗号解読は、情報セキュリティの分野で重要な役割を果たしており、歴史的にも多くの興味深い事例があります。
 
-=== こんにちは
+暗号解読の手法は、数学的な理論と実践的な技術の両方を必要とします。特に、頻度分析やパターン認識などの技術は、古典的な暗号方式に対して非常に効果的です。
 
-こんにちは、これは#citet(<YongYe2025LuErDaoFangYanFuHeMingCiakusentonoXinJiuBiJiao>)による日本語の学会論文テンプレートです @YongYe2025LuErDaoFangYanFuHeMingCiakusentonoXinJiuBiJiao。
-
-#lorem(100)
-
-#definition("用語 A")[
-  用語 A の定義を書きます。
-]<def:definition1>
-#lemma[
-  補題を書きます。タイトルは省略することもできます。
-]<lem:lemma1>
-#lemma("補題 C")[
-  補題を書きます。番号は定義や補題ごとに 1 からカウントします。
-]<lem:lemma2>
-#theorem("定理 D")[
-  ここに定理を書きます。
-]<thm:theorem1>
-#corollary[
-  系を書きます。@def:definition1 のように、ラベルで参照することもできます。
-]
-#proof([@thm:theorem1 の証明])[
-  証明を書きます。証明終了として□印をつけています。
-]
+本稿では、以下のトピックについて詳しく説明します。
+- 古典的な暗号方式の概要
+- 現代の暗号技術の基本
+- 暗号解読の実際の手法と例
 
 
 #bibliography(
   "../../../static/references.bib",
 )
 
-#show: appendix.with(numbering-appendix: "A.1")
+// #show: appendix.with(numbering-appendix: "A.1")

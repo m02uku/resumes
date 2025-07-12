@@ -1,0 +1,14 @@
+services:
+    typst-quarto:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: typst-quarto-env
+        working_dir: /workspace
+        volumes:
+            - .:/workspace:cached
+            - ~/.ssh:/root/.ssh:ro
+            - ~/.gitconfig:/root/.gitconfig:ro
+        tty: true
+        stdin_open: true
+        command: /bin/sh

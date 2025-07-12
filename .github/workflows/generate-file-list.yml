@@ -58,26 +58,58 @@ jobs:
                               html_content += '<ul>\n'
                               for subdir in sorted(papers_path.iterdir()):
                                   if subdir.is_dir():
+                                      ja_html = subdir / 'ja.html'
+                                      en_html = subdir / 'en.html'
                                       ja_pdf = subdir / 'ja.pdf'
                                       en_pdf = subdir / 'en.pdf'
                                       
-                                      html_content += f'    <li>{subdir.name} [ '
-                                      
-                                      if ja_pdf.exists():
-                                          relative_path = ja_pdf.relative_to(Path('.'))
-                                          html_content += f'<a href="{relative_path}">ja</a>'
-                                      else:
-                                          html_content += 'ja'
-                                      
-                                      html_content += ' / '
-                                      
-                                      if en_pdf.exists():
-                                          relative_path = en_pdf.relative_to(Path('.'))
-                                          html_content += f'<a href="{relative_path}">en</a>'
-                                      else:
-                                          html_content += 'en'
-                                      
-                                      html_content += ' ]</li>\n'
+                                      # HTMLまたはPDFのいずれかが存在する場合のみ表示
+                                      if ja_html.exists() or en_html.exists() or ja_pdf.exists() or en_pdf.exists():
+                                          html_content += f'    <li>{subdir.name}\n'
+                                          
+                                          # HTML行（HTMLファイルがある場合のみ）
+                                          if ja_html.exists() or en_html.exists():
+                                              html_content += '        <ul><li>html: [ '
+                                              
+                                              if ja_html.exists():
+                                                  relative_path = ja_html.relative_to(Path('.'))
+                                                  html_content += f'<a href="{relative_path}">ja</a>'
+                                              else:
+                                                  html_content += 'ja'
+                                              
+                                              html_content += ' / '
+                                              
+                                              if en_html.exists():
+                                                  relative_path = en_html.relative_to(Path('.'))
+                                                  html_content += f'<a href="{relative_path}">en</a>'
+                                              else:
+                                                  html_content += 'en'
+                                              
+                                              html_content += ' ]</li>\n'
+                                          
+                                          # PDF行（PDFファイルがある場合のみ）
+                                          if ja_pdf.exists() or en_pdf.exists():
+                                              if not (ja_html.exists() or en_html.exists()):
+                                                  html_content += '        <ul>'
+                                              html_content += '<li>pdf: [ '
+                                              
+                                              if ja_pdf.exists():
+                                                  relative_path = ja_pdf.relative_to(Path('.'))
+                                                  html_content += f'<a href="{relative_path}">ja</a>'
+                                              else:
+                                                  html_content += 'ja'
+                                              
+                                              html_content += ' / '
+                                              
+                                              if en_pdf.exists():
+                                                  relative_path = en_pdf.relative_to(Path('.'))
+                                                  html_content += f'<a href="{relative_path}">en</a>'
+                                              else:
+                                                  html_content += 'en'
+                                              
+                                              html_content += ' ]</li>\n'
+                                          
+                                          html_content += '        </ul>\n    </li>\n'
                               html_content += '</ul>\n'
                           else:
                               html_content += '<p>{blank}</p>\n'
@@ -89,26 +121,58 @@ jobs:
                               html_content += '<ul>\n'
                               for subdir in sorted(slides_path.iterdir()):
                                   if subdir.is_dir():
+                                      ja_html = subdir / 'ja.html'
+                                      en_html = subdir / 'en.html'
                                       ja_pdf = subdir / 'ja.pdf'
                                       en_pdf = subdir / 'en.pdf'
                                       
-                                      html_content += f'    <li>{subdir.name} [ '
-                                      
-                                      if ja_pdf.exists():
-                                          relative_path = ja_pdf.relative_to(Path('.'))
-                                          html_content += f'<a href="{relative_path}">ja</a>'
-                                      else:
-                                          html_content += 'ja'
-                                      
-                                      html_content += ' / '
-                                      
-                                      if en_pdf.exists():
-                                          relative_path = en_pdf.relative_to(Path('.'))
-                                          html_content += f'<a href="{relative_path}">en</a>'
-                                      else:
-                                          html_content += 'en'
-                                      
-                                      html_content += ' ]</li>\n'
+                                      # HTMLまたはPDFのいずれかが存在する場合のみ表示
+                                      if ja_html.exists() or en_html.exists() or ja_pdf.exists() or en_pdf.exists():
+                                          html_content += f'    <li>{subdir.name}\n'
+                                          
+                                          # HTML行（HTMLファイルがある場合のみ）
+                                          if ja_html.exists() or en_html.exists():
+                                              html_content += '        <ul><li>html: [ '
+                                              
+                                              if ja_html.exists():
+                                                  relative_path = ja_html.relative_to(Path('.'))
+                                                  html_content += f'<a href="{relative_path}">ja</a>'
+                                              else:
+                                                  html_content += 'ja'
+                                              
+                                              html_content += ' / '
+                                              
+                                              if en_html.exists():
+                                                  relative_path = en_html.relative_to(Path('.'))
+                                                  html_content += f'<a href="{relative_path}">en</a>'
+                                              else:
+                                                  html_content += 'en'
+                                              
+                                              html_content += ' ]</li>\n'
+                                          
+                                          # PDF行（PDFファイルがある場合のみ）
+                                          if ja_pdf.exists() or en_pdf.exists():
+                                              if not (ja_html.exists() or en_html.exists()):
+                                                  html_content += '        <ul>'
+                                              html_content += '<li>pdf: [ '
+                                              
+                                              if ja_pdf.exists():
+                                                  relative_path = ja_pdf.relative_to(Path('.'))
+                                                  html_content += f'<a href="{relative_path}">ja</a>'
+                                              else:
+                                                  html_content += 'ja'
+                                              
+                                              html_content += ' / '
+                                              
+                                              if en_pdf.exists():
+                                                  relative_path = en_pdf.relative_to(Path('.'))
+                                                  html_content += f'<a href="{relative_path}">en</a>'
+                                              else:
+                                                  html_content += 'en'
+                                              
+                                              html_content += ' ]</li>\n'
+                                          
+                                          html_content += '        </ul>\n    </li>\n'
                               html_content += '</ul>\n'
                           else:
                               html_content += '<p>{blank}</p>\n'
