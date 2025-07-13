@@ -11,6 +11,15 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     openssh-client \
+    fontconfig \
+    fonts-noto \
+    fonts-noto-cjk \
+    fonts-noto-color-emoji \
+    fonts-dejavu \
+    fonts-liberation \
+    fonts-inconsolata \
+    fonts-firacode \
+    && fc-cache -fv \
     && rm -rf /var/lib/apt/lists/*
 
 # Install tools in a single layer to reduce image size

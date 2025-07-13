@@ -23,8 +23,8 @@ date: last-modified
 Here we have some text that may run over several lines of the slide frame,
 depending on how long it is.
 
-- first item 
-    - A sub item
+- first item
+  - A sub item
 
 Next, we'll brief review some theme-specific components.
 
@@ -58,7 +58,7 @@ We provide a separate
 [demo template](https://github.com/grantmcdermott/quarto-revealjs-clean-demo),
 with more examples for integrating code, tables, figures, etc.
 
-  - See the live demo slides
+- See the live demo slides
   [here](https://grantmcdermott.com/quarto-revealjs-clean-demo/template.html).
 
 ## Summary {#sec-summary}
