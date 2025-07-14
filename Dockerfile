@@ -4,6 +4,7 @@ FROM debian:12-slim
 # Install system dependencies for downloading and extracting packages
 RUN apt-get update && apt-get install -y \
     curl \
+    wget \
     tar \
     xz-utils \
     ca-certificates \
@@ -50,13 +51,20 @@ RUN DENO_VERSION=$(curl -s https://api.github.com/repos/denoland/deno/releases/l
     && mv /tmp/quarto-${QUARTO_VERSION} /opt/quarto \
     && ln -s /opt/quarto/bin/quarto /usr/local/bin/quarto \
     && chmod +x /usr/local/bin/quarto \
-    && rm -rf /tmp/quarto-${QUARTO_VERSION}
+    && rm -rf /tmp/quarto-${QUARTO_VERSION} \
+    \
+    && curl -fsSL "https://yihui.org/tinytex/install-bin-unix.sh" | sh \
+    && export PATH="/root/.TinyTeX/bin/x86_64-linux:$PATH" \
+    && /root/.TinyTeX/bin/x86_64-linux/tlmgr path add
+
+# Set PATH for TinyTeX
+ENV PATH="/root/.TinyTeX/bin/x86_64-linux:$PATH"
 
 # Create working directory
 WORKDIR /workspace
 
 # Verify installations
-RUN typst --version && quarto --version && git --version
+RUN typst --version && quarto --version && git --version && tlmgr --version
 
 # Default command
 CMD ["/bin/sh"]
