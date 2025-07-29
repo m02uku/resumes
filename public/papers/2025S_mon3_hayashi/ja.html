@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Hayes &amp; Wilson (2008) の論文に基づく要約">
 
-<title>ja</title>
+<title>最大エントロピーモデルによる音素配列制約の学習</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="ja_files/libs/clipboard/clipboard.min.js"></script>
@@ -54,35 +36,6 @@ div.csl-indent {
 <link href="ja_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="ja_files/libs/bootstrap/bootstrap-11ce14ce36eab0ea8131bb12bba63af7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -92,95 +45,110 @@ window.Quarto = {
 
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">最大エントロピーモデルによる音素配列制約の学習</h1>
+</div>
 
 
 
-title: “最大エントロピーモデルと言語学：音韻論的文法と学習への応用” author: “言語情報解析演習II 期末課題” date: “2025年7月31日” lang: “ja” mainfont: Noto Serif CJK JP format: pdf: documentclass: article classoption: - twocolumn geometry: - a4paper - margin=2.5cm fontsize: 10pt header-includes: -
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Hayes &amp; Wilson (2008) の論文に基づく要約 </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="概要" class="level1">
+<h1>概要</h1>
+<p>本論文は、音韻論的な制約ベースの理論（特にOptimality Theory）に着想を得た<strong>最大エントロピー（MaxEnt）モデル</strong>を用いて、英語を例とした<strong>音素配列の統計的構造（phonotactics）</strong>とその学習過程をモデル化する手法を提案している。<br>
+提案モデルは、確率的制約の加算型重み付けに基づき、違反の累積によって well-formedness（音列の適格性）を評価する。<br>
+また、このモデルは、言語獲得初期段階での未学習語や非語判断、さらには制約の獲得と一般化の側面を自然に説明することができる。</p>
+</section>
+<section id="背景と動機" class="level1">
+<h1>背景と動機</h1>
+<p>伝統的な音韻論では、音素配列の許容性はルールや制約の存在によって説明されてきたが、それらの理論は非語（nonwords）のグラデーション的なwell-formednessをうまく説明できない。また、Optimality Theoryでは制約が厳密な順序で並ぶランキング形式で扱われるため、違反の程度の累積や制約の”部分的適用”が困難である。</p>
+<p>そこで本研究では、<strong>確率的に制約を評価し、制約の違反度合いを数値的に組み合わせるモデル</strong>として、最大エントロピーモデルを音韻論に導入する。これは、発話の実現可能性（確率）を各制約の違反数と重みによって計算するフレームワークであり、学習者がデータから自然に制約を導出することが可能となる。</p>
+</section>
+<section id="モデルの構成" class="level1">
+<h1>モデルの構成</h1>
+<section id="制約constraints" class="level2">
+<h2 class="anchored" data-anchor-id="制約constraints">制約（Constraints）</h2>
+<p>制約は音列の表層構造に課され、形式的には入力音列の特定のパターンに対してペナルティを与える。<br>
+例として、<strong>子音クラスタ（consonant clusters）に対する制約</strong>、<strong>有声・無声の一致（voicing agreement）</strong>、<strong>調音点の一致（place agreement）</strong>、<strong>音素の繰り返しの禁止</strong>などが挙げられる。<br>
+これらの制約は<strong>局所的（local）</strong>なものもあれば、<strong>非局所的（nonlocal）</strong>なものも含まれ、非線形の情報を捉える制約も定義される。</p>
+</section>
+<section id="確率分布の定義" class="level2">
+<h2 class="anchored" data-anchor-id="確率分布の定義">確率分布の定義</h2>
+<p>各語形 ( x ) に対して、次のようにその確率を定義する：</p>
+<p>[ P(x) = (-_i w_i f_i(x)) ]</p>
 <ul>
-<li><ul>
-<li>bibliography: ../../../static/references.bib</li>
-</ul></li>
+<li>( f_i(x) )：語形 ( x ) が制約 ( i ) に違反する回数<br>
+</li>
+<li>( w_i )：制約 ( i ) に対応する重み<br>
+</li>
+<li>( Z )：正規化定数（全ての語形に対する総和）</li>
 </ul>
-<section id="はじめに" class="level1">
-<h1>1. はじめに</h1>
-<p>本レポートは、「言語情報解析演習II」の期末課題として、<strong>最大エントロピーモデル (Maximum Entropy Model, MaxEnt)</strong> が言語学、特に音韻論の分野でどのように応用されているかを深く探究するものです。講義で触れられた最大エントロピーモデルは、与えられた情報（制約や素性関数）の下で、観測データのエントロピーを最大化する（すなわち、最も「無情報」な）確率分布を推定する統計的手法です。このモデルの優れた柔軟性と堅牢性から、自然言語処理の多岐にわたるタスクで中心的な役割を担ってきました。しかし、その応用は単なる工学的タスクに留まらず、言語の根源的なメカニズムを探る理論言語学の領域でも大きな可能性を秘めています。</p>
-<p>本稿では、ブルース・ヘイズ（Bruce Hayes）とコリン・ウィルソン（Colin Wilson）による2006年の画期的な論文「A Maximum Entropy Model of Phonotactics and Phonotactic Learning」<span class="citation" data-cites="hayes2006maximum">[@hayes2006maximum]</span> を中心に据え、その内容を詳細に分析します。この論文は、言語の音韻体系における音素配列論（phonotactics）の構造と、言語習得における音韻的学習のプロセスを、最大エントロピーモデルの枠組みで記述しています。これは、理論言語学、特に音韻論の中核的な問いに統計的手法でアプローチする試みであり、本課題の主旨である「工学的な文書分類を主な目的としない、言語学に深く関わる論文」という要件に完全に合致するものです。本レポートでは、この論文の目的、最大エントロピーモデルの具体的な形式、素性関数の定義、そしてその研究成果と考察について掘り下げていきます。</p>
+<p>この形式により、制約違反の少ない語形ほど高い確率を持ち、well-formedとされる。</p>
 </section>
-<section id="論文概要音韻論的文法と学習のmaxentモデル" class="level1">
-<h1>2. 論文概要：音韻論的文法と学習のMaxEntモデル</h1>
-<section id="研究の背景と目的" class="level2">
-<h2 class="anchored" data-anchor-id="研究の背景と目的">2.1 研究の背景と目的</h2>
-<p>言語学、特に生成音韻論の分野では、言語知識がどのように組織され、どのように学習されるかという問いが長らく中心的なテーマでした。ノーム・チョムスキーとモリス・ハレによる古典的な生成音韻論（Chomsky &amp; Halle, 1968）は、言語の特定の側面、例えば音韻論が普遍文法によってどのように構造付けられるかという問題を提起しました。しかし、その決定論的な枠組みでは、言語における確率的変動や、学習プロセスにおける連続的な情報処理を十分に説明することが難しいという課題がありました。</p>
-<p>Hayes and Wilson (2006) は、この古典的な問いに対し、<strong>確率論的かつデータ駆動型の最大エントロピーモデル</strong>という新しい視点からアプローチします。彼らの研究の主要な目的は以下の3点に集約されます。</p>
-<ol type="1">
-<li><strong>音韻論的文法の革新的な定式化</strong>: 従来の生成音韻論や最適性理論（Optimality Theory, OT）が採用してきたルールベースまたは順位付けベースの文法とは異なり、音韻論的制約に基づいた確率的な文法モデルを最大エントロピーモデルの枠組みで構築することを目指します。これにより、言語データにおける頻度や分布のパターンを、より自然に説明できる文法表現を追求します。</li>
-<li><strong>音韻的学習アルゴリズムの提案と検証</strong>: 実際の言語データ（例えば、英語の単語における音節構造の出現頻度）から、構築したMaxEnt文法がどのように学習されるか、具体的なアルゴリズムを提案します。特に、言語習得者が潜在的な制約の中から関連性の高いものを選択し、その重み（重要度）を調整する二段階のプロセスをモデル化することで、言語獲得のメカニズムに統計的・計算論的な洞察をもたらします。</li>
-<li><strong>最適性理論 (OT) との統合と展望</strong>: 音韻論における主要な理論枠組みである最適性理論と、提案するMaxEntモデルとの関係性を深く探ります。MaxEntモデルがOTの「制約の競合」という概念を、重み付けされた制約と確率分布という形でより洗練された形で表現し、OTが持ついくつかの課題（例えば、言語変異のモデリングや、厳密な順位付けでは捉えきれない勾配的な現象）を克服する可能性を示すことを目指します。</li>
-</ol>
+<section id="学習アルゴリズム" class="level2">
+<h2 class="anchored" data-anchor-id="学習アルゴリズム">学習アルゴリズム</h2>
+<p>学習は、与えられた語彙リスト（英語の単語一覧など）をもとに、<strong>制約の重み</strong> ( w_i ) を調整することで実現される。<br>
+最尤推定（maximum likelihood estimation）により、観測された語の出現確率を最大化するように重みが更新される。<br>
+制約自体の構成には、<strong>構成的制約探索（constraint induction）</strong>が使用され、特定のテンプレート（正規表現など）に基づいて自動生成される。</p>
 </section>
-<section id="最大エントロピーモデルの形式" class="level2">
-<h2 class="anchored" data-anchor-id="最大エントロピーモデルの形式">2.2 最大エントロピーモデルの形式</h2>
-<p>Hayes and Wilson (2006) で採用される最大エントロピーモデルは、与えられた入力（例えば、ある音素の並び）が特定の音韻論的制約にどの程度適合するか、あるいは違反するかを定量的に評価し、その結果として生じる音韻形式の確率分布を定義します。このモデルの中核をなすのは、各音韻論的制約 <span class="math inline">\(C_i\)</span> に関連付けられた<strong>実数値の重み <span class="math inline">\(w_i\)</span></strong> です。</p>
-<p>ある音韻形式の候補 <span class="math inline">\(x\)</span> （例えば、特定の音節構造や単語）の「不適合度（harmony）」スコア <span class="math inline">\(\Phi(x)\)</span> は、その候補が各制約 <span class="math inline">\(C_i\)</span> をどの程度違反するかを示す違反数 <span class="math inline">\(C_i(x)\)</span> と、その制約の重み <span class="math inline">\(w_i\)</span> の積の総和として、以下の線形和で定義されます。</p>
-<p><span class="math display">\[
-\Phi(x) = \sum_{i=1}^{N} w_i C_i(x)
-\]</span></p>
-<p>ここで、<span class="math inline">\(N\)</span> は考慮される制約の総数です。重み <span class="math inline">\(w_i\)</span> は、その制約が音韻体系においてどれほど重要であるかを示します。重み <span class="math inline">\(w_i\)</span> が大きいほど、対応する制約 <span class="math inline">\(C_i\)</span> への違反は、候補 <span class="math inline">\(x\)</span> の「不適合度」を大きくし、より大きなペナルティを課すことになります。この制約違反の数 <span class="math inline">\(C_i(x)\)</span> が、最大エントロピーモデルにおける<strong>素性（特徴）関数</strong>として機能します。</p>
-<p>この不適合度スコア <span class="math inline">\(\Phi(x)\)</span> を用いて、各候補 <span class="math inline">\(x\)</span> の（正規化されていない）確率 <span class="math inline">\(h(x)\)</span> は、エントロピー最大化の原理に基づいて以下のように定義されます。</p>
-<p><span class="math display">\[
-h(x) = \exp\left(-\sum_{i=1}^{N} w_i C_i(x)\right) = \exp(-\Phi(x))
-\]</span></p>
-<p>この式は、スコア <span class="math inline">\(\Phi(x)\)</span> が低い（すなわち、制約違反が少ない）候補ほど指数関数的に高い確率を持つことを意味します。最終的な確率分布 <span class="math inline">\(P(x)\)</span> は、全ての可能な出力 <span class="math inline">\(x\)</span> の集合 <span class="math inline">\(X\)</span> にわたる確率の合計が1になるように、正規化因子 <span class="math inline">\(Z\)</span> を用いて以下のように表されます。</p>
-<p><span class="math display">\[
-P(x) = \frac{\exp\left(-\sum_{i=1}^{N} w_i C_i(x)\right)}{Z}
-\]</span></p>
-<p>ここで、<span class="math inline">\(Z = \sum_{x' \in X} \exp\left(-\sum_{i=1}^{N} w_i C_i(x')\right)\)</span> は分配関数として機能します。この数式の形式は、統計物理学におけるボルツマン分布（またはギブス分布）と密接に関連しており、観測された制約の下でエントロピーが最大となるような、最も「情報量が少ない」確率分布を表現します。</p>
 </section>
-<section id="素性特徴関数としての制約と学習プロセス" class="level2">
-<h2 class="anchored" data-anchor-id="素性特徴関数としての制約と学習プロセス">2.3 素性（特徴）関数としての制約と学習プロセス</h2>
-<p>本モデルにおける<strong>素性関数</strong>は、音韻論における<strong>制約</strong>（Constraints）そのものです。例えば、「音節のオンセットには子音が一つだけであるべきだ」という制約や、「連続する子音のクラスターは特定のパターンに従うべきだ」といったものが挙げられます。これらの制約は、与えられた音韻形式がその制約に違反する回数、あるいはその程度を定量的に表す役割を果たします。</p>
-<p>学習プロセスは、観測された言語データ（例えば、英語の語彙に見られる音節構造の頻度分布）から、これらの音韻論的制約の最適な重み <span class="math inline">\(w_i\)</span> を推定することに焦点を当てます。論文では、この学習プロセスを以下の2つの主要なステップに分けて提案しています。</p>
-<ol type="1">
-<li><strong>制約重みの学習 (Weight Learning)</strong>:
-<ul>
-<li>このステップの目的は、各制約 <span class="math inline">\(C_i\)</span> に割り当てられた重み <span class="math inline">\(w_i\)</span> を、その制約の<strong>観測された違反数</strong>の期待値と、MaxEntモデルが予測する<strong>モデルの違反数</strong>の期待値が統計的に一致するように調整することです。これは、情報理論におけるカルバック・ライブラー・ダイバージェンス（KL-Divergence）を最小化することに相当し、勾配降下法の一種である<strong>共役勾配法 (Conjugate Gradient method)</strong> のような数値最適化アルゴリズムを用いて反復的に行われます。</li>
-<li>モデルが予測する違反数の期待値 <span class="math inline">\(E_P[C_i]\)</span> は、<span class="math inline">\(\sum_{x \in X} P(x) C_i(x)\)</span> として計算されます。学習アルゴリズムは、データにおける制約 <span class="math inline">\(C_i\)</span> の平均違反数 <span class="math inline">\(E_{\text{data}}[C_i]\)</span> と、モデルが推定する平均違反数 <span class="math inline">\(E_P[C_i]\)</span> が等しくなるように <span class="math inline">\(w_i\)</span> を繰り返し更新します。</li>
-</ul></li>
-<li><strong>制約選択 (Constraint Selection)</strong>:
-<ul>
-<li>現実の言語には、普遍文法に由来する非常に多くの潜在的な音韻論的制約が存在すると考えられています。しかし、特定の言語の文法を記述するためには、その言語に特に関連性の高い制約のみを選択する必要があります。論文では、まず少数の基本的な制約から学習を開始し、その後、学習プロセス中に<strong>精度</strong>（モデルが既存のデータにどれだけ適合するか）と<strong>一般性</strong>（モデルが未知のデータに対してどれだけ予測能力を持つか）という二つの基準に基づいて、新しい制約を動的に追加する<strong>ヒューリスティックな戦略</strong>が採用されます。これにより、過学習を避けつつ、複雑な音韻現象を捉えるのに十分な制約セットを構築します。</li>
-</ul></li>
-</ol>
+<section id="実験と結果" class="level1">
+<h1>実験と結果</h1>
+<section id="実験1音韻的適格性の予測" class="level2">
+<h2 class="anchored" data-anchor-id="実験1音韻的適格性の予測">実験1：音韻的適格性の予測</h2>
+<p>英語の単語と非語を用い、被験者による well-formedness の評価（例えばblick &gt; bnick）とモデルによる確率評価を比較。<br>
+結果として、モデルは人間の評価と高い相関を示し、既存のベースライン（例えばn-gramや単純な制約）よりも精度が高かった。</p>
 </section>
-<section id="研究の結果と考察" class="level2">
-<h2 class="anchored" data-anchor-id="研究の結果と考察">2.4 研究の結果と考察</h2>
-<p>Hayes and Wilson (2006) は、提案するMaxEntモデルと学習アルゴリズムの有効性を検証するために、複数の異なる音韻論的現象に適用し、その汎用性と説明能力を示しました。</p>
+<section id="実験2制約学習" class="level2">
+<h2 class="anchored" data-anchor-id="実験2制約学習">実験2：制約学習</h2>
+<p>人工言語に対する学習シナリオで、学習者が提示された語の集合からどのような制約を導き出せるかを検証。<br>
+モデルは適切な制約（例えば語頭の子音の制限など）を抽出し、一般化可能な重みを獲得した。</p>
+</section>
+<section id="実験3制約の構成法の比較" class="level2">
+<h2 class="anchored" data-anchor-id="実験3制約の構成法の比較">実験3：制約の構成法の比較</h2>
+<p>手作業による制約と自動生成された制約の性能を比較。<br>
+自動生成モデルも十分に高性能であることが確認された。</p>
+</section>
+</section>
+<section id="論文の貢献" class="level1">
+<h1>論文の貢献</h1>
 <ul>
-<li><strong>英語の音節オンセットの構造</strong>: 英語における音節の始まり（オンセット）の典型的な許容パターン（例: “str-” は許容されるが “tl-” は許容されない）を学習するタスクにモデルを適用しました。結果として、モデルは観測された英語のオンセット頻度分布を非常に正確に捉えることができ、さらには学習データには現れないが音韻的に許容される新しいオンセットに対しても合理的な予測を行う能力があることを示しました。</li>
-<li><strong>ショナ語の母音調和</strong>: ズールー語系のショナ語に見られる、語中の母音が特定の音素的特徴（例: 高低）に関して互いに影響し合い、調和する現象をモデリングしました。これは、言語固有の複雑な音韻プロセスをMaxEntモデルが定量的に表現できることを示唆します。</li>
-<li><strong>数量に依存しないアクセントの類型</strong>: 世界の言語に見られる、音節の重さ（数量）に依存しない強勢（アクセント）パターンの多様性を分析しました。モデルは、様々なアクセント類型を記述し、その背後にある普遍的な制約の相互作用を解明する可能性を示しました。</li>
-<li><strong>ワルガマイ語の音韻論</strong>: オーストラリアの消滅危機言語であるワルガマイ語の複雑な音韻現象、特に子音クラスターの分布に関するデータを対象に、モデルが実際の言語データから文法を学習し、未知の形式に対しても適切に一般化できるかを評価しました。</li>
-</ul>
-<p>これらの実証的な適用結果に基づいて、本論文は以下の重要な結論を導き出しています。</p>
-<ul>
-<li><strong>MaxEntモデルの音韻論における強力な有効性</strong>: 最大エントロピーモデルは、音韻論的文法を確率的に定式化し、音韻的学習プロセスを計算論的にモデル化する上で非常に有効な枠組みであることが示されました。モデルは、言語データに見られる複雑なパターンを捉え、その背後にある制約の相互作用を定量的に説明できます。</li>
-<li><strong>音韻的類型論と学習への洞察</strong>: 学習されたMaxEnt文法は、単に観測された言語データの分布を説明するだけでなく、音韻的類型論における普遍的な傾向（ある種の音韻構造が他の構造よりも一般的である理由）や、子供の言語獲得における制約選択・重み付けのメカニズムに関する深い洞察を提供できる可能性を示唆しました。</li>
-<li><strong>最適性理論 (OT) との関係性の再考</strong>: MaxEntモデルは、音韻論の支配的な理論である最適性理論が提唱する「制約の競合」という概念を、制約の重みと確率分布という形で自然に統合できることを示しました。OTにおける「厳密な優位順位（strict domination）」という概念の代わりに、連続的な「勾配的な重み（gradient weights）」を導入することで、OTが直面するいくつかの課題（例: 音韻論的変異現象のモデリング、確率的な予測の欠如）に対応し、OTをより洗練された確率論的な枠組みへと拡張する道筋を示しました。これにより、MaxEntモデルはOTの根本的な仮定を維持しつつ、その説明能力と予測能力を向上させる「連続的な最適性理論」の基盤を築くものと位置づけられました。</li>
+<li><strong>確率的制約モデルによる音韻的well-formednessの精密な記述</strong></li>
+<li><strong>学習モデルとしての可視性</strong>（制約の重みの調整がデータに基づく）</li>
+<li><strong>非語・未学習語に対する予測能力の向上</strong></li>
+<li><strong>人間の音韻的判断との整合性</strong></li>
 </ul>
 </section>
+<section id="限界と今後の課題" class="level1">
+<h1>限界と今後の課題</h1>
+<ul>
+<li>本モデルは<strong>生成的音韻論</strong>の完全な代替にはなり得ず、変化や過程に関する記述は含まれない<br>
+</li>
+<li>制約テンプレートのデザインや探索空間の制限が性能に影響<br>
+</li>
+<li>実時間処理や音声知覚との統合に向けた拡張が必要</li>
+</ul>
 </section>
 <section id="結論" class="level1">
-<h1>3. 結論</h1>
-<p>本レポートでは、Bruce HayesとColin Wilsonによる2006年の論文「A Maximum Entropy Model of Phonotactics and Phonotactic Learning」を詳細に分析し、最大エントロピーモデルが言語学、特に音韻論の分野でどのように応用され、新たな知見をもたらしているかを概説しました。</p>
-<p>この論文は、最大エントロピーモデルが単に情報工学的な文書分類やパターン認識のツールに留まらず、音韻論的文法の定式化や、人間の言語獲得における音韻的学習のメカニズム解明といった、理論言語学の根源的な問いに取り組むための非常に強力な枠組みとなり得ることを明確に示しています。制約の違反数を素性関数とし、その重みを観測データから学習するというアプローチは、音韻現象の複雑な確率分布を精緻にモデリングし、言語知識の獲得プロセスに深い洞察を与えることを可能にします。</p>
-<p>さらに特筆すべきは、本研究が音韻論における支配的な理論である最適性理論（OT）との建設的な対話を図っている点です。MaxEntモデルは、OTの「制約の競合」という核心的な概念を、より柔軟な確率的重み付けの枠組みで表現することで、OTが直面してきた理論的・経験的な課題の一部を解決し、その説明能力を拡張する可能性を示しました。これにより、厳密な順位付けのみでは捉えきれなかった言語的変異や勾配的な現象も、統一された枠組みの中で説明できるようになります。</p>
-<p>Hayes and WilsonのMaxEntモデルは、音韻論の分野に統計的・計算論的アプローチを導入する上で大きな一歩となり、その後の研究に多大な影響を与えました。この研究は、理論言語学と計算言語学の融合が、言語の複雑なシステムを理解するための新たな道を切り開くことを示す模範的な事例と言えるでしょう。</p>
-</section>
-<section id="参考文献" class="level1">
-<h1>参考文献</h1>
-<div id="refs" role="list">
-
-</div>
+<h1>結論</h1>
+<p>最大エントロピーモデルは、音韻的制約の表現と学習において柔軟で強力なフレームワークを提供し、従来の音韻論的モデルの限界を補完しうる理論的・実証的価値を持つ。</p>
 </section>
 
 </main>
