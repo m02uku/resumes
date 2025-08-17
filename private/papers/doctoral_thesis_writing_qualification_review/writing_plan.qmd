@@ -1,0 +1,173 @@
+---
+title: "Doctoral Thesis Writing Plan"
+subtitle: "Phonological Features in the Age of Deep Learning: A Multi-dimensional Exploration of Optimal Representational Units for Language Modeling"
+format:
+  arxiv-pdf:
+    keep-tex: false
+    keep-md: false
+    keep-ipynb: false
+    linenumbers: false
+    doublespacing: false
+    runninghead: "Doctoral Thesis Writing Qualification Review"
+  arxiv-html: default
+author:
+  - name: Sora Nagano
+    affiliations:
+      - name: The University of Tokyo
+        department: Graduate School of Humanities and Sociology, Department of Language and Information Sciences
+    email: s-oswld-n@g.ecc.u-tokyo.ac.jp
+date: today
+---
+
+# Doctoral Thesis Writing Plan
+
+## Writing Schedule (36-month Plan)
+
+### Year 1 (Foundation Building Period: April 2025 - March 2026)
+
+**April-June: Theoretical Foundation Construction**
+
+- Systematic organization of prior research and refinement of theoretical framework
+- Development of integration theory between Optimality Theory and self-supervised learning models
+- Establishment of research methodology and ethics review procedures
+
+**July-September: Experimental Environment Setup and Pilot Research**
+
+- Computational environment preparation (GPU clusters, dataset preparation)
+- Technical feasibility verification through micro-scale experiments
+- Implementation and preliminary evaluation of baseline methods
+
+**October-December: Phase 1 Experiments and Interim Evaluation**
+
+- Conducting foundational experiments for RQ1 (Empirical Landscape Elucidation)
+- Building comparative evaluation framework for different representational units
+- Research presentation at domestic conferences (Annual Conference of the Association for Natural Language Processing)
+
+**January-March: Theoretical Extension and International Presentation Preparation**
+
+- Theoretical design of hybrid models
+- Preparation for international conference submissions (ACL, INTERSPEECH)
+- Publication of Year 1 research outcomes
+
+### Year 2 (Core Research Period: April 2026 - March 2027)
+
+**April-June: Hybrid Model Development**
+
+- Implementation of neuro-symbolic architecture
+- Initiation of full-scale experiments for RQ2 (Neuro-symbolic Integration)
+- Optimization of constraint learning algorithms
+
+**July-September: Large-scale Experiments and Ablation Studies**
+
+- Performance evaluation on multilingual datasets
+- Analysis of architectural component contributions
+- Detailed evaluation of computational efficiency
+
+**October-December: Preparation for Cognitive Plausibility Validation**
+
+- Experimental design for RQ3 (Cognitive Plausibility)
+- Building developmental simulation environment using CHILDES corpus
+- Preparation for collaboration with psycholinguistic experiments
+
+**January-March: Integrated Evaluation and Theoretical Considerations**
+
+- Integrated analysis of three RQs
+- Clarification of theoretical contributions forming the core of the doctoral thesis
+- Research presentation at top-tier international conferences
+
+### Year 3 (Integration and Completion Period: April 2027 - March 2028)
+
+**April-June: Cognitive Plausibility Experiments and Applied Research**
+
+- Comparative validation with human language acquisition patterns
+- Consideration of practical applications (speech recognition, language learning support)
+- Evaluation of social significance of research outcomes
+
+**July-September: Doctoral Thesis Writing (First Half)**
+
+- Writing introduction, literature review, and methodology chapters
+- Detailed analysis of experimental results and figure/table creation
+- Regular progress checks with supervisor
+
+**October-December: Doctoral Thesis Writing (Second Half)**
+
+- Writing results, discussion, and conclusion chapters
+- Integrated discussion of theoretical contributions and practical significance
+- Ensuring overall thesis consistency and revision
+
+**January-March: Final Adjustments and Submission Preparation**
+
+- Final proofreading and bibliography organization of doctoral thesis
+- Preparation for oral examination and research outcome summary
+- Doctoral thesis submission and degree acquisition procedures
+
+## Thesis Structure Plan
+
+### Anticipated Chapter Structure (Approximately 200 pages)
+
+**Chapter 1: Introduction (≈25 pages)**
+
+- Research background and problem awareness
+- Research objectives and significance
+- Thesis structure and contributions
+
+**Chapter 2: Literature Review and Theoretical Background (≈40 pages)**
+
+- Historical development of computational phonology
+- Self-supervised learning and phonological representations
+- Theory of neuro-symbolic integration
+
+**Chapter 3: Research Methodology (≈30 pages)**
+
+- Multi-dimensional definition of "optimality"
+- Experimental design and datasets
+- Evaluation metrics and statistical methods
+
+**Chapter 4: Empirical Landscape Elucidation (≈35 pages)**
+
+- RQ1 experimental results and analysis
+- Performance comparison between representational units
+- Evaluation of computational efficiency
+
+**Chapter 5: Neuro-symbolic Integration (≈40 pages)**
+
+- Design and implementation of hybrid models
+- RQ2 experimental results and theoretical considerations
+- Trade-offs between interpretability and predictive accuracy
+
+**Chapter 6: Cognitive Plausibility Validation (≈30 pages)**
+
+- RQ3 developmental simulation experiments
+- Comparison with human language acquisition patterns
+- Evaluation of cognitive plausibility
+
+**Chapter 7: General Discussion and Future Prospects (≈20 pages)**
+
+- Integrated evaluation of research outcomes
+- Summary of theoretical and practical contributions
+- Future research directions
+
+## Considerations for Research Implementation
+
+### Quality Management System
+
+- Monthly supervisor meetings for progress management
+- Regular interim presentations at laboratory seminars
+- External evaluation through active submission to international conferences and academic journals
+- Interdisciplinary discussions with researchers from other fields
+
+### Risk Management and Alternative Plans
+
+**Technical Risks**: Utilizing cloud computing and incremental experimental design to address computational resource shortages
+
+**Data Risks**: Securing multiple alternative data sources in case of difficulty accessing primary datasets
+
+**Theoretical Risks**: Pursuing theoretical contributions through individual approaches in parallel, in case of poor hybrid model performance
+
+### Building International Research Networks
+
+- Promoting collaborative research with overseas research institutions
+- Active research presentation and networking at international conferences
+- Qualitative improvement of research through discussions with renowned researchers
+
+Following this writing plan, I aim to establish a new paradigm in computational phonology for the deep learning era and complete an academically and socially significant doctoral thesis.
