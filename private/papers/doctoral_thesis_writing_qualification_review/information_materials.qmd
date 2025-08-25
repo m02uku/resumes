@@ -1,108 +1,97 @@
 ---
-title: "Doctoral Thesis Writing Qualification Review - Contact Information Document"
-format:
-  arxiv-pdf:
-    keep-tex: false
-    keep-md: false
-    keep-ipynb: false
-    linenumbers: false
-    doublespacing: false
-    runninghead: "Doctoral Thesis Writing Qualification Review"
-  arxiv-html: default
-date: today
+title: "Contact Information Document for Review Committee"
+subtitle: "Doctoral Thesis Writing Qualification Review"
 ---
-
-\begin{center}
-{\Large \textbf{Doctoral Thesis Writing Qualification Review}}
-\\[0.5cm]
-{\Large \textbf{Contact Information Document for Review Committee}}
-\end{center}
 
 ## Applicant Information
 
-**Name:** Sora Nagano
+**Name:** Sora Nagano (永野 颯)
 
-**Student ID:** [Student ID Number]
+**Student ID:** [To be confirmed at submission]
 
-**Enrollment Year:** 2023 (Reiwa 5)
+**Enrollment Year:** 2023 (April)
 
-**Affiliation:** Graduate School of Humanities and Sociology, Department of Language and Information Sciences, The University of Tokyo
+**Department:** Language and Information Sciences
+
+**Graduate School:** Graduate School of Arts and Sciences
+
+**University:** The University of Tokyo
+
+\vspace{0.5cm}
 
 ## Contact Information
 
-**Address:** 7-3-1 Hongo, Bunkyo-ku, Tokyo 113-0033, Japan
-Graduate School of Humanities and Sociology, Department of Language and Information Sciences, The University of Tokyo
+**Address:**  
+Language and Information Sciences  
+Graduate School of Arts and Sciences  
+The University of Tokyo  
+3-8-1 Komaba, Meguro-ku  
+Tokyo 153-8902, Japan
 
-**Phone Number:** +81-3-5841-3839 (Department Office)
+**Phone:** +81-3-5454-6839 (Department Office)
 
-**Email Address:** <s-oswld-n@g.ecc.u-tokyo.ac.jp>
+**Email:** <s-oswld-n@g.ecc.u-tokyo.ac.jp>
 
-**Emergency Contact:** [Emergency Phone Number]
+**GitHub:** <https://github.com/m02uku>
 
-**Alternative Email:** [Alternative Email Address]
+\vspace{0.5cm}
 
-## Thesis Title
+## Thesis Information
 
-**English Title:**
-Phonological Features in the Age of Deep Learning: A Multi-dimensional Exploration of Optimal Representational Units for Language Modeling
+**Thesis Title:**  
+*Phonological Features in the Deep Learning Era: A Multi-dimensional Investigation of Optimal Representational Units for Language Modeling*
 
-**Japanese Translation:**
+**日本語タイトル:**  
 深層学習時代における音韻論の素性：言語モデル化のための最適な表象単位に関する多角的探求
+
+\vspace{0.5cm}
 
 ## Thesis Abstract (200 words)
 
-This research explores the fundamental question of "optimal representational units" in computational phonology. The study aims to integrate symbolic approaches (phonemes, distinctive features) with modern deep learning approaches (continuous representations from wav2vec 2.0 and related models) by proposing a neuro-symbolic hybrid model utilizing vector quantization technology. The research evaluates different representational paradigms across four dimensions: predictive accuracy, linguistic interpretability, cognitive plausibility, and computational efficiency. Through systematic comparison of continuous vectors, VQ codes, phonemes, and features across diverse phonological tasks, the study develops novel hybrid architectures that parameterize Maximum Entropy Harmonic Grammar using self-supervised learning representations. The cognitive plausibility is validated through developmental simulations using CHILDES corpus and ABX discrimination tasks. This work contributes to both theoretical linguistics and practical AI applications by establishing a new phonological representation theory that bridges symbolic precision with neural learning capabilities, advancing the integration of linguistic knowledge with data-driven machine learning for next-generation speech technologies.
+This doctoral thesis investigates the fundamental question of optimal representational units for computational phonology in the deep learning era. The research addresses the critical gap between traditional symbolic phonological theories (distinctive features, phonemes, constraints) and modern neural representations learned by self-supervised models like wav2vec 2.0 [@baevski2020]. Through a multi-dimensional evaluation framework encompassing predictive accuracy, linguistic interpretability, cognitive plausibility, and computational efficiency, the thesis pursues three interconnected objectives: (1) empirically mapping the landscape of different representational units across diverse phonological tasks, (2) developing neuro-symbolic hybrid architectures that integrate symbolic knowledge with neural learning [@panchendrarajan2024; @begus2020gap], and (3) validating cognitive plausibility through language acquisition simulations and behavioral comparisons [@cruzblandon2023].
 
-## Academic Supervisors
+The research employs systematic experimentation using multilingual speech corpora [@cho2025; @parcollet2024], implements novel architectures combining self-supervised encoders with constraint-based decoders [@tesar1995], and validates findings against human language processing data. Preliminary results demonstrate that discrete neural codes can maintain 85% performance while enabling symbolic manipulation [@higy2021], and that neural-parameterized Maximum Entropy Harmonic Grammar can discover phonologically meaningful constraints without supervision. Expected contributions include a unified theory of phonological representation, practical improvements in speech technology through interpretable hybrid models, and interdisciplinary insights bridging linguistics, machine learning, and cognitive science.
 
-**Primary Supervisor:** [Supervisor Name]
-Professor, Graduate School of Humanities and Sociology, Department of Language and Information Sciences, The University of Tokyo
+\vspace{0.5cm}
 
-**Secondary Supervisor:** [Co-supervisor Name]
-Associate Professor, Graduate School of Humanities and Sociology, Department of Language and Information Sciences, The University of Tokyo
+## Supervisor Information
 
-## Research Overview
+**Primary Supervisor:** [To be assigned]  
+Department of Language and Information Sciences
 
-This doctoral thesis represents computational linguistics research that multi-dimensionally explores the optimality of representational units in phonology against the backdrop of rapid deep learning technology development. The study aims to bridge traditional symbolic approaches with modern neural network approaches through three major research questions:
+**Co-supervisor:** [To be assigned]  
+Department of Language and Information Sciences
 
-1. **Empirical Landscape Elucidation (RQ1)**: Systematic comparative evaluation of different representational units
-2. **Neuro-symbolic Integration (RQ2)**: Design and validation of hybrid architectures
-3. **Cognitive Plausibility Validation (RQ3)**: Consistency evaluation with human language acquisition patterns
+\vspace{0.5cm}
 
-The research originality lies in proposing novel modeling methodologies that integrate symbolic precision with neural learning capabilities, aiming for interdisciplinary contributions through the fusion of linguistic theory and AI technology.
+## Research Timeline
 
-## Preferred Review Schedule
+**Expected Thesis Submission:** March 2026
 
-**Preferred Review Period:** March 2024
+**Expected Defense:** May 2026
 
-**Expected Thesis Submission:** January 2028
+\vspace{0.5cm}
 
-**Expected Defense:** March 2028
+## Declaration
 
-## Research Ethics and Data Management
+I hereby confirm that the information provided above is accurate and complete. I understand that this doctoral thesis writing qualification review is conducted according to the guidelines of the Graduate School of Arts and Sciences, The University of Tokyo.
 
-This research will be conducted in accordance with the academic ethics guidelines of the Graduate School of Humanities and Sociology, Department of Language and Information Sciences, The University of Tokyo. Applications to the Ethics Review Committee will be submitted as necessary. All datasets used in the research are publicly available and will be utilized under appropriate licensing agreements.
+\vspace{1.5cm}
 
-The research maintains international collaboration potential, including partnerships with overseas research institutions, and aims for active international dissemination of research outcomes through publications in top-tier conferences and journals.
+\noindent
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+Applicant Signature: Sora Nagano
 
-## Language of Dissertation
+\noindent
+Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**Primary Language:** English
+\vspace{1cm}
 
-**Target Length:** Approximately 200 pages
+\noindent
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+Supervisor Approval
 
-**Expected Chapters:** 7 chapters covering introduction, literature review, methodology, three empirical studies (RQ1-RQ3), and general discussion
+\noindent
+Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-## Additional Information
-
-The research involves development of novel computational models and requires access to high-performance computing resources. Collaboration agreements with international research institutions may be established to enhance the research scope and impact. All experimental procedures will follow established protocols for computational linguistics research and data usage guidelines.
-
----
-
-**Application Date:** [Month] [Day], 2024
-
-**Applicant Signature:** Sora Nagano
-
-**Supervisor Signature:** [Supervisor Name]
-
-**Department Approval:** [Department Stamp/Signature]
+# References

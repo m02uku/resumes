@@ -1,0 +1,26 @@
+format:
+  arxiv-pdf:
+    keep-tex: false
+    keep-md: false
+    keep-ipynb: false
+    linenumbers: false
+    doublespacing: false
+    runninghead: "Doctoral Thesis Writing Qualification Review"
+  arxiv-html: default
+author:
+  - name: "{{< meta _author.name.en >}}"
+    affiliations:
+      - name: "{{< meta _author.affiliations.name.en >}}"
+        department: "{{< meta _author.affiliations.department.en >}}"
+    email: "{{< meta _author.contact.email >}}"
+
+bibliography: ../../../static/references.bib
+csl: ../../../static/style/apa.csl
+
+# 共通メタデータファイル
+metadata-files:
+  - ../../../_quarto.yml
+
+thesis:
+  title:
+    en: "Phonological Features in the Era of Deep Learning: A Multi-dimensional Investigation into Optimal Representational Units for Language Modeling"

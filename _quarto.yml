@@ -1,0 +1,36 @@
+# 著者情報
+_author:
+  name:
+    ja: "永野 颯"
+    en: "Sora Nagano"
+  github: "m02uku"
+  # orcid: "0000-0000-0000-0000"  # 実際のORCID IDに変更してください
+  affiliations:
+    name:
+      ja: "東京大学"
+      en: "The University of Tokyo"
+    department:
+      ja: "総合文化研究科"
+      en: "Graduate School of Arts and Sciences"
+    major:
+      ja: "言語情報科学専攻"
+      en: "Language and Information Sciences"
+    full:
+      ja: "東京大学 総合文化研究科 言語情報科学専攻"
+      en: "Language and Information Sciences, Graduate School of Arts and Sciences, The University of Tokyo"
+
+  research:
+    interests:
+      ja:
+        - "計算言語学"
+        - "音韻論"
+        - "アクセント推定"
+        - "自然言語処理"
+      en:
+        - "Computational Linguistics"
+        - "Phonology"
+        - "Accent Prediction"
+        - "Natural Language Processing"
+
+  contact:
+    email: "s-oswld-n@g.ecc.u-tokyo.ac.jp"

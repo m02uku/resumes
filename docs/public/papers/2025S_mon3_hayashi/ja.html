@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="永野 颯">
+
+<title>言語情報解析演習II 期末課題</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-59898bd1c6b9d2bb783127feaa000c76.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2b0cc190dedac64b2c60a7dfd24fd00f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "一致なし",
+    "search-matching-documents-text": "一致した文書",
+    "search-copy-link-title": "検索へのリンクをコピー",
+    "search-hide-matches-text": "追加の検索結果を非表示",
+    "search-more-match-text": "追加の検索結果",
+    "search-more-matches-text": "追加の検索結果",
+    "search-clear-button-title": "消去",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "検索",
+    "search-label": "サーチ"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#序論" id="toc-序論" class="nav-link active" data-scroll-target="#序論"><span class="header-section-number">1</span> 序論</a></li>
+  <li><a href="#モデルの概要最大エントロピーと音韻制約" id="toc-モデルの概要最大エントロピーと音韻制約" class="nav-link" data-scroll-target="#モデルの概要最大エントロピーと音韻制約"><span class="header-section-number">2</span> モデルの概要：最大エントロピーと音韻制約</a>
+  <ul class="collapse">
+  <li><a href="#確率的適格性の概念" id="toc-確率的適格性の概念" class="nav-link" data-scroll-target="#確率的適格性の概念"><span class="header-section-number">2.1</span> 確率的適格性の概念</a></li>
+  <li><a href="#最大エントロピー文法における確率の割り当て" id="toc-最大エントロピー文法における確率の割り当て" class="nav-link" data-scroll-target="#最大エントロピー文法における確率の割り当て"><span class="header-section-number">2.2</span> 最大エントロピー文法における確率の割り当て</a></li>
+  </ul></li>
+  <li><a href="#制約の形式と学習アルゴリズム" id="toc-制約の形式と学習アルゴリズム" class="nav-link" data-scroll-target="#制約の形式と学習アルゴリズム"><span class="header-section-number">3</span> 制約の形式と学習アルゴリズム</a>
+  <ul class="collapse">
+  <li><a href="#最大エントロピー重みの学習" id="toc-最大エントロピー重みの学習" class="nav-link" data-scroll-target="#最大エントロピー重みの学習"><span class="header-section-number">3.1</span> 最大エントロピー重みの学習</a></li>
+  <li><a href="#可能な制約空間の探索" id="toc-可能な制約空間の探索" class="nav-link" data-scroll-target="#可能な制約空間の探索"><span class="header-section-number">3.2</span> 可能な制約空間の探索</a>
+  <ul class="collapse">
+  <li><a href="#制約形式" id="toc-制約形式" class="nav-link" data-scroll-target="#制約形式"><span class="header-section-number">3.2.1</span> 制約形式</a></li>
+  <li><a href="#制約数の制限と探索ヒューリスティック" id="toc-制約数の制限と探索ヒューリスティック" class="nav-link" data-scroll-target="#制約数の制限と探索ヒューリスティック"><span class="header-section-number">3.2.2</span> 制約数の制限と探索ヒューリスティック</a></li>
+  </ul></li>
+  <li><a href="#音韻配列論的文法の学習アルゴリズム" id="toc-音韻配列論的文法の学習アルゴリズム" class="nav-link" data-scroll-target="#音韻配列論的文法の学習アルゴリズム"><span class="header-section-number">3.3</span> 音韻配列論的文法の学習アルゴリズム</a></li>
+  </ul></li>
+  <li><a href="#実験と結果理論的含意に焦点を当てる" id="toc-実験と結果理論的含意に焦点を当てる" class="nav-link" data-scroll-target="#実験と結果理論的含意に焦点を当てる"><span class="header-section-number">4</span> 実験と結果：理論的含意に焦点を当てる</a>
+  <ul class="collapse">
+  <li><a href="#英語の音節頭子音群と段階的適格性" id="toc-英語の音節頭子音群と段階的適格性" class="nav-link" data-scroll-target="#英語の音節頭子音群と段階的適格性"><span class="header-section-number">4.1</span> 英語の音節頭子音群と段階的適格性</a></li>
+  <li><a href="#非局所的音韻配列論ショナ語の母音調和と超分節的階層" id="toc-非局所的音韻配列論ショナ語の母音調和と超分節的階層" class="nav-link" data-scroll-target="#非局所的音韻配列論ショナ語の母音調和と超分節的階層"><span class="header-section-number">4.2</span> 非局所的音韻配列論：ショナ語の母音調和と超分節的階層</a></li>
+  <li><a href="#ストレスパターンと韻律グリッド" id="toc-ストレスパターンと韻律グリッド" class="nav-link" data-scroll-target="#ストレスパターンと韻律グリッド"><span class="header-section-number">4.3</span> ストレスパターンと韻律グリッド</a></li>
+  </ul></li>
+  <li><a href="#理論言語学への貢献" id="toc-理論言語学への貢献" class="nav-link" data-scroll-target="#理論言語学への貢献"><span class="header-section-number">5</span> 理論言語学への貢献</a>
+  <ul class="collapse">
+  <li><a href="#範疇的および段階的パターンの統一的説明" id="toc-範疇的および段階的パターンの統一的説明" class="nav-link" data-scroll-target="#範疇的および段階的パターンの統一的説明"><span class="header-section-number">5.1</span> 範疇的および段階的パターンの統一的説明</a></li>
+  <li><a href="#帰納的ベースラインと音韻理論の正当化" id="toc-帰納的ベースラインと音韻理論の正当化" class="nav-link" data-scroll-target="#帰納的ベースラインと音韻理論の正当化"><span class="header-section-number">5.2</span> 帰納的ベースラインと音韻理論の正当化</a></li>
+  <li><a href="#制約選択問題への取り組み" id="toc-制約選択問題への取り組み" class="nav-link" data-scroll-target="#制約選択問題への取り組み"><span class="header-section-number">5.3</span> 制約選択問題への取り組み</a></li>
+  <li><a href="#音韻配列論と形態音韻的交替の関係性" id="toc-音韻配列論と形態音韻的交替の関係性" class="nav-link" data-scroll-target="#音韻配列論と形態音韻的交替の関係性"><span class="header-section-number">5.4</span> 音韻配列論と形態音韻的交替の関係性</a></li>
+  </ul></li>
+  <li><a href="#結論" id="toc-結論" class="nav-link" data-scroll-target="#結論"><span class="header-section-number">6</span> 結論</a></li>
+  <li><a href="#参考文献" id="toc-参考文献" class="nav-link" data-scroll-target="#参考文献"><span class="header-section-number">7</span> 参考文献</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="ja.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">言語情報解析演習II 期末課題</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">作者</div>
+    <div class="quarto-title-meta-contents">
+             <p>永野 颯 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">公開</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2025年8月17日</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="序論" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> 序論</h1>
+<p>本レポートは、<span class="citation" data-cites="hayes2008Maximum">Hayes &amp; Wilson (<a href="#ref-hayes2008Maximum" role="doc-biblioref">2008</a>)</span> による論文「A Maximum Entropy Model of Phonotactics and Phonotactic Learning」に基づき、音韻論における最大エントロピーモデルの理論的意義と学習モデルとしての貢献を考察することを目的とする。音韻配列論（phonotactics）は、言語における音の並びの合法性を扱う音韻論の中核的課題であり、<span class="citation" data-cites="chomsky1965controversial">Chomsky &amp; Halle (<a href="#ref-chomsky1965controversial" role="doc-biblioref">1965</a>)</span> によって提起された「なぜ母語話者は存在しないが容認可能な形式と、存在せず容認不可能な形式を区別できるのか」という問いは、音韻配列論の文法の特性化と獲得原理の理解という二つの科学的課題を提示している。本論文は、この課題に対し、最大エントロピーの原理に基づいて数値的に重み付けされた制約からなる音韻配列論的文法と、陽性証拠からそのような文法を構築する学習アルゴリズムを提案している。特に、工学的応用や機械学習技術の詳細には深入りせず、理論言語学的観点から、本モデルが音韻制約理論に与える貢献に焦点を当てて分析を進める。</p>
+</section>
+<section id="モデルの概要最大エントロピーと音韻制約" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> モデルの概要：最大エントロピーと音韻制約</h1>
+<p><span class="citation" data-cites="hayes2008Maximum">Hayes &amp; Wilson (<a href="#ref-hayes2008Maximum" role="doc-biblioref">2008</a>)</span> は、音韻配列論的文法が、最大エントロピーの原理に従って数値的に重み付けされた制約群から構成されると提唱する。このモデルにおいて、形式の適格性（well-formedness）は、その制約違反の重み付き合計によって決定される確率として形式化される。このアプローチの核心は、適格性が確率として解釈され得ることである。</p>
+<section id="確率的適格性の概念" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="確率的適格性の概念"><span class="header-section-number">2.1</span> 確率的適格性の概念</h2>
+<p>無限の音韻的表層形式の集合<span class="math inline">\(\Omega\)</span>を仮定し、最大エントロピー文法はその各要素<span class="math inline">\(x \in \Omega\)</span>に対し、その音韻配列論的適格性を表す確率<span class="math inline">\(P(x)\)</span>を割り当てる。個々の形式の確率自体は極めて小さいが、これらの確率間の差異が重要であり、それが適格性の度合いを反映する。提案される制約セットが適切であれば、最大エントロピー文法が形式に割り当てる確率は、母語話者の適格性判断と対応し、容認性が低いと判断される形式ほど低い確率が割り当てられるという仮説が立てられている。</p>
+</section>
+<section id="最大エントロピー文法における確率の割り当て" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="最大エントロピー文法における確率の割り当て"><span class="header-section-number">2.2</span> 最大エントロピー文法における確率の割り当て</h2>
+<p>最大エントロピー文法は、選択された表象語彙で記述された一連の制約を用いて確率を割り当てる。これらの制約は、音韻形式の多重かつ重複する特徴付けを可能にするため、特徴的・構造的その他の区別を参照できる。本モデルにおける全ての制約は、最適性理論 <span class="citation" data-cites="prince2004Optimality">(<a href="#ref-prince2004Optimality" role="doc-biblioref"><strong>prince2004Optimality?</strong></a>)</span> における「有標性制約 (markedness constraints)」の意味で用いられる。入力や忠実性制約は役割を果たさない。</p>
+<p>文法内の各制約は、非負の実数である重み<span class="math inline">\(w_i\)</span>を持つ。重みは、他の制約に対するその制約の重要度を測るものと考えることができる。重みが大きい制約ほど、違反する形式の確率を低下させる効果が強い。</p>
+<p>形式の確率は、その制約違反と重みから算出される。まず、各形式のスコア<span class="math inline">\(h(x)\)</span>が定義される。</p>
+<p><span class="math display">\[
+h(x) = \sum_{i=1}^{N} w_i C_i(x) \quad (4)
+\]</span></p>
+<p>ここで、<span class="math inline">\(w_i\)</span>は<span class="math inline">\(i\)</span>番目の制約の重み、<span class="math inline">\(C_i(x)\)</span>は形式<span class="math inline">\(x\)</span>が<span class="math inline">\(i\)</span>番目の制約に違反する回数、<span class="math inline">\(N\)</span>は全ての制約の総数を表す。</p>
+<p>次に、形式<span class="math inline">\(x\)</span>の最大エントロピー値<span class="math inline">\(P^*(x)\)</span>が算出される。</p>
+<p><span class="math display">\[
+P^*(x) = \exp(-h(x)) \quad (5)
+\]</span></p>
+<p>これは、スコアを負の値にして、自然対数の底<span class="math inline">\(e\)</span>をその結果の指数とする。この負号の存在は、違反が多い形式ほど値が低くなるという最大エントロピー値の意味合いから理解できる。</p>
+<p><span class="math inline">\(x\)</span>の実際の確率<span class="math inline">\(P(x)\)</span>は、<span class="math inline">\(\Omega\)</span>内の全ての可能な形式の総最大エントロピー値<span class="math inline">\(Z\)</span>に対する<span class="math inline">\(x\)</span>のシェアを決定することで計算される。</p>
+<p><span class="math display">\[
+P(x) = P^*(x) / Z \quad (6)
+\]</span></p>
+<p>ただし、<span class="math inline">\(Z = \sum_{y \in \Omega} P^*(y)\)</span>である。</p>
+<p>このモデルでは、制約が「結託する（gang up）」という見解を採用している。つまり、(4)の加算段階により、2つの制約AとBが単独でAまたはBを違反した場合に予想されるよりも、形式のステータスを共同で低下させることが可能となる。これは、重みベースのモデルに固有の現象ではないが、本モデルの重要な特性である。</p>
+</section>
+</section>
+<section id="制約の形式と学習アルゴリズム" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 制約の形式と学習アルゴリズム</h1>
+<p>本モデルの学習アルゴリズムは、観察された形式の確率を最大化する制約の重みを探索することと、可能な制約の空間から適切な制約を選択することの2段階で構成される。</p>
+<section id="最大エントロピー重みの学習" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="最大エントロピー重みの学習"><span class="header-section-number">3.1</span> 最大エントロピー重みの学習</h2>
+<p>学習者は、目標言語から抽出された大規模で代表的な観察形式の集合にアクセスできるが、非合法的な形式に関する「負の証拠」にはアクセスできないと仮定される。これは実際の言語学習者が直面する状況と整合すると考えられる。目標は、観察された形式の確率<span class="math inline">\(P(D)\)</span>を最大化する制約重みの集合を見つけることである。</p>
+<p><span class="math display">\[
+P(D) = \prod_{x \in D} P(x) \quad (7)
+\]</span></p>
+<p>ここで、<span class="math inline">\(P(D)\)</span>は観察されたデータ<span class="math inline">\(D\)</span>の確率、<span class="math inline">\(P(x)\)</span>は(6)で定義された形式<span class="math inline">\(x\)</span>の確率である。</p>
+<p>「最大エントロピー」という用語は、この目標に関連している。エントロピーは、システム内のランダム性の量を情報理論的に測る尺度であり、形式の確率が前述のように定義される場合、エントロピーを最大化することは、制約が与えられた場合に観察された形式の確率を最大化することと等価であるという定理 <span class="citation" data-cites="hayes2008Maximum">(<a href="#ref-hayes2008Maximum" role="doc-biblioref">Hayes &amp; Wilson, 2008</a>)</span> が存在する。</p>
+<p>重みを見つける探索は、各制約に同じ初期重み（シミュレーションでは常に1）を与えることから始まる。システムはその後、<span class="math inline">\(P(D)\)</span>を最大化するための反復計算を実行する。この計算は、重みによって定義される多次元表面を上昇経路で辿り、最高値に達するまで<span class="math inline">\(P(D)\)</span>の値を高め続ける。この反復上昇プロセスは、勾配（傾き）を計算することで行われる。各偏導関数<span class="math inline">\(\frac{\partial}{\partial w_i} \log(P(D))\)</span>は、制約<span class="math inline">\(C_i\)</span>の観察された違反数と期待される違反数との差<span class="math inline">\(O[C_i] - E[C_i]\)</span>に等しい。<span class="math inline">\(O[C_i]\)</span>は学習データから直接計算され、<span class="math inline">\(E[C_i]\)</span>は有限状態機械を用いて、無限の可能性のある音韻的表現の集合から近似される。</p>
+</section>
+<section id="可能な制約空間の探索" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="可能な制約空間の探索"><span class="header-section-number">3.2</span> 可能な制約空間の探索</h2>
+<p>このモデルは、言語獲得における帰納的ベースラインを確立することを目指しており、UGから与えられる事前制約セットに依存しない。UGは素性インベントリと制約形式を決定し、そこから大きな探索空間が生まれるが、適切な探索ヒューリスティックを用いることで効果的に探索可能であると提唱されている。</p>
+<section id="制約形式" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="制約形式"><span class="header-section-number">3.2.1</span> 制約形式</h3>
+<p>モデルは2つの基本的な制約タイプを構築する。1つは素性行列の単なるシーケンスであり、SPE (Chomsky and Halle, 1968) と同様に機能する。もう1つは論理的含意を含む制約であり、特定の素性値を持つセグメントが存在する場合、先行/後続のセグメントが特定の素性値を持たなければならない、という形式である。この含意演算子を、制約のいずれかの行列を補集合演算子<span class="math inline">\(~\)</span>で修飾することを可能にし、より小さく解釈しやすい文法を作成する。</p>
+</section>
+<section id="制約数の制限と探索ヒューリスティック" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="制約数の制限と探索ヒューリスティック"><span class="header-section-number">3.2.2</span> 制約数の制限と探索ヒューリスティック</h3>
+<p>可能な制約の数は、自然クラスの数<span class="math inline">\(|C|\)</span>と制約内で発生しうる素性行列の最大数<span class="math inline">\(n\)</span>に比例して指数関数的に増加する。</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} |C|^i
+\]</span></p>
+<p>このモデルでは、探索可能な制約セットを数千万の範囲に制限するために、<span class="math inline">\(|C|\)</span>と<span class="math inline">\(n\)</span>を制約する提案を行っている。特に、<span class="math inline">\(n\)</span>は制約の内部的な複雑さに敏感であるべきだとし、制約のサイズとその特異性の間にトレードオフが存在するとする。</p>
+<p>学習者は、制約を選択する際に「正確性（accuracy）」と「一般性（generality）」という探索ヒューリスティックを用いる。</p>
+<ul>
+<li><strong>正確性</strong>: 制約の正確性は、データ中に観察された制約違反の数<span class="math inline">\(O[C_i]\)</span>を、現在の文法の下で期待される違反の数<span class="math inline">\(E[C_i]\)</span>で割ったもの（<span class="math inline">\(O/E\)</span>）として定義される。言語は正確な制約を好むという仮説に基づき、<span class="math inline">\(O/E\)</span>値が低い制約ほど強力であるとされる。</li>
+<li><strong>一般性</strong>: 正確性スケールによって定義される層内では、より一般的な制約が選択される。これは、短い制約（行列が少ない）は長い制約よりも一般的であると見なされ、同じ長さの制約の中では、その行列が最も一般的な素性表現を含むものが優先されるという形で実装される。</li>
+</ul>
+</section>
+</section>
+<section id="音韻配列論的文法の学習アルゴリズム" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="音韻配列論的文法の学習アルゴリズム"><span class="header-section-number">3.3</span> 音韻配列論的文法の学習アルゴリズム</h2>
+<p>学習のプロセスは、制約選択と制約重み付けを交互に行う。新しい制約が選択され、その後全ての制約が再重み付けされる。この交互の手順は、制約選択における<span class="math inline">\(O/E\)</span>正確性基準によって必要とされる。新しい制約が導入され、重み付けされると、既存の制約の<span class="math inline">\(E\)</span>値が変化するため、この変化した値が追加の制約を選択する上で関連するためである。全体のアルゴリズムは以下の通りである。</p>
+<ol type="1">
+<li>空の文法<span class="math inline">\(G\)</span>から開始する。</li>
+<li>各正確性レベル<span class="math inline">\(\epsilon\)</span>について反復する:
+<ol type="a">
+<li><span class="math inline">\(\epsilon\)</span>よりも正確性の低い（もし存在するなら）最も一般的な制約を選択し、<span class="math inline">\(G\)</span>に追加する。</li>
+<li><span class="math inline">\(G\)</span>内の制約の重みを学習する。</li>
+</ol></li>
+<li>ステップ2aで制約が選択されなくなるまで繰り返す。</li>
+</ol>
+</section>
+</section>
+<section id="実験と結果理論的含意に焦点を当てる" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> 実験と結果：理論的含意に焦点を当てる</h1>
+<p>論文では、提案されたモデルの有効性を検証するために、英語の音節頭子音群、ショナ語の母音調和、ストレスパターン、そしてWargamay語という複数の言語データに対する学習シミュレーションを行っている。ここでは、その中でも特に言語理論的含意が明確な結果に焦点を当てる。</p>
+<section id="英語の音節頭子音群と段階的適格性" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="英語の音節頭子音群と段階的適格性"><span class="header-section-number">4.1</span> 英語の音節頭子音群と段階的適格性</h2>
+<p>英語の音節頭子音群は、音韻配列論的学習モデルのテストに理想的な領域である。母語話者の段階的判断（gradient judgments）を再現する能力が検証された。学習モデルの予測値（最大エントロピー値<span class="math inline">\(P^*(x)\)</span>）と被験者の容認度（「yes」回答の割合）との相関は<span class="math inline">\(r=0.946\)</span>という高い値を示し、これはモデルが被験者の回答の大部分の変動を説明できることを意味する。</p>
+<p>比較として、手作業で作成された文法や、素性情報を利用しない単純なn-gramモデルなど、5つの代替モデルとの比較が行われた。結果として、本モデルで機械学習された文法は、手作業で作成された文法（Clements and Keyser, 1983）をわずかに上回る性能（<span class="math inline">\(r=0.936\)</span>）を示した。これは、本モデルが音韻論の標準的な装置である素性（features）と自然クラス（natural classes）を効果的に利用しているためであると考察されている。</p>
+<p>この結果は、最大エントロピーモデルが単に範疇的な音韻配列論的パターンだけでなく、実験的に観察される段階的な適格性判断も自然な形で捉えることができるという、モデルの重要な特性を裏付けている。また、モデルが汎用的な制約を探索し、自然クラスに基づいた学習を行うことで、既存の形式だけでなく、未出現の形式に対する判断も適切に予測できることを示している。これは、音韻理論が単なる既知のデータの記述にとどまらず、新しいデータに対する予測能力を持つことの重要性を示唆する。</p>
+</section>
+<section id="非局所的音韻配列論ショナ語の母音調和と超分節的階層" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="非局所的音韻配列論ショナ語の母音調和と超分節的階層"><span class="header-section-number">4.2</span> 非局所的音韻配列論：ショナ語の母音調和と超分節的階層</h2>
+<p>ショナ語の母音調和は、非隣接する音に制約を課す非局所的な音韻配列論的パターンである。この非局所性を扱うために、初期の帰納的ベースラインモデル（純粋に線形的なSPEスタイルの特徴束アプローチ）では、母音調和を学習することに失敗した。これは、4行列制約の仮説空間が膨大であり、関連する母音間の制約を見つける前に探索時間が尽きてしまうためであった。</p>
+<p>この失敗に対応するため、本論文では「投射（projection）」という概念を導入する。これは、音韻的表象の中から特定の素性値を持つ要素のみを抽出し、そのサブストリングに対して制約を適用するというものである。特に、母音調和には母音のみで構成される「母音投射（vowel projection）」が用いられた。例えば、<code>gondwa</code>のような形式は、デフォルトの投射（完全な表象）と母音投射（<code>o-a</code>という母音のシーケンス）の両方で表現される。</p>
+<p><img src="images/projection.png" class="img-fluid"></p>
+<p>母音投射を導入した学習モデルでは、母音調和に不可欠な制約が迅速に発見された。例えば、非初期の中母音が先行する中母音によってライセンスされないことを禁止する制約や、<code>o</code>が先行する<code>o</code>によってライセンスされるというより厳格な要件を課す制約などである。このモデルは、初期のモデルでは失敗した<code>mVndVma</code>のような形式の母音調和を正確に分類することができた。</p>
+<p>この結果は、音韻論的表象が母音層（vowel tier）のような装置を含むべきであるという学習理論的な支持を提供している。すなわち、限られた探索空間を持つ学習者にとって、非局所的な現象を局所的な制約として表現することを可能にする投射のような階層的表象は、音韻配列論の学習を可能にするために不可欠であるという理論的含意を持つ。</p>
+</section>
+<section id="ストレスパターンと韻律グリッド" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="ストレスパターンと韻律グリッド"><span class="header-section-number">4.3</span> ストレスパターンと韻律グリッド</h2>
+<p>ストレスシステムもまた非局所的な音韻配列論の一種である。特に、不定界ストレスパターン（unbounded stress patterns）においてその非局所性は顕著である。本モデルの帰納的ベースラインモデルでは、制約内の素性行列数に上限<span class="math inline">\(n\)</span>を課すため、単一の音節が主ストレスを持つという「最高点性（culminativity）」や、「末尾優勢規則（End Rule Right）」といった非局所的な制約を捉えることができない。</p>
+<p>この問題に対処するため、リズムグリッド（metrical grid）の形式化が導入された。リズムグリッドは、ストレスパターンにおける非局所的な関係を局所的な術語で表現することを可能にする。本モデルでは、母音調和と同様に投射の仕組みを利用してリズムグリッドを形式化した。例えば、主ストレス層（main stress row）、ストレス層（stress row）、音節層（syllable row）といった異なる投射が定義され、それぞれがストレスレベルや音節の重さといった韻律的特徴を表現する。</p>
+<p>この枠組みの下で、本学習者は不定界ストレスパターンを学習することに成功し、全ての合法的な形式には完璧なスコアを、全ての非合法的な形式にはペナルティスコアを割り当てた。これは、リズムグリッドのような階層的な表象が、非局所的な一般化を局所的に記述する形式的原理を用いることを可能にし、それによって学習者の探索空間が制限された状況下でも重要な一般化を発見できることを示している。これは、音韻理論においてリズムグリッドのような階層構造の採用が、単なる記述の優雅さだけでなく、言語獲得可能性（learnability）の観点からも正当化されることを示唆する。</p>
+</section>
+</section>
+<section id="理論言語学への貢献" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> 理論言語学への貢献</h1>
+<p><span class="citation" data-cites="hayes2008Maximum">Hayes &amp; Wilson (<a href="#ref-hayes2008Maximum" role="doc-biblioref">2008</a>)</span> が提案した最大エントロピーモデルは、音韻論における学習可能性の課題に対して、いくつかの重要な理論的貢献をしている。</p>
+<section id="範疇的および段階的パターンの統一的説明" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="範疇的および段階的パターンの統一的説明"><span class="header-section-number">5.1</span> 範疇的および段階的パターンの統一的説明</h2>
+<p>本モデルは、最大エントロピーの原理を音韻配列論に適用することで、範疇的な音韻配列論的合法性（例：ある音の並びが完全に合法か非合法か）と、母語話者の段階的な直感（例：ある音の並びがどの程度「単語らしくない」と感じられるか）の両方を統一的に説明できることを示した。これは、音韻配列論研究において、単に合法・非合法の二分法ではなく、より連続的な適格性の度合いを捉えることの重要性を強調している。従来の範疇的な制約ベースのモデルでは難しかった、言語データの「曖昧さ」や「例外性」を、重み付けされた制約と確率的な解釈を通じて自然に扱える点は、言語現象のより忠実なモデル化に繋がる。</p>
+</section>
+<section id="帰納的ベースラインと音韻理論の正当化" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="帰納的ベースラインと音韻理論の正当化"><span class="header-section-number">5.2</span> 帰納的ベースラインと音韻理論の正当化</h2>
+<p>本論文は、「帰納的ベースライン（inductive baseline）」という研究戦略を採用している。これは、非常に単純な理論から始め、より高度な理論的概念（例：超分節的階層や韻律グリッド）を導入することで、ベースラインシステムではアクセスできない音韻配列論的パターンが学習可能になるか否かを検証するアプローチである。ショナ語の母音調和やストレスパターンの学習シミュレーションの結果は、母音層や韻律グリッドといった概念が、音韻配列論的学習を可能にするために不可欠であることを実証した。これらの抽象的な音韻論的表象が、単なる記述的な便宜のためだけでなく、言語獲得メカニズムの観点からもその存在が正当化されるという、強力な学習理論的論拠を提供している。</p>
+</section>
+<section id="制約選択問題への取り組み" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="制約選択問題への取り組み"><span class="header-section-number">5.3</span> 制約選択問題への取り組み</h2>
+<p>最適性理論 <span class="citation" data-cites="prince2004Optimality">(<a href="#ref-prince2004Optimality" role="doc-biblioref"><strong>prince2004Optimality?</strong></a>)</span> を含む従来の音韻論的学習モデルの多くは、制約セットが普遍文法 (Universal Grammar, UG) によって事前に提供されると仮定してきた。しかし、本モデルは、UGが素性インベントリと制約形式を決定するものの、個々の制約は学習者がデータの分布から能動的に探索・選択するという立場を取る。この「制約選択問題」に対して、正確性（observed-to-expected ratio, <span class="math inline">\(O/E\)</span>）と一般性（constraint generality）に基づく探索ヒューリスティックを提案したことは、言語学習者がどのようにして膨大な可能性の中から適切な一般化を発見するかについての洞察を提供する。これは、言語獲得における普遍的原理と経験的学習の相互作用をより深く理解するための基礎となる。</p>
+</section>
+<section id="音韻配列論と形態音韻的交替の関係性" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="音韻配列論と形態音韻的交替の関係性"><span class="header-section-number">5.4</span> 音韻配列論と形態音韻的交替の関係性</h2>
+<p>論文では、音韻配列論が形態音韻的交替（alternation）とどのように関連するかについても考察している。OTでは、音韻配列論的制約と忠実性制約の間の階層が、表層形への静的な制約と、それらの制約を遵守する交替の両方を導くとされる <span class="citation" data-cites="prince2004Optimality">(<a href="#ref-prince2004Optimality" role="doc-biblioref"><strong>prince2004Optimality?</strong></a>)</span>。しかし、本モデルは、音韻配列論の知識が言語学習者が交替を発見するのを容易にするという、より緩やかな関係性を提唱する。つまり、子供はまず音韻配列論の概略分析を行い、その後で音韻配列論的知識が交替パターンの学習を補助するという段階的な獲得プロセスを示唆している。これは、言語獲得の全体的なアーキテクチャが、音韻論的知識が獲得される漸進的なプロセスを再現するという、「学習理論的音韻論（learning-theoretic phonology）」の概念を提示するものである。</p>
+</section>
+</section>
+<section id="結論" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> 結論</h1>
+<p><span class="citation" data-cites="hayes2008Maximum">Hayes &amp; Wilson (<a href="#ref-hayes2008Maximum" role="doc-biblioref">2008</a>)</span> が提案した最大エントロピーモデルは、音韻配列論の学習とモデル化において、その堅牢な数学的基盤、範疇的および段階的パターンを統一的に説明する能力、そして音韻理論における抽象的な表象の学習理論的妥当性を実証した点で、理論言語学に多大な貢献をしている。特に、音韻配列論的文法を重み付けされた制約の集合として捉え、その適格性を確率として解釈するフレームワークは、言語の複雑な統計的性質を捉える新たな道を開いた。</p>
+<p>この研究は、普遍文法が提供する基盤の上に、経験的なデータからの学習がいかに具体的な音韻配列論的知識を構築するかを示している。超分節的階層（母音層、韻律グリッド）のような構造の導入が、非局所的な現象の学習を可能にし、これらの理論的要素の必要性を学習可能性の観点から裏付けたことは特筆すべきである。</p>
+</section>
+<section id="参考文献" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> 参考文献</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<!--
+これらの文献は、Quartoが自動的に生成する参考文献リストに含めるために、
+bibliographyで指定された.bibファイル (例: ../../../static/references.bib) に追記してください。
+
+@article{chomsky1965halle,
+  title={Some controversial questions in phonological theory},
+  author={Chomsky, Noam and Halle, Morris},
+  journal={Journal of Linguistics},
+  volume={1},
+  number={2},
+  pages={97--138},
+  year={1965},
+  publisher={Cambridge University Press}
+}
+
+@book{prince1993smolensky,
+  title={Optimality Theory: Constraint interaction in generative grammar},
+  author={Prince, Alan and Smolensky, Paul},
+  year={1993},
+  publisher={Blackwell}
+}
+-->
+<div id="ref-chomsky1965controversial" class="csl-entry" role="listitem">
+Chomsky, N., &amp; Halle, M. (1965年). Some Controversial Questions in Phonological Theory. <em>Journal of linguistics</em>, <em>1</em>(2), 97–138.
+</div>
+<div id="ref-hayes2008Maximum" class="csl-entry" role="listitem">
+Hayes, B., &amp; Wilson, C. (2008年). A Maximum Entropy Model of Phonotactics and Phonotactic Learning. <em>Linguistic Inquiry</em>, <em>39</em>(3), 379–440. <a href="https://doi.org/10.1162/ling.2008.39.3.379">https://doi.org/10.1162/ling.2008.39.3.379</a>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "コピーしました");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "コピーしました");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,173 +1,44 @@
 ---
-title: "Doctoral Thesis Writing Plan"
-subtitle: "Phonological Features in the Age of Deep Learning: A Multi-dimensional Exploration of Optimal Representational Units for Language Modeling"
-format:
-  arxiv-pdf:
-    keep-tex: false
-    keep-md: false
-    keep-ipynb: false
-    linenumbers: false
-    doublespacing: false
-    runninghead: "Doctoral Thesis Writing Qualification Review"
-  arxiv-html: default
-author:
-  - name: Sora Nagano
-    affiliations:
-      - name: The University of Tokyo
-        department: Graduate School of Humanities and Sociology, Department of Language and Information Sciences
-    email: s-oswld-n@g.ecc.u-tokyo.ac.jp
-date: today
+title: "Writing Plan for Doctoral Thesis"
+subtitle: "{{< meta thesis.title.en >}}"
 ---
 
-# Doctoral Thesis Writing Plan
+# Comprehensive Writing Schedule and Research Implementation Plan
 
-## Writing Schedule (36-month Plan)
+The doctoral thesis "Phonological Features in the Deep Learning Era" will be completed over a structured 36-month period following a systematic three-phase approach designed to ensure rigorous empirical investigation, theoretical contribution, and practical implementation. This writing plan outlines the detailed timeline, deliverables, quality assurance mechanisms, and resource allocation strategies necessary for successful completion.
 
-### Year 1 (Foundation Building Period: April 2025 - March 2026)
+## Year 1: Foundation Phase (Months 1-12)
 
-**April-June: Theoretical Foundation Construction**
+**Quarter 1 (Months 1-3)**: The initial quarter focuses on establishing theoretical foundations through comprehensive literature review covering three core areas: computational phonology [@tesar1995; @jarosz2019], self-supervised learning in speech [@baevski2020; @mohamed2022], and neuro-symbolic integration methodologies [@panchendrarajan2024]. During this period, I will draft the theoretical framework chapter (approximately 40 pages) synthesizing insights from symbolic phonological theory and neural representation learning. Deliverables include an annotated bibliography of 150+ sources and a position paper outlining the research gap.
 
-- Systematic organization of prior research and refinement of theoretical framework
-- Development of integration theory between Optimality Theory and self-supervised learning models
-- Establishment of research methodology and ethics review procedures
+**Quarter 2 (Months 4-6)**: Implementation of baseline models and evaluation framework design constitutes the primary focus. This includes setting up Docker containers for reproducibility, implementing baseline SSL models (wav2vec 2.0, HuBERT, WavLM), and developing probing methodologies [@venkateswaran2025]. The methodology chapter (30 pages) will be completed, incorporating detailed descriptions of experimental protocols and evaluation metrics. A workshop paper submission to a computational linguistics venue is planned.
 
-**July-September: Experimental Environment Setup and Pilot Research**
+**Quarter 3 (Months 7-9)**: Conducting Study 1 on representational landscape analysis comparing SSL models [@hsu2021; @chen2022] with vector quantization approaches [@higy2021]. This involves systematic evaluation across phonological tasks using LibriSpeech and Common Voice datasets. The first empirical chapter draft (35 pages) will document findings. Results will be presented at the departmental seminar for feedback.
 
-- Computational environment preparation (GPU clusters, dataset preparation)
-- Technical feasibility verification through micro-scale experiments
-- Implementation and preliminary evaluation of baseline methods
+**Quarter 4 (Months 10-12)**: Beginning hybrid architecture development for Study 2, integrating Maximum Entropy Harmonic Grammar [@hayes2008] with neural networks. Technical implementation documentation will be maintained using version control. Conference submission preparation for ACL or INTERSPEECH is scheduled.
 
-**October-December: Phase 1 Experiments and Interim Evaluation**
+## Year 2: Core Development Phase (Months 13-24)
 
-- Conducting foundational experiments for RQ1 (Empirical Landscape Elucidation)
-- Building comparative evaluation framework for different representational units
-- Research presentation at domestic conferences (Annual Conference of the Association for Natural Language Processing)
+**Months 13-18**: Complete implementation and evaluation of hybrid neuro-symbolic architectures following principles from [@begus2020gap; @chen2023]. Conduct comprehensive cross-linguistic evaluation using typologically diverse languages from PHOIBLE database. Draft second empirical chapter (40 pages) documenting architectural innovations and performance comparisons.
 
-**January-March: Theoretical Extension and International Presentation Preparation**
+**Months 19-24**: Execute Study 3 on cognitive plausibility using CHILDES corpus [@cruzblandon2023] for developmental trajectory simulations. Implement ABX discrimination tasks and cross-linguistic transfer experiments. Complete third empirical chapter (35 pages). Submit journal article to Computational Linguistics or TACL.
 
-- Theoretical design of hybrid models
-- Preparation for international conference submissions (ACL, INTERSPEECH)
-- Publication of Year 1 research outcomes
+## Year 3: Consolidation Phase (Months 25-36)
 
-### Year 2 (Core Research Period: April 2026 - March 2027)
+**Months 25-30**: Conduct additional experiments addressing gaps identified through peer review. Write introduction chapter (25 pages) synthesizing theoretical foundations and general discussion chapter (30 pages) integrating findings across studies. Complete first full dissertation draft.
 
-**April-June: Hybrid Model Development**
+**Months 31-36**: Incorporate feedback from supervisor and committee members. Write conclusion chapter (20 pages) addressing broader impacts and future directions. Format dissertation according to university guidelines. Prepare and deliver defense presentation. Complete post-defense revisions.
 
-- Implementation of neuro-symbolic architecture
-- Initiation of full-scale experiments for RQ2 (Neuro-symbolic Integration)
-- Optimization of constraint learning algorithms
+## Quality Assurance and Milestones
 
-**July-September: Large-scale Experiments and Ablation Studies**
+Monthly progress meetings with primary supervisor ensure consistent advancement and timely problem resolution. Quarterly committee reviews provide comprehensive feedback on theoretical development and empirical progress. Regular presentations at lab meetings and reading groups facilitate peer feedback. All code and documentation maintained through Git version control ensures reproducibility. Target milestones include 2-3 conference papers (ACL, INTERSPEECH, NeurIPS) and 1 journal article during the thesis period.
 
-- Performance evaluation on multilingual datasets
-- Analysis of architectural component contributions
-- Detailed evaluation of computational efficiency
+## Resource Planning and Infrastructure
 
-**October-December: Preparation for Cognitive Plausibility Validation**
+Computational resources include secured GPU cluster access through department allocation for large-scale experiments. Data licensing agreements established for Common Voice [@parcollet2024] and other gated datasets. Software infrastructure includes Montreal Forced Aligner [@mcauliffe2017] for phonetic alignment, Kaldi toolkit for acoustic modeling, PyTorch for neural network implementation, and Hugging Face libraries for pretrained models. Planned research visits to affiliated laboratories provide specialized training and collaboration opportunities.
 
-- Experimental design for RQ3 (Cognitive Plausibility)
-- Building developmental simulation environment using CHILDES corpus
-- Preparation for collaboration with psycholinguistic experiments
+## Expected Outcomes and Deliverables
 
-**January-March: Integrated Evaluation and Theoretical Considerations**
+The completed dissertation will comprise 250-300 pages organized into 8 chapters: introduction, literature review, methodology, three empirical studies, general discussion, and conclusion. Publications target high-impact venues in computational linguistics, speech processing, and machine learning. Open-source release of developed tools and models ensures broader research community impact. The research aims to establish new benchmarks for phonological representation learning and provide practical improvements for speech technology applications.
 
-- Integrated analysis of three RQs
-- Clarification of theoretical contributions forming the core of the doctoral thesis
-- Research presentation at top-tier international conferences
-
-### Year 3 (Integration and Completion Period: April 2027 - March 2028)
-
-**April-June: Cognitive Plausibility Experiments and Applied Research**
-
-- Comparative validation with human language acquisition patterns
-- Consideration of practical applications (speech recognition, language learning support)
-- Evaluation of social significance of research outcomes
-
-**July-September: Doctoral Thesis Writing (First Half)**
-
-- Writing introduction, literature review, and methodology chapters
-- Detailed analysis of experimental results and figure/table creation
-- Regular progress checks with supervisor
-
-**October-December: Doctoral Thesis Writing (Second Half)**
-
-- Writing results, discussion, and conclusion chapters
-- Integrated discussion of theoretical contributions and practical significance
-- Ensuring overall thesis consistency and revision
-
-**January-March: Final Adjustments and Submission Preparation**
-
-- Final proofreading and bibliography organization of doctoral thesis
-- Preparation for oral examination and research outcome summary
-- Doctoral thesis submission and degree acquisition procedures
-
-## Thesis Structure Plan
-
-### Anticipated Chapter Structure (Approximately 200 pages)
-
-**Chapter 1: Introduction (≈25 pages)**
-
-- Research background and problem awareness
-- Research objectives and significance
-- Thesis structure and contributions
-
-**Chapter 2: Literature Review and Theoretical Background (≈40 pages)**
-
-- Historical development of computational phonology
-- Self-supervised learning and phonological representations
-- Theory of neuro-symbolic integration
-
-**Chapter 3: Research Methodology (≈30 pages)**
-
-- Multi-dimensional definition of "optimality"
-- Experimental design and datasets
-- Evaluation metrics and statistical methods
-
-**Chapter 4: Empirical Landscape Elucidation (≈35 pages)**
-
-- RQ1 experimental results and analysis
-- Performance comparison between representational units
-- Evaluation of computational efficiency
-
-**Chapter 5: Neuro-symbolic Integration (≈40 pages)**
-
-- Design and implementation of hybrid models
-- RQ2 experimental results and theoretical considerations
-- Trade-offs between interpretability and predictive accuracy
-
-**Chapter 6: Cognitive Plausibility Validation (≈30 pages)**
-
-- RQ3 developmental simulation experiments
-- Comparison with human language acquisition patterns
-- Evaluation of cognitive plausibility
-
-**Chapter 7: General Discussion and Future Prospects (≈20 pages)**
-
-- Integrated evaluation of research outcomes
-- Summary of theoretical and practical contributions
-- Future research directions
-
-## Considerations for Research Implementation
-
-### Quality Management System
-
-- Monthly supervisor meetings for progress management
-- Regular interim presentations at laboratory seminars
-- External evaluation through active submission to international conferences and academic journals
-- Interdisciplinary discussions with researchers from other fields
-
-### Risk Management and Alternative Plans
-
-**Technical Risks**: Utilizing cloud computing and incremental experimental design to address computational resource shortages
-
-**Data Risks**: Securing multiple alternative data sources in case of difficulty accessing primary datasets
-
-**Theoretical Risks**: Pursuing theoretical contributions through individual approaches in parallel, in case of poor hybrid model performance
-
-### Building International Research Networks
-
-- Promoting collaborative research with overseas research institutions
-- Active research presentation and networking at international conferences
-- Qualitative improvement of research through discussions with renowned researchers
-
-Following this writing plan, I aim to establish a new paradigm in computational phonology for the deep learning era and complete an academically and socially significant doctoral thesis.
+# References
