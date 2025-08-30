@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sora Nagano">
+
+<title>Comprehensive Annotated Bibliography: Deep Learning Era Phonological Features</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="list_of_references_files/libs/clipboard/clipboard.min.js"></script>
+<script src="list_of_references_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="list_of_references_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="list_of_references_files/libs/quarto-html/popper.min.js"></script>
+<script src="list_of_references_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="list_of_references_files/libs/quarto-html/anchor.min.js"></script>
+<link href="list_of_references_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="list_of_references_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="list_of_references_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="list_of_references_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="list_of_references_files/libs/bootstrap/bootstrap-7f0ba2f96fa9c51acdae2b4382975615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#core-theoretical-foundations" id="toc-core-theoretical-foundations" class="nav-link active" data-scroll-target="#core-theoretical-foundations"><span class="header-section-number">1</span> Core Theoretical Foundations</a></li>
+  <li><a href="#self-supervised-learning-in-speech" id="toc-self-supervised-learning-in-speech" class="nav-link" data-scroll-target="#self-supervised-learning-in-speech"><span class="header-section-number">2</span> Self-Supervised Learning in Speech</a></li>
+  <li><a href="#vector-quantization-and-discrete-representations" id="toc-vector-quantization-and-discrete-representations" class="nav-link" data-scroll-target="#vector-quantization-and-discrete-representations"><span class="header-section-number">3</span> Vector Quantization and Discrete Representations</a></li>
+  <li><a href="#computational-phonology" id="toc-computational-phonology" class="nav-link" data-scroll-target="#computational-phonology"><span class="header-section-number">4</span> Computational Phonology</a></li>
+  <li><a href="#neuro-symbolic-integration" id="toc-neuro-symbolic-integration" class="nav-link" data-scroll-target="#neuro-symbolic-integration"><span class="header-section-number">5</span> Neuro-Symbolic Integration</a></li>
+  <li><a href="#phonological-representation-analysis" id="toc-phonological-representation-analysis" class="nav-link" data-scroll-target="#phonological-representation-analysis"><span class="header-section-number">6</span> Phonological Representation Analysis</a></li>
+  <li><a href="#evaluation-methodologies-and-benchmarks" id="toc-evaluation-methodologies-and-benchmarks" class="nav-link" data-scroll-target="#evaluation-methodologies-and-benchmarks"><span class="header-section-number">7</span> Evaluation Methodologies and Benchmarks</a></li>
+  <li><a href="#recent-advances-and-applications" id="toc-recent-advances-and-applications" class="nav-link" data-scroll-target="#recent-advances-and-applications"><span class="header-section-number">8</span> Recent Advances and Applications</a></li>
+  <li><a href="#cross-linguistic-and-typological-studies" id="toc-cross-linguistic-and-typological-studies" class="nav-link" data-scroll-target="#cross-linguistic-and-typological-studies"><span class="header-section-number">9</span> Cross-linguistic and Typological Studies</a></li>
+  <li><a href="#language-acquisition-and-cognitive-modeling" id="toc-language-acquisition-and-cognitive-modeling" class="nav-link" data-scroll-target="#language-acquisition-and-cognitive-modeling"><span class="header-section-number">10</span> Language Acquisition and Cognitive Modeling</a></li>
+  <li><a href="#additional-foundational-references" id="toc-additional-foundational-references" class="nav-link" data-scroll-target="#additional-foundational-references"><span class="header-section-number">11</span> Additional Foundational References</a></li>
+  <li><a href="#pdf-based-additional-references" id="toc-pdf-based-additional-references" class="nav-link" data-scroll-target="#pdf-based-additional-references"><span class="header-section-number">12</span> PDF-Based Additional References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">13</span> References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="list_of_references.pdf"><i class="bi bi-file-pdf"></i>PDF (arxiv)</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Comprehensive Annotated Bibliography: Deep Learning Era Phonological Features</h1>
+<p class="subtitle lead">Phonological Features in the Era of Deep Learning: A Multi-dimensional Investigation into Optimal Representational Units for Language Modeling</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Sora Nagano <a href="mailto:s-oswld-n@g.ecc.u-tokyo.ac.jp" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            The University of Tokyo
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="core-theoretical-foundations" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Core Theoretical Foundations</h1>
+<p><span class="citation" data-cites="chomsky1968sound">Chomsky &amp; Halle (<a href="#ref-chomsky1968sound" role="doc-biblioref">1968</a>)</span><br>
+<strong>The Sound Pattern of English</strong><br>
+Foundational work establishing generative phonology theoretical basis with approximately 20 binary distinctive features for systematic world language phonological phenomena description. Introduces SPE-style rules (A→B / [context_context]) enabling formal phonological derivation. Provides theoretical foundation for modern computational phonology and deep learning phonological feature representation, serving as starting point for contemporary computational phonological research.</p>
+<p><span class="citation" data-cites="prince2004Optimality">Prince &amp; Smolensky (<a href="#ref-prince2004Optimality" role="doc-biblioref">2004</a>)</span><br>
+<strong>Optimality Theory: Constraint Interaction in Generative Grammar</strong><br>
+Revolutionary constraint-based phonological theory proposing phonological grammars through constraint interaction. Three-component framework: Generator (Gen), Constraints (Con), Evaluator (Eval) explaining typological variation through universal constraint language-specific ranking. Provides theoretical foundation for constraint-based deep learning models and neural architecture constraint integration guidelines through weighted constraint systems.</p>
+<p><span class="citation" data-cites="goldsmith1976Autosegmental">Goldsmith (<a href="#ref-goldsmith1976Autosegmental" role="doc-biblioref">1976</a>)</span><br>
+<strong>Autosegmental Phonology</strong><br>
+Revolutionary multi-tier phonological representation theory where different features exist on independent parallel tiers connected by association lines, explaining suprasegmental phenomena. Introduces autosegmental and association line concepts demonstrating phonological representation complexity beyond linear sequences. Provides theoretical foundation for hierarchical representation learning in multi-layer neural architectures and parallel information processing streams.</p>
+<p><span class="citation" data-cites="clements1985geometry">Clements (<a href="#ref-clements1985geometry" role="doc-biblioref">1985</a>)</span><br>
+<strong>The Geometry of Phonological Features</strong><br>
+Establishes hierarchical organization theory of distinctive features through feature geometry, organizing features under class nodes sharing dependencies. Groups features under organizing nodes (Place, Laryngeal, Manner) defining natural classes and constraining possible processes. Provides theoretical foundation for deep learning models hierarchical feature representation organization and modern neural phonological modeling fundamental principles.</p>
+</section>
+<section id="self-supervised-learning-in-speech" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Self-Supervised Learning in Speech</h1>
+<p><span class="citation" data-cites="baevski2020wav2vec">Baevski et al. (<a href="#ref-baevski2020wav2vec" role="doc-biblioref">2020</a>)</span><br>
+<strong>wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations</strong><br>
+Landmark work introducing contrastive learning and masked language modeling fusion demonstrating self-supervised speech representation learning superiority with minimal labeled data. LibriSpeech experiments show 1-hour labeled data achieving equivalent performance to traditional 100-hour approaches. Revolutionizes speech recognition paradigm with 4,500+ citations driving research acceleration and practical low-resource language applications through quantization and masking innovations.</p>
+<p><span class="citation" data-cites="hsu2021HuBERT">Hsu et al. (<a href="#ref-hsu2021HuBERT" role="doc-biblioref">2021</a>)</span><br>
+<strong>HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units</strong><br>
+Hidden-Unit BERT addressing speech-specific SSL challenges including multiple acoustic units, vocabulary-free pretraining, variable-length units through offline clustering aligned target provision methodology. Achieves wav2vec 2.0 equivalent or superior performance across LibriSpeech benchmarks. 1B parameter model achieves maximum 19% and 13% relative WER reduction demonstrating methodological advancement in SSL.</p>
+<p><span class="citation" data-cites="chen2022WavLM">S. Chen et al. (<a href="#ref-chen2022WavLM" role="doc-biblioref">2022</a>)</span><br>
+<strong>WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing</strong><br>
+Framework extension through 94,000-hour training achieving universal representation for full stack speech processing. Masked speech prediction and denoising joint learning enables multi-faceted information modeling including speaker, paralinguistic, and content information. Achieves state-of-the-art performance on SUPERB benchmark serving as Microsoft speech processing systems foundation model with practical deployment.</p>
+<p><span class="citation" data-cites="mohamed2022SelfSupervised">Mohamed et al. (<a href="#ref-mohamed2022SelfSupervised" role="doc-biblioref">2022</a>)</span><br>
+<strong>Self-Supervised Speech Representation Learning: A Review</strong><br>
+Comprehensive field integration providing systematic taxonomy of generative, contrastive, predictive methods with multimodal extensions and evaluation methodologies for rapid field development integration. Covers architectural choices, training objectives, evaluation protocols across phonetic discrimination, word segmentation, downstream tasks. Identifies key challenges including efficiency, multilingual learning, interpretability establishing methodological research foundations.</p>
+</section>
+<section id="vector-quantization-and-discrete-representations" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Vector Quantization and Discrete Representations</h1>
+<p><span class="citation" data-cites="vandenoord2017Neural">van den Oord et al. (<a href="#ref-vandenoord2017Neural" role="doc-biblioref">2017</a>)</span><br>
+<strong>Neural Discrete Representation Learning</strong><br>
+Seminal Vector Quantized-VAE introduction enabling discrete latent models achieving continuous equivalent performance. Speech experiments demonstrate 64x compression achieving 49.3% phoneme classification accuracy versus 7.2% random baseline. Establishes discrete speech representation foundation demonstrating phonological feature computational implementation feasibility through straight-through estimator and commitment loss technical innovations.</p>
+<p><span class="citation" data-cites="zhang2024SpeechTokenizer">Zhang et al. (<a href="#ref-zhang2024SpeechTokenizer" role="doc-biblioref">2024</a>)</span><br>
+<strong>SpeechTokenizer: Unified Speech Tokenizer for Speech Language Models</strong><br>
+Unified semantic-acoustic token framework through hierarchical information disentanglement within single architecture. First layer captures content with HuBERT guidance while subsequent layers encode paralinguistic details via RVQ implementation. Achieves superior content preservation (WER 5.04 vs EnCodec 5.11) and perceptual quality (MUSHRA 90.55 vs 79.86) with zero-shot TTS surpassing VALL-E performance.</p>
+<p><span class="citation" data-cites="chang2024Interspeech">Chang et al. (<a href="#ref-chang2024Interspeech" role="doc-biblioref">2024</a>)</span><br>
+<strong>The Interspeech 2024 Challenge on Speech Processing Using Discrete Units</strong><br>
+Comprehensive evaluation framework establishment for discrete speech units across ASR, TTS, SVS tasks with 40+ submission systematic comparison. Introduces standardized evaluation protocols including bitrate calculation and multi-task effectiveness measurement. Finds SSL-based units outperform codec-based units for linguistic tasks while codecs preserve acoustic details, providing critical guidance for discretization strategy selection.</p>
+<p><span class="citation" data-cites="higy2021Discrete">Higy et al. (<a href="#ref-higy2021Discrete" role="doc-biblioref">2021</a>)</span><br>
+<strong>Discrete Representations in Neural Models of Spoken Language</strong><br>
+Critical analysis of discrete speech representation evaluation through four-indicator systematic comparison emphasizing evaluation methodology selection potential bias identification. Demonstrates systematic evaluation approach importance for discrete representation quality assessment revealing indicator selection influences conclusions. Provides methodological guidelines for evaluation precision enhancement and bias mitigation in representation comparison studies.</p>
+</section>
+<section id="computational-phonology" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Computational Phonology</h1>
+<p><span class="citation" data-cites="hayes2008Maximum">Hayes &amp; Wilson (<a href="#ref-hayes2008Maximum" role="doc-biblioref">2008</a>)</span><br>
+<strong>A Maximum Entropy Model of Phonotactics and Phonotactic Learning</strong><br>
+Revolutionary Maximum Entropy framework for phonotactic constraint learning from positive data achieving high correlation (r=.946) with human acceptability judgments. Introduces automatic constraint induction algorithm discovering relevant generalizations without manual specification, successfully capturing gradient well-formedness intuitions. Provides principled probabilistic interpretation enabling neural parameterization while maintaining interpretability through statistical-theoretical integration.</p>
+<p><span class="citation" data-cites="tesar1998Learnability">B. Tesar &amp; Smolensky (<a href="#ref-tesar1998Learnability" role="doc-biblioref">1998</a>)</span><br>
+<strong>Learnability and the Optimality Hierarchy</strong><br>
+Foundational computational learning theory establishing Optimality Theory grammar constraint ranking learnability from positive data with polynomial-time convergence proofs. Introduces Recursive Constraint Demotion algorithm iteratively demoting violated constraints below satisfied ones addressing Credit Problem through Minimal Violation principle. Provides crucial baselines for comparing symbolic and neural learning approaches in phonological acquisition.</p>
+<p><span class="citation" data-cites="mayer2021Capturing">Mayer (<a href="#ref-mayer2021Capturing" role="doc-biblioref">2021</a>)</span><br>
+<strong>Capturing Gradience in Phonology through Corpus-based Evidence</strong><br>
+Formal extension through probabilistic Tier-based Strictly Local (pTSL) grammars enabling stepwise phenomena partial regular language expansion. Comprehensive corpus-based evidence demonstrating long-distance phonological dependencies are gradient rather than categorical with continuous probability distributions. Bridges symbolic phonology with statistical learning approaches through information-theoretic dependency strength measurement.</p>
+<p><span class="citation" data-cites="jarosz2019Computational">Jarosz (<a href="#ref-jarosz2019Computational" role="doc-biblioref">2019</a>)</span><br>
+<strong>Computational Models of Learning and Processing in Phonology</strong><br>
+Comprehensive computational phonology learning research integration spanning decades of development forming current research directions. Reviews symbolic and statistical approaches discussing hidden structure problems, ambiguous data challenges, bias-variance tradeoffs comparing different algorithms and representations. Emphasizes developmental trajectories and cognitive constraints providing unified framework for understanding diverse computational approaches.</p>
+</section>
+<section id="neuro-symbolic-integration" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Neuro-Symbolic Integration</h1>
+<p><span class="citation" data-cites="begus2020Generative">Beguš (<a href="#ref-begus2020Generative" role="doc-biblioref">2020</a>)</span><br>
+<strong>Generative Adversarial Phonology: Modeling Unsupervised Phonetic and Phonological Learning with Neural Networks</strong><br>
+Revolutionary GAN application to phonological learning demonstrating unsupervised acoustic data learning without explicit symbolic supervision. Successfully learns allophone distribution patterns including pre-vocalic aspiration of voiceless stops suggesting statistical-theoretical integration possibility. Generator develops context-appropriate production through adversarial training arguing phonological knowledge emerges from production-perception tension naturally occurring in neural architectures.</p>
+<p><span class="citation" data-cites="davilagarcez2009Neuralsymbolic">d’Avila Garcez et al. (<a href="#ref-davilagarcez2009Neuralsymbolic" role="doc-biblioref">2009</a>)</span><br>
+<strong>Neural-Symbolic Cognitive Reasoning</strong><br>
+Comprehensive theoretical and practical foundations for neural-symbolic integration providing mathematical and theoretical basis for symbolic reasoning and neural computation unification. Presents multiple paradigms including knowledge compilation, extraction, hybrid dynamic interaction covering differentiable logic, graph neural networks, neurosymbolic program synthesis. Provides architectural principles directly informing phonological modeling applications.</p>
+<p><span class="citation" data-cites="panchendrarajan2024Synergizing">Panchendrarajan &amp; Zubiaga (<a href="#ref-panchendrarajan2024Synergizing" role="doc-biblioref">2024</a>)</span><br>
+<strong>Synergizing Machine Learning and Symbolic Methods: A Comprehensive Survey</strong><br>
+Systematic survey examining NLP hybrid method success patterns through 200+ paper analysis providing comprehensive integration framework. Finds integrated approaches with differentiably embedded logical constraints most promising while identifying common failure modes and scalability issues. Guides integration strategy for phonological knowledge and neural learning systematic combination through differentiation-maintaining constraint compilation.</p>
+<p><span class="citation" data-cites="hamilton2024NeuroSymbolic">Hamilton et al. (<a href="#ref-hamilton2024NeuroSymbolic" role="doc-biblioref">2024</a>)</span><br>
+<strong>Is Neuro-Symbolic AI Meeting Its Promise in Natural Language Processing? A Structured Review</strong><br>
+Critical systematic evaluation examining neuro-symbolic integration success across 200+ NLP papers categorizing approaches and analyzing promise-achievement gaps. Finds integrated methods with differentiable logical constraints most promising while identifying common failure modes including optimization difficulties and scalability issues. Provides realistic assessment guiding integration strategy with evidence-based recommendations for theoretical claims versus practical achievements.</p>
+</section>
+<section id="phonological-representation-analysis" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Phonological Representation Analysis</h1>
+<p><span class="citation" data-cites="mikolov2013Distributed">Mikolov et al. (<a href="#ref-mikolov2013Distributed" role="doc-biblioref">2013</a>)</span><br>
+<strong>Distributed Representations of Words and Phrases and their Compositionality</strong><br>
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S. &amp; Dean, J. (2013)</p>
+<p>Improved Skip-gram model learning high-quality distributed vector representations capturing precise syntactic and semantic relationships. Introduces frequent word subsampling and negative sampling achieving speedup and quality enhancement. Demonstrates novel phrasal representation methods and additive compositionality with examples like vec(“French”) + vec(“actress”) ≈ vec(“Juliette Binoche”). Foundation for distributed representation revolution in modern NLP and deep learning with profound impact on phonological embedding approaches.</p>
+<p><span class="citation" data-cites="silfverberg2018Sound">Silfverberg et al. (<a href="#ref-silfverberg2018Sound" role="doc-biblioref">2018</a>)</span><br>
+<strong>Sound Analogies with Phoneme Embeddings</strong><br>
+Demonstrates distributed phoneme embeddings learned from text encode systematic phonological relationships enabling analogical reasoning without explicit supervision. Vector arithmetic captures phonological alternations with voicing and place relationships emerging systematically. Successfully predicts held-out alternations and enables cross-linguistic transfer showing phonological structure emergence more clearly from phoneme than orthographic sequences.</p>
+<p><span class="citation" data-cites="kolachina2019What">Kolachina &amp; Magyar (<a href="#ref-kolachina2019What" role="doc-biblioref">2019</a>)</span><br>
+<strong>What Do Phone Embeddings Learn about Phonology?</strong><br>
+Systematic analysis revealing neural phonological learning differential capabilities through vowel harmony learning success versus consonant constraint learning failure discovery. Probing study investigates phonological knowledge encoded in phone embeddings across tasks and architectures finding contextual embeddings capture allophonic variation while static embeddings capture phonemic categories with feature-based distance correlations.</p>
+<p><span class="citation" data-cites="venkateswaran2025Probing">Venkateswaran et al. (<a href="#ref-venkateswaran2025Probing" role="doc-biblioref">2025</a>)</span><br>
+<strong>Probing for Phonology in Self-Supervised Speech Representations: A Case Study on Accent Perception</strong><br>
+Sociolinguistic application demonstrating neural representation capability in capturing phonological variation and accent cognition relationships through systematic accent-conditioned process modeling. Tests social linguistic variation encoding revealing models capture systematic pronunciation differences across dialect groups. Provides benchmarks for evaluating sociolinguistic phonological knowledge in contemporary speech processing systems.</p>
+<p><span class="citation" data-cites="astrach2025Probing">Astrach &amp; Pinter (<a href="#ref-astrach2025Probing" role="doc-biblioref">2025</a>)</span><br>
+<strong>Probing Subphonemes in Morphology Models</strong><br>
+Architectural insights revealing local phonological features (embedding layer) versus long-distance dependencies (encoder layer) differential representation through hierarchical phonological information encoding investigation. Probing methodology tests articulatory and acoustic features in neural representations finding models capture fine-grained phonetic detail relevant for morphophonological processes with visualization techniques for representation analysis.</p>
+<p><span class="citation" data-cites="maaten2008Visualizing">Maaten &amp; Hinton (<a href="#ref-maaten2008Visualizing" role="doc-biblioref">2008</a>)</span><br>
+<strong>Visualizing Data using t-SNE</strong><br>
+van der Maaten, L. &amp; Hinton, G. (2008)</p>
+<p>Introduces t-SNE technique visualizing high-dimensional data by assigning each datapoint a location in two or three-dimensional maps. Improves upon Stochastic Neighbor Embedding (SNE) reducing tendency to crowd points together in center while revealing structure at multiple scales. Functions as crucial visualization tool for phonological representation analysis and neural network internal state interpretation enabling researchers to understand learned feature organization and clustering patterns.</p>
+</section>
+<section id="evaluation-methodologies-and-benchmarks" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Evaluation Methodologies and Benchmarks</h1>
+<p><span class="citation" data-cites="ardila2020Common">Ardila et al. (<a href="#ref-ardila2020Common" role="doc-biblioref">2020</a>)</span><br>
+<strong>Common Voice: A Massively-Multilingual Speech Corpus</strong><br>
+Ardila, R. et al.&nbsp;(2020)</p>
+<p>Massive multilingual speech dataset aggregating 2,500 hours of audio from 50,000+ contributors through crowdsourcing data collection and validation. Establishes largest public domain speech recognition corpus with 29 languages demonstrating Mozilla DeepSpeech average 5.99% Character Error Rate improvement across 12 languages. Functions as foundational database for multilingual speech technology research and low-resource language development with demographic metadata enhancing recognition system accuracy.</p>
+<p><span class="citation" data-cites="panayotov2015Librispeech">Panayotov et al. (<a href="#ref-panayotov2015Librispeech" role="doc-biblioref">2015</a>)</span><br>
+<strong>LibriSpeech: An ASR Corpus Based on Public Domain Audio Books</strong><br>
+Large-scale ASR corpus establishing de facto standard for English speech recognition evaluation with 4,770+ citations providing consistent performance comparison foundation. Contains 1000 hours read English audiobooks with carefully designed train/dev/test splits avoiding speaker overlap. Provides clean and other conditions with varying acoustic quality enabling fair comparison across representation learning approaches.</p>
+<p><span class="citation" data-cites="mcauliffe2017Montreal">McAuliffe et al. (<a href="#ref-mcauliffe2017Montreal" role="doc-biblioref">2017</a>)</span><br>
+<strong>Montreal Forced Aligner: Trainable Text-Speech Alignment Using Kaldi</strong><br>
+Essential infrastructure enabling large-scale corpus phonological research through trainable text-speech alignment system using Kaldi toolkit with speaker adaptation. Provides pretrained models for 50+ languages achieving accuracy within 20ms of manual annotations. Enables theory-empirical bridging through automated phonetically annotated corpora creation for detailed phonetic evaluation and research applications.</p>
+<p><span class="citation" data-cites="belinkov2019Analysis">Belinkov &amp; Glass (<a href="#ref-belinkov2019Analysis" role="doc-biblioref">2019</a>)</span><br>
+<strong>Analysis Methods in Neural Language Processing: A Survey</strong><br>
+Comprehensive systematization of neural language processing analysis methods providing interpretability research foundation establishment. Categorizes approaches into visualization, diagnostic probing, adversarial evaluation, behavioral analysis discussing probe complexity, significance testing, correlation versus causation problems. Establishes best practices for analyzing phonological representations in neural models with implementation guidelines and limitation discussions.</p>
+<p><span class="citation" data-cites="conneau2020Unsupervised">Conneau et al. (<a href="#ref-conneau2020Unsupervised" role="doc-biblioref">2020</a>)</span><br>
+<strong>Unsupervised Cross-lingual Representation Learning for Speech Recognition</strong><br>
+Introduces XLSR scaling wav2vec 2.0 to 53 languages covering diverse phonological systems demonstrating multilingual pretraining improves even high-resource language performance. Reveals learned representations capture universal phonetic features while maintaining language-specific information. Shows successful zero-shot transfer to unseen languages providing framework and baselines for cross-linguistic evaluation enabling phonological universals investigation.</p>
+</section>
+<section id="recent-advances-and-applications" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Recent Advances and Applications</h1>
+<p><span class="citation" data-cites="yang2025k2SSL">Yang et al. (<a href="#ref-yang2025k2SSL" role="doc-biblioref">2025</a>)</span><br>
+<strong>k2SSL: A Faster and Better Framework for Self-Supervised Speech Representation Learning</strong><br>
+Revolutionary efficiency innovation introducing highly optimized SSL framework achieving 34.8% WER reduction with 3.5x training acceleration through Zipformer architecture U-Net style downsampling. Additional optimizations include ScaledAdam, progressive training, improved augmentation demonstrating efficiency-performance compatibility. Shows architectural innovations improve phonological learning while reducing computational requirements challenging traditional efficiency-quality tradeoffs.</p>
+<p><span class="citation" data-cites="cho2025Sylber">Cho et al. (<a href="#ref-cho2025Sylber" role="doc-biblioref">2025</a>)</span><br>
+<strong>Sylber: Syllabic Embedding Representation of Speech from Raw Audio</strong><br>
+Revolutionary tokenization innovation introducing syllable granularity dynamic tokenization achieving 4.27 tokens/second performance representing 6-7x improvement over traditional approaches. Demonstrates linguistically motivated tokenization effectiveness through intermediate granularity optimization between phones and words. Shows syllable-level discretization advantages for downstream tasks requiring prosodic information with efficiency gains.</p>
+</section>
+<section id="cross-linguistic-and-typological-studies" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Cross-linguistic and Typological Studies</h1>
+<p><span class="citation" data-cites="moran2019Phoible">Moran &amp; McCloy (<a href="#ref-moran2019Phoible" role="doc-biblioref">2019</a>)</span><br>
+<strong>PHOIBLE: A Large-Scale Database of Phonological Inventories</strong><br>
+Comprehensive phonological database aggregating 2,186 language 3,020 phonological inventories representing world’s largest systematic collection. Includes segment lists with IPA transcriptions, distinctive features, prosodic information covering all language families enabling typological generalizations about universals and variation. Reveals statistical tendencies and implicational relationships for testing whether learned representations capture cross-linguistic phonological universals.</p>
+<p><span class="citation" data-cites="mortensen2016PanPhon">Mortensen et al. (<a href="#ref-mortensen2016PanPhon" role="doc-biblioref">2016</a>)</span><br>
+<strong>PanPhon: A Resource for Mapping IPA Segments to Articulatory Feature Vectors</strong><br>
+Comprehensive database mapping 5,000+ IPA segments to 21 articulatory feature vectors combining binary features with gradient phonetic properties. Enables categorical and continuous representations including algorithms for feature inference and segment distance calculation with high linguist judgment agreement validation. Provides ground-truth for evaluating whether neural models discover articulatory structure naturally.</p>
+<p><span class="citation" data-cites="dunbar2019Zero">Dunbar et al. (<a href="#ref-dunbar2019Zero" role="doc-biblioref">2019</a>)</span><br>
+<strong>The Zero Resource Speech Challenge 2019: TTS without T</strong><br>
+Zero Resource Challenge evaluating unsupervised linguistic unit discovery from raw speech without text using TTS as downstream task assessing representation quality. Includes typologically diverse languages testing universality combining objective metrics with subjective naturalness assessment. Shows different systems discover different granularities providing evidence about units emerging from unsupervised learning across language families.</p>
+<p><span class="citation" data-cites="parcollet2024LeBenchmark">Parcollet et al. (<a href="#ref-parcollet2024LeBenchmark" role="doc-biblioref">2024</a>)</span><br>
+<strong>LeBenchmark 2.0: A Standardized, Replicable and Enhanced Framework for Self-Supervised Representations of French Speech</strong><br>
+Comprehensive evaluation framework for French speech processing including detailed phonetic tasks providing standardized benchmarks, pretrained models, and evaluation protocols. Covers diverse tasks from phoneme recognition to semantic understanding enabling systematic comparison across architectures and training approaches. Demonstrates language-specific evaluation importance beyond English establishing evaluation standards for non-English speech representation learning.</p>
+</section>
+<section id="language-acquisition-and-cognitive-modeling" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Language Acquisition and Cognitive Modeling</h1>
+<p><span class="citation" data-cites="matusevych2020Evaluating">Matusevych et al. (<a href="#ref-matusevych2020Evaluating" role="doc-biblioref">2020</a>)</span><br>
+<strong>Evaluating Computational Models of Infant Phonetic Learning across Languages</strong><br>
+Evaluates five computational models of infant phonetic learning across three cross-linguistic phonetic contrasts (English [ɹ]-[l], Mandarin [tɕ]-[tɕʰ], Catalan [e]-[ɛ]) using ABX discrimination tasks. Two models—DPGMM (unsupervised frame-level clustering) and CAE-RNN (weakly supervised sequence learning)—successfully predicted infant-like discrimination patterns for English and Mandarin contrasts, demonstrating that unsupervised learning from natural speech can capture early phonetic development patterns.</p>
+<!-- @schatz2021  
+**Early phonetic learning without phonetic categories: Insights from large-scale simulations on realistic input**  
+Schatz, T., Feldman, N. H., Goldwater, S., Cao, X.-N. & Dupoux, E. (2021)
+
+Introduces mechanism-driven approach to infant phonological learning challenging traditional theories through distributional learning computational framework. Large-scale simulations using Gaussian mixture models on English and Japanese infant data demonstrate distributional learning can predict observed infant behavior. However, reveals learned units are too brief and fine-grained acoustically to correspond to phonetic categories, suggesting infants learn different representations than traditional phonetic categories. Provides novel realistic large-scale modeling methodology for cognitive science. -->
+<p><span class="citation" data-cites="macwhinney2000CHILDES">Macwhinney (<a href="#ref-macwhinney2000CHILDES" role="doc-biblioref">2000</a>)</span><br>
+<strong>The CHILDES Project: Tools for Analyzing Talk</strong><br>
+Comprehensive Child Language Data Exchange System containing 50+ million transcribed conversation words across 30+ languages. Details CHAT transcription format encoding phonetic details, gestures, context with CLAN analysis tools for automated phonological development analysis. Captures gradual development from babbling through complex phonology providing ecologically valid training data for computational acquisition model evaluation.</p>
+<p><span class="citation" data-cites="dupoux2018Cognitive">Dupoux (<a href="#ref-dupoux2018Cognitive" role="doc-biblioref">2018</a>)</span><br>
+<strong>Cognitive Science in the Era of Artificial Intelligence: A Roadmap for Reverse-Engineering the Infant Language-Learner</strong><br>
+Articulates research program using AI systems as human cognitive development models focusing on language acquisition with evaluation based on learning trajectories, error patterns, critical periods. Outlines key phenomena including categorical perception emergence and perceptual narrowing introducing cognitive benchmark approach assessing human-like behavior across developmental stages. Essential framework for evaluating cognitive plausibility in phonological learning models.</p>
+<p><span class="citation" data-cites="nguyen2020Zero">T. A. Nguyen et al. (<a href="#ref-nguyen2020Zero" role="doc-biblioref">2020</a>)</span><br>
+<strong>The Zero Resource Speech Benchmark 2021: Metrics and Baselines for Unsupervised Spoken Language Modeling</strong><br>
+Comprehensive evaluation metrics and baselines for unsupervised speech learning without transcriptions including ABX discrimination measuring phonemic contrast distinction, word segmentation boundary detection, syntactic/semantic probing. Provides dynamic time warping implementation and statistical methods for acoustic confound control revealing phonetic discrimination emerges early while word representations require extensive data.</p>
+<p><span class="citation" data-cites="cruzblandon2023Introducing">Cruz Blandón et al. (<a href="#ref-cruzblandon2023Introducing" role="doc-biblioref">2023</a>)</span><br>
+<strong>Introducing Meta-Analysis in the Evaluation of Computational Models of Infant Language Development</strong><br>
+Meta-analysis framework for evaluating computational infant language development models synthesizing findings across multiple studies identifying consistent patterns and contradictions. Proposes standardized evaluation protocols for model comparison emphasizing ecological validity and developmental trajectories. Provides statistical methods for aggregating results across heterogeneous studies identifying robust findings in computational language acquisition research.</p>
+<p><span class="citation" data-cites="benders2023Computational">Benders &amp; Blom (<a href="#ref-benders2023Computational" role="doc-biblioref">2023</a>)</span><br>
+<strong>Computational Modelling of Language Acquisition: An Introduction</strong><br>
+Introduction bridging theoretical language acquisition frameworks with implementation details covering different modeling paradigms from symbolic to neural approaches. Discusses challenges in modeling realistic input and developmental constraints reviewing evaluation methods comparing models with child data. Emphasizes cognitive plausibility importance beyond task performance for authentic developmental modeling applications.</p>
+<p><span class="citation" data-cites="mcmurray2023acquisition">McMurray (<a href="#ref-mcmurray2023acquisition" role="doc-biblioref">2023</a>)</span><br>
+<strong>The Acquisition of Speech Categories: Beyond Perceptual Narrowing, beyond Unsupervised Learning and beyond Infancy</strong><br>
+Critical analysis challenging traditional categorical perception views presenting evidence for gradient representations and continuous processing dynamics. Discusses computational model implications for speech perception and acquisition arguing against strict categorical boundaries favoring probabilistic representations. Provides behavioral benchmarks for evaluating model predictions about perceptual categorization in developmental phonological systems.</p>
+</section>
+<section id="additional-foundational-references" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Additional Foundational References</h1>
+<p><span class="citation" data-cites="tesar1995Computational">B. B. Tesar (<a href="#ref-tesar1995Computational" role="doc-biblioref">1995</a>)</span><br>
+<strong>Computational Optimality Theory</strong><br>
+Doctoral dissertation providing computational Optimality Theory implementation demonstrating constraint ranking learnability through Robust Interpretive Parsing handling hidden structure in learning. Develops Error-Driven Constraint Demotion algorithm with convergence proofs showing symbolic grammar learnability from data. Foundational for understanding computational OT approaches and establishing symbolic learning baselines.</p>
+<p><span class="citation" data-cites="silverman2012Neutralization">Silverman (<a href="#ref-silverman2012Neutralization" role="doc-biblioref">2012</a>)</span><br>
+<strong>Neutralization</strong><br>
+Comprehensive theoretical treatment examining neutralization phenomena phonological and phonetic aspects discussing complete versus incomplete neutralization with phonological theory implications. Provides cross-linguistic neutralization pattern typology addressing controversies about underlying representations and abstractness. Important for understanding categorical versus gradient phenomena in phonological representation systems.</p>
+<p><span class="citation" data-cites="staples2020Neural">Staples &amp; Graves (<a href="#ref-staples2020Neural" role="doc-biblioref">2020</a>)</span><br>
+<strong>Neural Components of Reading Revealed by Distributed and Symbolic Computational Models</strong><br>
+Acoustic and articulatory evidence for gradient allophonic variation challenging strict categorical views using ultrasound and acoustic analysis showing continuous variation in supposedly categorical processes. Demonstrates speaker-specific and context-dependent gradience arguing for probabilistic representations capturing variation. Supports representations spanning categorical to gradient spectrums in phonological processing.</p>
+<p><span class="citation" data-cites="nguyen2016Computational">D. Nguyen et al. (<a href="#ref-nguyen2016Computational" role="doc-biblioref">2016</a>)</span><br>
+<strong>Computational Sociolinguistics: A Survey</strong><br>
+Analyzes phonological variation, optionality, probability learning in acquisition and diachrony presenting computational variation learning models from ambiguous input. Shows how probabilistic patterns emerge from competing constraints discussing implications for phonological theory and acquisition. Bridges categorical grammar with probabilistic implementation through computational modeling approaches.</p>
+<p><span class="citation" data-cites="reubold2010Vocal">Reubold et al. (<a href="#ref-reubold2010Vocal" role="doc-biblioref">2010</a>)</span><br>
+<strong>Vocal Aging Effects on F0 and the First Formant: A Longitudinal Analysis in Adult Speakers</strong><br>
+Longitudinal study documenting vocal aging effects on fundamental frequency and formants with normalization implications for speech processing systems. Documents systematic acoustic parameter changes across lifespan discussing ASR speaker normalization challenges. Provides within-speaker variation over time data important for understanding speaker variability in representation learning and acoustic model development.</p>
+<p><span class="citation" data-cites="kazanina2018Phonemes">Kazanina et al. (<a href="#ref-kazanina2018Phonemes" role="doc-biblioref">2018</a>)</span><br>
+<strong>Phonemes: Lexical Access and Beyond</strong><br>
+Critical review examining phoneme concept from psychological, neuroscientific, computational perspectives discussing phoneme evidence in lexical access and speech perception. Reviews controversies about phonological unit psychological reality synthesizing findings from multiple methodologies. Provides balanced phoneme status view in cognitive systems informing computational phonological unit representation approaches.</p>
+<p><span class="citation" data-cites="tsvilodub2025Integrating">Tsvilodub et al. (<a href="#ref-tsvilodub2025Integrating" role="doc-biblioref">2025</a>)</span><br>
+<strong>Integrating Neural and Symbolic Components in a Model of Pragmatic Question-Answering</strong><br>
+Recent neural-symbolic integration advances for linguistic structure learning combining pattern recognition with reasoning through modular architectures separating perception from symbolic computation. Shows structured representation benefits for compositional generalization demonstrated in question-answering systems. Provides architectural blueprints for phonological applications requiring symbolic-neural integration.</p>
+<p><span class="citation" data-cites="medin2024SelfSupervised">Medin et al. (<a href="#ref-medin2024SelfSupervised" role="doc-biblioref">2024</a>)</span><br>
+<strong>Self-Supervised Models for Phoneme Recognition: Applications in Children’s Speech for Reading Learning</strong><br>
+Explores educational phonetic analysis applications for language learning and pronunciation training developing systems providing explicit pronunciation error feedback. Uses SSL models for detailed phonetic assessment showing interpretable representation benefits for pedagogical applications. Demonstrates phonologically-informed model practical value in educational technology and language instruction contexts.</p>
+<p><span class="citation" data-cites="pouw2024Perception">Pouw et al. (<a href="#ref-pouw2024Perception" role="doc-biblioref">2024</a>)</span><br>
+<strong>Perception of Phonological Assimilation by Neural Speech Recognition Models</strong><br>
+Analyzes allophonic variation patterns in spontaneous speech using large corpora and neural models testing whether models capture context-dependent variation similar to human productions. Examines gradience in supposedly categorical processes providing benchmarks for evaluating allophonic knowledge. Shows naturalistic data importance for realistic phonological variation modeling.</p>
+<p><span class="citation" data-cites="gosztolya2024Wav2vec">Gosztolya et al. (<a href="#ref-gosztolya2024Wav2vec" role="doc-biblioref">2024</a>)</span><br>
+<strong>Wav2vec 2.0 Embeddings Are No Swiss Army Knife—A Case Study for Multiple Sclerosis</strong><br>
+Analysis revealing SSL embedding limitations for specialized speech tasks like pathological speech assessment showing domain-specific features sometimes outperform general SSL representations. Identifies conditions where specialized representations necessary providing cautionary evidence about universal SSL applicability. Important for understanding representation limitations in specialized phonological analysis applications.</p>
+</section>
+<section id="pdf-based-additional-references" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> PDF-Based Additional References</h1>
+<p><span class="citation" data-cites="chen2023Exploring">J. Chen &amp; Elsner (<a href="#ref-chen2023Exploring" role="doc-biblioref">2023</a>)</span><br>
+<strong>Exploring How Generative Adversarial Networks Learn Phonological Representations</strong><br>
+Investigates ciwGAN phonological representation learning through nasality feature analysis in French and English vowels finding interactive effects between latent variables rather than one-to-one phonological feature correspondence. Shows GANs distinguish contrastive versus non-contrastive features across languages but learned representations differ from traditional linguistic phonological representations challenging claimed GAN advantages over other neural approaches.</p>
+<p><span class="citation" data-cites="guriel2023Morphological">Guriel et al. (<a href="#ref-guriel2023Morphological" role="doc-biblioref">2023</a>)</span><br>
+<strong>Morphological Inflection with Phonological Features</strong><br>
+Explores incorporating phonological features into morphological reinflection tasks using two methods: data manipulation replacing characters with phonological features and model manipulation adding self-attention layer for feature-aware representations. Tests eight shallow-orthography languages with LSTM and transducer models showing comparable performance to graphemic baselines suggesting character-level models already capture phonological information implicitly.</p>
+<p><span class="citation" data-cites="pasad2024What">Pasad et al. (<a href="#ref-pasad2024What" role="doc-biblioref">2024</a>)</span><br>
+<strong>What Do Self-Supervised Speech Models Know About Words?</strong><br>
+Comprehensive analysis of word-level linguistic properties in ten self-supervised speech models using canonical correlation analysis and task-based evaluations. Finds word-identifying information concentrates near segment centers, pre-training objectives influence layer-wise information distribution, and visually grounded models outperform speech-only counterparts on word discrimination, segmentation, and semantic similarity tasks.</p>
+<p><span class="citation" data-cites="pandian2025Hybrid">Pandian (<a href="#ref-pandian2025Hybrid" role="doc-biblioref">2025</a>)</span><br>
+<strong>Hybrid Symbolic-Neural Architectures for Explainable Artificial Intelligence in Decision-Critical Domains</strong><br>
+Proposes hybrid symbolic-neural architectures combining transparent symbolic reasoning with neural network learning capabilities for decision-critical applications including healthcare, legal compliance, and finance. Explores integration strategies including loosely coupled approaches (neural outputs feeding symbolic rules) and tightly coupled approaches (joint training) where interpretability and explainability are paramount for human trust and regulatory approval.</p>
+</section>
+<section id="references" class="level1 unnumbered" data-number="13">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">13 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-ardila2020Common" class="csl-entry" role="listitem">
+Ardila, R., Branson, M., Davis, K., Henretty, M., Kohler, M., Meyer, J., Morais, R., Saunders, L., Tyers, F. M., &amp; Weber, G. (2020). <em>Common voice: A massively-multilingual speech corpus</em> (arXiv:1912.06670). arXiv. <a href="https://doi.org/10.48550/arXiv.1912.06670">https://doi.org/10.48550/arXiv.1912.06670</a>
+</div>
+<div id="ref-astrach2025Probing" class="csl-entry" role="listitem">
+Astrach, G., &amp; Pinter, Y. (2025). <em>Probing subphonemes in morphology models</em> (arXiv:2505.11297). arXiv. <a href="https://doi.org/10.48550/arXiv.2505.11297">https://doi.org/10.48550/arXiv.2505.11297</a>
+</div>
+<div id="ref-baevski2020wav2vec" class="csl-entry" role="listitem">
+Baevski, A., Zhou, Y., Mohamed, A., &amp; Auli, M. (2020). Wav2vec 2.0: A framework for self-supervised learning of speech representations. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 12449–12460.
+</div>
+<div id="ref-begus2020Generative" class="csl-entry" role="listitem">
+Beguš, G. (2020). Generative adversarial phonology: Modeling unsupervised phonetic and phonological learning with neural networks. <em>Frontiers in Artificial Intelligence</em>, <em>3</em>. <a href="https://doi.org/10.3389/frai.2020.00044">https://doi.org/10.3389/frai.2020.00044</a>
+</div>
+<div id="ref-belinkov2019Analysis" class="csl-entry" role="listitem">
+Belinkov, Y., &amp; Glass, J. (2019). Analysis methods in neural language processing: A survey. <em>Transactions of the Association for Computational Linguistics</em>, <em>7</em>, 49–72. <a href="https://doi.org/10.1162/tacl_a_00254">https://doi.org/10.1162/tacl_a_00254</a>
+</div>
+<div id="ref-benders2023Computational" class="csl-entry" role="listitem">
+Benders, T., &amp; Blom, E. (2023). Computational modelling of language acquisition: An introduction. <em>Journal of Child Language</em>, <em>50</em>(6), 1287–1293. <a href="https://doi.org/10.1017/S0305000923000429">https://doi.org/10.1017/S0305000923000429</a>
+</div>
+<div id="ref-chang2024Interspeech" class="csl-entry" role="listitem">
+Chang, X., Shi, J., Tian, J., Wu, Y., Tang, Y., Wu, Y., Watanabe, S., Adi, Y., Chen, X., &amp; Jin, Q. (2024). <em>The interspeech 2024 challenge on speech processing using discrete units</em> (arXiv:2406.07725). arXiv. <a href="https://doi.org/10.48550/arXiv.2406.07725">https://doi.org/10.48550/arXiv.2406.07725</a>
+</div>
+<div id="ref-chen2023Exploring" class="csl-entry" role="listitem">
+Chen, J., &amp; Elsner, M. (2023). <em>Exploring how generative adversarial networks learn phonological representations</em> (arXiv:2305.12501). arXiv. <a href="https://doi.org/10.48550/arXiv.2305.12501">https://doi.org/10.48550/arXiv.2305.12501</a>
+</div>
+<div id="ref-chen2022WavLM" class="csl-entry" role="listitem">
+Chen, S., Wang, C., Chen, Z., Wu, Y., Liu, S., Chen, Z., Li, J., Kanda, N., Yoshioka, T., Xiao, X., Wu, J., Zhou, L., Ren, S., Qian, Y., Qian, Y., Wu, J., Zeng, M., Yu, X., &amp; Wei, F. (2022). WavLM: Large-scale self-supervised pre-training for full stack speech processing. <em>IEEE Journal of Selected Topics in Signal Processing</em>, <em>16</em>(6), 1505–1518. <a href="https://doi.org/10.1109/JSTSP.2022.3188113">https://doi.org/10.1109/JSTSP.2022.3188113</a>
+</div>
+<div id="ref-cho2025Sylber" class="csl-entry" role="listitem">
+Cho, C. J., Lee, N., Gupta, A., Agarwal, D., Chen, E., Black, A. W., &amp; Anumanchipalli, G. K. (2025). <em>Sylber: Syllabic embedding representation of speech from raw audio</em> (arXiv:2410.07168). arXiv. <a href="https://doi.org/10.48550/arXiv.2410.07168">https://doi.org/10.48550/arXiv.2410.07168</a>
+</div>
+<div id="ref-chomsky1968sound" class="csl-entry" role="listitem">
+Chomsky, N., &amp; Halle, M. (1968). <em>The sound pattern of english.</em>
+</div>
+<div id="ref-clements1985geometry" class="csl-entry" role="listitem">
+Clements, G. N. (1985). The geometry of phonological features. <em>Phonology</em>, <em>2</em>, 225–252.
+</div>
+<div id="ref-conneau2020Unsupervised" class="csl-entry" role="listitem">
+Conneau, A., Baevski, A., Collobert, R., Mohamed, A., &amp; Auli, M. (2020). <em>Unsupervised cross-lingual representation learning for speech recognition</em> (arXiv:2006.13979). arXiv. <a href="https://doi.org/10.48550/arXiv.2006.13979">https://doi.org/10.48550/arXiv.2006.13979</a>
+</div>
+<div id="ref-cruzblandon2023Introducing" class="csl-entry" role="listitem">
+Cruz Blandón, M. A., Cristia, A., &amp; Räsänen, O. (2023). Introducing meta-analysis in the evaluation of computational models of infant language development. <em>Cognitive Science</em>, <em>47</em>(7), e13307. <a href="https://doi.org/10.1111/cogs.13307">https://doi.org/10.1111/cogs.13307</a>
+</div>
+<div id="ref-davilagarcez2009Neuralsymbolic" class="csl-entry" role="listitem">
+d’Avila Garcez, A. S., Lamb, L. C., &amp; Gabbay, D. M. (2009). <em>Neural-symbolic cognitive reasoning</em>. Springer.
+</div>
+<div id="ref-dunbar2019Zero" class="csl-entry" role="listitem">
+Dunbar, E., Algayres, R., Karadayi, J., Bernard, M., Benjumea, J., Cao, X.-N., Miskic, L., Dugrain, C., Ondel, L., Black, A. W., Besacier, L., Sakti, S., &amp; Dupoux, E. (2019). <em>The zero resource speech challenge 2019: TTS without t</em> (arXiv:1904.11469). arXiv. <a href="https://doi.org/10.48550/arXiv.1904.11469">https://doi.org/10.48550/arXiv.1904.11469</a>
+</div>
+<div id="ref-dupoux2018Cognitive" class="csl-entry" role="listitem">
+Dupoux, E. (2018). Cognitive science in the era of artificial intelligence: A roadmap for reverse-engineering the infant language-learner. <em>Cognition</em>, <em>173</em>, 43–59. <a href="https://doi.org/10.1016/j.cognition.2017.11.008">https://doi.org/10.1016/j.cognition.2017.11.008</a>
+</div>
+<div id="ref-goldsmith1976Autosegmental" class="csl-entry" role="listitem">
+Goldsmith, J. A. (1976). <em>Autosegmental phonology</em> [PhD thesis]. Massachusetts Institute of Technology.
+</div>
+<div id="ref-gosztolya2024Wav2vec" class="csl-entry" role="listitem">
+Gosztolya, G., Kiss-Vetráb, M., Svindt, V., Bóna, J., &amp; Hoffmann, I. (2024). <em>Wav2vec 2.0 embeddings are no swiss army knife-a case study for multiple sclerosis</em>.
+</div>
+<div id="ref-guriel2023Morphological" class="csl-entry" role="listitem">
+Guriel, D., Goldman, O., &amp; Tsarfaty, R. (2023). <em>Morphological inflection with phonological features</em> (arXiv:2306.12581). arXiv. <a href="https://doi.org/10.48550/arXiv.2306.12581">https://doi.org/10.48550/arXiv.2306.12581</a>
+</div>
+<div id="ref-hamilton2024NeuroSymbolic" class="csl-entry" role="listitem">
+Hamilton, K., Nayak, A., Božić, B., &amp; Longo, L. (2024). Is neuro-symbolic AI meeting its promise in natural language processing? A structured review. <em>Semantic Web</em>, <em>15</em>(4), 1265–1306. <a href="https://doi.org/10.3233/SW-223228">https://doi.org/10.3233/SW-223228</a>
+</div>
+<div id="ref-hayes2008Maximum" class="csl-entry" role="listitem">
+Hayes, B., &amp; Wilson, C. (2008). A maximum entropy model of phonotactics and phonotactic learning. <em>Linguistic Inquiry</em>, <em>39</em>(3), 379–440. <a href="https://doi.org/10.1162/ling.2008.39.3.379">https://doi.org/10.1162/ling.2008.39.3.379</a>
+</div>
+<div id="ref-higy2021Discrete" class="csl-entry" role="listitem">
+Higy, B., Gelderloos, L., Alishahi, A., &amp; Chrupała, G. (2021). Discrete representations in neural models of spoken language. In J. Bastings, Y. Belinkov, E. Dupoux, M. Giulianelli, D. Hupkes, Y. Pinter, &amp; H. Sajjad (Eds.), <em>Proceedings of the fourth BlackboxNLP workshop on analyzing and interpreting neural networks for NLP</em> (pp. 163–176). Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/2021.blackboxnlp-1.11">https://doi.org/10.18653/v1/2021.blackboxnlp-1.11</a>
+</div>
+<div id="ref-hsu2021HuBERT" class="csl-entry" role="listitem">
+Hsu, W.-N., Bolte, B., Tsai, Y.-H. H., Lakhotia, K., Salakhutdinov, R., &amp; Mohamed, A. (2021). <em>HuBERT: Self-supervised speech representation learning by masked prediction of hidden units</em> (arXiv:2106.07447). arXiv. <a href="https://doi.org/10.48550/arXiv.2106.07447">https://doi.org/10.48550/arXiv.2106.07447</a>
+</div>
+<div id="ref-jarosz2019Computational" class="csl-entry" role="listitem">
+Jarosz, G. (2019). Computational modeling of phonological learning. <em>Annual Review of Linguistics</em>, <em>5</em>(1), 67–90. <a href="https://doi.org/10.1146/annurev-linguistics-011718-011832">https://doi.org/10.1146/annurev-linguistics-011718-011832</a>
+</div>
+<div id="ref-kazanina2018Phonemes" class="csl-entry" role="listitem">
+Kazanina, N., Bowers, J. S., &amp; Idsardi, W. (2018). Phonemes: Lexical access and beyond. <em>Psychonomic Bulletin &amp; Review</em>, <em>25</em>(2), 560–585. <a href="https://doi.org/10.3758/s13423-017-1362-0">https://doi.org/10.3758/s13423-017-1362-0</a>
+</div>
+<div id="ref-kolachina2019What" class="csl-entry" role="listitem">
+Kolachina, S., &amp; Magyar, L. (2019). What do phone embeddings learn about phonology? In G. Nicolai &amp; R. Cotterell (Eds.), <em>Proceedings of the 16th workshop on computational research in phonetics, phonology, and morphology</em> (pp. 160–169). Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/W19-4219">https://doi.org/10.18653/v1/W19-4219</a>
+</div>
+<div id="ref-maaten2008Visualizing" class="csl-entry" role="listitem">
+Maaten, L. van der, &amp; Hinton, G. (2008). Visualizing data using t-SNE. <em>Journal of Machine Learning Research</em>, <em>9</em>(86), 2579–2605.
+</div>
+<div id="ref-macwhinney2000CHILDES" class="csl-entry" role="listitem">
+Macwhinney, B. (2000). <em>The CHILDES project: Tools for analyzing talk: Transcription format and programs</em>. Lawrence Erlbaum Associates Publishers.
+</div>
+<div id="ref-matusevych2020Evaluating" class="csl-entry" role="listitem">
+Matusevych, Y., Schatz, T., Kamper, H., Feldman, N. H., &amp; Goldwater, S. (2020). <em>Evaluating computational models of infant phonetic learning across languages</em> (arXiv:2008.02888). arXiv. <a href="https://doi.org/10.48550/arXiv.2008.02888">https://doi.org/10.48550/arXiv.2008.02888</a>
+</div>
+<div id="ref-mayer2021Capturing" class="csl-entry" role="listitem">
+Mayer, C. (2021). Capturing gradience in long-distance phonology using probabilistic tier-based strictly local grammars. <em>Proceedings of the Society for Computation in Linguistics 2021</em>, 39–50.
+</div>
+<div id="ref-mcauliffe2017Montreal" class="csl-entry" role="listitem">
+McAuliffe, M., Socolof, M., Mihuc, S., Wagner, M., &amp; Sonderegger, M. (2017). Montreal forced aligner: Trainable text-speech alignment using kaldi. <em>Interspeech</em>, <em>2017</em>, 498–502.
+</div>
+<div id="ref-mcmurray2023acquisition" class="csl-entry" role="listitem">
+McMurray, B. (2023). The acquisition of speech categories: Beyond perceptual narrowing, beyond unsupervised learning and beyond infancy. <em>Language, Cognition and Neuroscience</em>, <em>38</em>(4), 419–445. <a href="https://doi.org/10.1080/23273798.2022.2105367">https://doi.org/10.1080/23273798.2022.2105367</a>
+</div>
+<div id="ref-medin2024SelfSupervised" class="csl-entry" role="listitem">
+Medin, L. B., Pellegrini, T., &amp; Gelin, L. (2024). Self-supervised models for phoneme recognition: Applications in children’s speech for reading learning. <em>Interspeech 2024</em>, 5168–5172. <a href="https://doi.org/10.21437/Interspeech.2024-1095">https://doi.org/10.21437/Interspeech.2024-1095</a>
+</div>
+<div id="ref-mikolov2013Distributed" class="csl-entry" role="listitem">
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S., &amp; Dean, J. (2013). Distributed representations of words and phrases and their compositionality. <em>Advances in Neural Information Processing Systems</em>, <em>26</em>.
+</div>
+<div id="ref-mohamed2022SelfSupervised" class="csl-entry" role="listitem">
+Mohamed, A., Lee, H., Borgholt, L., Havtorn, J. D., Edin, J., Igel, C., Kirchhoff, K., Li, S.-W., Livescu, K., Maaløe, L., Sainath, T. N., &amp; Watanabe, S. (2022). Self-supervised speech representation learning: A review. <em>IEEE Journal of Selected Topics in Signal Processing</em>, <em>16</em>(6), 1179–1210. <a href="https://doi.org/10.1109/JSTSP.2022.3207050">https://doi.org/10.1109/JSTSP.2022.3207050</a>
+</div>
+<div id="ref-moran2019Phoible" class="csl-entry" role="listitem">
+Moran, S., &amp; McCloy, D. (Eds.). (2019). <em>Phoible 2.0</em>. Max Planck Institute for the Science of Human History.
+</div>
+<div id="ref-mortensen2016PanPhon" class="csl-entry" role="listitem">
+Mortensen, D. R., Littell, P., Bharadwaj, A., Goyal, K., Dyer, C., &amp; Levin, L. (2016). PanPhon: A resource for mapping IPA segments to articulatory feature vectors. In Y. Matsumoto &amp; R. Prasad (Eds.), <em>Proceedings of COLING 2016, the 26th international conference on computational linguistics: Technical papers</em> (pp. 3475–3484). The COLING 2016 Organizing Committee.
+</div>
+<div id="ref-nguyen2016Computational" class="csl-entry" role="listitem">
+Nguyen, D., Doğruöz, A. S., Rosé, C. P., &amp; de Jong, F. (2016). Computational sociolinguistics: A survey. <em>Computational Linguistics</em>, <em>42</em>(3), 537–593. <a href="https://doi.org/10.1162/COLI_a_00258">https://doi.org/10.1162/COLI_a_00258</a>
+</div>
+<div id="ref-nguyen2020Zero" class="csl-entry" role="listitem">
+Nguyen, T. A., Seyssel, M. de, Rozé, P., Rivière, M., Kharitonov, E., Baevski, A., Dunbar, E., &amp; Dupoux, E. (2020). <em>The zero resource speech benchmark 2021: Metrics and baselines for unsupervised spoken language modeling</em> (arXiv:2011.11588). arXiv. <a href="https://doi.org/10.48550/arXiv.2011.11588">https://doi.org/10.48550/arXiv.2011.11588</a>
+</div>
+<div id="ref-panayotov2015Librispeech" class="csl-entry" role="listitem">
+Panayotov, V., Chen, G., Povey, D., &amp; Khudanpur, S. (2015). Librispeech: An ASR corpus based on public domain audio books. <em>2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>, 5206–5210. <a href="https://doi.org/10.1109/ICASSP.2015.7178964">https://doi.org/10.1109/ICASSP.2015.7178964</a>
+</div>
+<div id="ref-panchendrarajan2024Synergizing" class="csl-entry" role="listitem">
+Panchendrarajan, R., &amp; Zubiaga, A. (2024). <em>Synergizing machine learning &amp; symbolic methods: A survey on hybrid approaches to natural language processing</em> (arXiv:2401.11972). arXiv. <a href="https://doi.org/10.48550/arXiv.2401.11972">https://doi.org/10.48550/arXiv.2401.11972</a>
+</div>
+<div id="ref-pandian2025Hybrid" class="csl-entry" role="listitem">
+Pandian, S. M. (2025). <em>Hybrid symbolic-neural architectures for explainable artificial intelligence in decision-critical domains</em>.
+</div>
+<div id="ref-parcollet2024LeBenchmark" class="csl-entry" role="listitem">
+Parcollet, T., Nguyen, H., Evain, S., Boito, M. Z., Pupier, A., Mdhaffar, S., Le, H., Alisamir, S., Tomashenko, N., Dinarelli, M., Zhang, S., Allauzen, A., Coavoux, M., Esteve, Y., Rouvier, M., Goulian, J., Lecouteux, B., Portet, F., Rossato, S., … Besacier, L. (2024). <em>LeBenchmark 2.0: A standardized, replicable and enhanced framework for self-supervised representations of french speech</em> (arXiv:2309.05472). arXiv. <a href="https://doi.org/10.48550/arXiv.2309.05472">https://doi.org/10.48550/arXiv.2309.05472</a>
+</div>
+<div id="ref-pasad2024What" class="csl-entry" role="listitem">
+Pasad, A., Chien, C.-M., Settle, S., &amp; Livescu, K. (2024). What do self-supervised speech models know about words? <em>Transactions of the Association for Computational Linguistics</em>, <em>12</em>, 372–391. <a href="https://doi.org/10.1162/tacl_a_00656">https://doi.org/10.1162/tacl_a_00656</a>
+</div>
+<div id="ref-pouw2024Perception" class="csl-entry" role="listitem">
+Pouw, C., Kloots, M. de H., Alishahi, A., &amp; Zuidema, W. (2024). Perception of phonological assimilation by neural speech recognition models. <em>Computational Linguistics</em>, <em>50</em>(3), 1557–1585. <a href="https://doi.org/10.1162/coli_a_00526">https://doi.org/10.1162/coli_a_00526</a>
+</div>
+<div id="ref-prince2004Optimality" class="csl-entry" role="listitem">
+Prince, A., &amp; Smolensky, P. (2004). Optimality theory: Constraint interaction in generative grammar. In <em>Optimality theory in phonology</em> (pp. 1–71). John Wiley &amp; Sons, Ltd. <a href="https://doi.org/10.1002/9780470756171.ch1">https://doi.org/10.1002/9780470756171.ch1</a>
+</div>
+<div id="ref-reubold2010Vocal" class="csl-entry" role="listitem">
+Reubold, U., Harrington, J., &amp; Kleber, F. (2010). Vocal aging effects on <span><em>F</em></span>0 and the first formant: A longitudinal analysis in adult speakers. <em>Speech Communication</em>, <em>52</em>(7), 638–651. <a href="https://doi.org/10.1016/j.specom.2010.02.012">https://doi.org/10.1016/j.specom.2010.02.012</a>
+</div>
+<div id="ref-silfverberg2018Sound" class="csl-entry" role="listitem">
+Silfverberg, M. P., Mao, L., &amp; Hulden, M. (2018). Sound Analogies with Phoneme Embeddings. <em>Society for Computation in Linguistics</em>, <em>1</em>(1). <a href="https://doi.org/10.7275/R5NZ85VD">https://doi.org/10.7275/R5NZ85VD</a>
+</div>
+<div id="ref-silverman2012Neutralization" class="csl-entry" role="listitem">
+Silverman, D. (2012). <em>Neutralization</em>. Cambridge University Press.
+</div>
+<div id="ref-staples2020Neural" class="csl-entry" role="listitem">
+Staples, R., &amp; Graves, W. W. (2020). Neural components of reading revealed by distributed and symbolic computational models. <em>Neurobiology of Language (Cambridge, Mass.)</em>, <em>1</em>(4), 381–401. <a href="https://doi.org/10.1162/nol_a_00018">https://doi.org/10.1162/nol_a_00018</a>
+</div>
+<div id="ref-tesar1995Computational" class="csl-entry" role="listitem">
+Tesar, B. B. (1995). <em>Computational optimality theory</em> [PhD thesis]. University of Colorado at Boulder.
+</div>
+<div id="ref-tesar1998Learnability" class="csl-entry" role="listitem">
+Tesar, B., &amp; Smolensky, P. (1998). Learnability in optimality theory. <em>Linguistic Inquiry</em>, <em>29</em>(2), 229–268. <a href="https://doi.org/10.1162/002438998553734">https://doi.org/10.1162/002438998553734</a>
+</div>
+<div id="ref-tsvilodub2025Integrating" class="csl-entry" role="listitem">
+Tsvilodub, P., Hawkins, R. D., &amp; Franke, M. (2025). <em>Integrating neural and symbolic components in a model of pragmatic question-answering</em> (arXiv:2506.01474). arXiv. <a href="https://doi.org/10.48550/arXiv.2506.01474">https://doi.org/10.48550/arXiv.2506.01474</a>
+</div>
+<div id="ref-vandenoord2017Neural" class="csl-entry" role="listitem">
+van den Oord, A., Vinyals, O., &amp; kavukcuoglu, koray. (2017). Neural discrete representation learning. <em>Advances in Neural Information Processing Systems</em>, <em>30</em>.
+</div>
+<div id="ref-venkateswaran2025Probing" class="csl-entry" role="listitem">
+Venkateswaran, N., Tang, K., &amp; Wayland, R. (2025). <em>Probing for phonology in self-supervised speech representations: A case study on accent perception</em> (arXiv:2506.17542). arXiv. <a href="https://doi.org/10.48550/arXiv.2506.17542">https://doi.org/10.48550/arXiv.2506.17542</a>
+</div>
+<div id="ref-yang2025k2SSL" class="csl-entry" role="listitem">
+Yang, Y., Zhuo, J., Jin, Z., Ma, Z., Yang, X., Yao, Z., Guo, L., Kang, W., Kuang, F., Lin, L., Povey, D., &amp; Chen, X. (2025). <em>k2SSL: A faster and better framework for self-supervised speech representation learning</em> (arXiv:2411.17100). arXiv. <a href="https://doi.org/10.48550/arXiv.2411.17100">https://doi.org/10.48550/arXiv.2411.17100</a>
+</div>
+<div id="ref-zhang2024SpeechTokenizer" class="csl-entry" role="listitem">
+Zhang, X., Zhang, D., Li, S., Zhou, Y., &amp; Qiu, X. (2024). <em>SpeechTokenizer: Unified speech tokenizer for speech large language models</em> (arXiv:2308.16692). arXiv. <a href="https://doi.org/10.48550/arXiv.2308.16692">https://doi.org/10.48550/arXiv.2308.16692</a>
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

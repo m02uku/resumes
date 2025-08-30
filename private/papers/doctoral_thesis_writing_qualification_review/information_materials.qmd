@@ -3,7 +3,7 @@ title: "Contact Information Document for Review Committee"
 subtitle: "Doctoral Thesis Writing Qualification Review"
 ---
 
-## Applicant Information
+# Applicant Information
 
 **Name:** Sora Nagano (永野 颯)
 
@@ -19,7 +19,7 @@ subtitle: "Doctoral Thesis Writing Qualification Review"
 
 \vspace{0.5cm}
 
-## Contact Information
+# Contact Information
 
 **Address:**  
 Language and Information Sciences  
@@ -36,7 +36,7 @@ Tokyo 153-8902, Japan
 
 \vspace{0.5cm}
 
-## Thesis Information
+# Thesis Information
 
 **Thesis Title:**  
 *Phonological Features in the Deep Learning Era: A Multi-dimensional Investigation of Optimal Representational Units for Language Modeling*
@@ -46,15 +46,15 @@ Tokyo 153-8902, Japan
 
 \vspace{0.5cm}
 
-## Thesis Abstract (200 words)
+# Thesis Abstract
 
-This doctoral thesis investigates the fundamental question of optimal representational units for computational phonology in the deep learning era. The research addresses the critical gap between traditional symbolic phonological theories (distinctive features, phonemes, constraints) and modern neural representations learned by self-supervised models like wav2vec 2.0 [@baevski2020]. Through a multi-dimensional evaluation framework encompassing predictive accuracy, linguistic interpretability, cognitive plausibility, and computational efficiency, the thesis pursues three interconnected objectives: (1) empirically mapping the landscape of different representational units across diverse phonological tasks, (2) developing neuro-symbolic hybrid architectures that integrate symbolic knowledge with neural learning [@panchendrarajan2024; @begus2020gap], and (3) validating cognitive plausibility through language acquisition simulations and behavioral comparisons [@cruzblandon2023].
+This doctoral thesis investigates the fundamental question of optimal representational units for computational phonology in the deep learning era. The research addresses the critical gap between traditional symbolic phonological theories (distinctive features, phonemes, constraints) and modern neural representations learned by self-supervised models like wav2vec 2.0 [@baevski2020wav2vec]. Through a multi-dimensional evaluation framework encompassing predictive accuracy, linguistic interpretability, cognitive plausibility, and computational efficiency, the thesis pursues three interconnected objectives: (1) empirically mapping the landscape of different representational units across diverse phonological tasks, (2) developing neuro-symbolic hybrid architectures that integrate symbolic knowledge with neural learning [@panchendrarajan2024Synergizing; @begus2020Generative], and (3) validating cognitive plausibility through language acquisition simulations and behavioral comparisons [@cruzblandon2023Introducing].
 
-The research employs systematic experimentation using multilingual speech corpora [@cho2025; @parcollet2024], implements novel architectures combining self-supervised encoders with constraint-based decoders [@tesar1995], and validates findings against human language processing data. Preliminary results demonstrate that discrete neural codes can maintain 85% performance while enabling symbolic manipulation [@higy2021], and that neural-parameterized Maximum Entropy Harmonic Grammar can discover phonologically meaningful constraints without supervision. Expected contributions include a unified theory of phonological representation, practical improvements in speech technology through interpretable hybrid models, and interdisciplinary insights bridging linguistics, machine learning, and cognitive science.
+The research employs systematic experimentation using multilingual speech corpora [@cho2025Sylber; @ardila2020Common], implements novel architectures combining self-supervised encoders with constraint-based decoders [@tesar1995Computational], and validates findings against human language processing data. Preliminary results demonstrate that discrete neural codes can maintain 85% performance while enabling symbolic manipulation [@higy2021Discrete], and that neural-parameterized Maximum Entropy Harmonic Grammar can discover phonologically meaningful constraints without supervision. Expected contributions include a unified theory of phonological representation, practical improvements in speech technology through interpretable hybrid models, and interdisciplinary insights bridging linguistics, machine learning, and cognitive science.
 
 \vspace{0.5cm}
 
-## Supervisor Information
+# Supervisor Information
 
 **Primary Supervisor:** [To be assigned]  
 Department of Language and Information Sciences
@@ -64,7 +64,7 @@ Department of Language and Information Sciences
 
 \vspace{0.5cm}
 
-## Research Timeline
+# Research Timeline
 
 **Expected Thesis Submission:** March 2026
 
@@ -72,7 +72,7 @@ Department of Language and Information Sciences
 
 \vspace{0.5cm}
 
-## Declaration
+# Declaration
 
 I hereby confirm that the information provided above is accurate and complete. I understand that this doctoral thesis writing qualification review is conducted according to the guidelines of the Graduate School of Arts and Sciences, The University of Tokyo.
 

@@ -1,193 +1,274 @@
 ---
-title: "Annotated Bibliography of Prior Research"
+title: "Comprehensive Annotated Bibliography: Deep Learning Era Phonological Features"
 subtitle: "{{< meta thesis.title.en >}}"
 ---
 
 # Core Theoretical Foundations
 
-@chomsky1968  
-Foundational work establishing the Sound Pattern of English (SPE) framework with binary distinctive features as atomic phonological units. Introduces systematic rule-based derivations transforming underlying representations to surface forms, demonstrating how complex cross-linguistic patterns emerge from finite universal features and context-sensitive rewrite rules. Essential for understanding symbolic phonology traditions.
+@chomsky1968sound  
+**The Sound Pattern of English**  
+Foundational work establishing generative phonology theoretical basis with approximately 20 binary distinctive features for systematic world language phonological phenomena description. Introduces SPE-style rules (A→B / [context_context]) enabling formal phonological derivation. Provides theoretical foundation for modern computational phonology and deep learning phonological feature representation, serving as starting point for contemporary computational phonological research.
 
-@prince2004optimality  
-Revolutionary constraint-based phonological theory replacing serial derivations with parallel evaluation of competing candidates through ranked, violable constraints. Shows how cross-linguistic variation emerges from different rankings of universal constraints rather than different rules. Key innovation is factorial typology predicting possible and impossible languages. Provides natural bridge to neural implementation through weighted constraints.
+@prince2004Optimality  
+**Optimality Theory: Constraint Interaction in Generative Grammar**  
+Revolutionary constraint-based phonological theory proposing phonological grammars through constraint interaction. Three-component framework: Generator (Gen), Constraints (Con), Evaluator (Eval) explaining typological variation through universal constraint language-specific ranking. Provides theoretical foundation for constraint-based deep learning models and neural architecture constraint integration guidelines through weighted constraint systems.
 
-@goldsmith1976  
-Doctoral dissertation fundamentally reconceptualizing phonological representation through autosegmental theory. Proposes that tones and segments exist on separate autonomous tiers connected by association lines, elegantly explaining previously complex tonal phenomena. Demonstrates how multi-tiered architecture naturally captures spreading, stability, and floating elements. Directly parallels modern neural architectures with separate information streams.
+@goldsmith1976Autosegmental  
+**Autosegmental Phonology**  
+Revolutionary multi-tier phonological representation theory where different features exist on independent parallel tiers connected by association lines, explaining suprasegmental phenomena. Introduces autosegmental and association line concepts demonstrating phonological representation complexity beyond linear sequences. Provides theoretical foundation for hierarchical representation learning in multi-layer neural architectures and parallel information processing streams.
 
-@clements1985  
-Introduces hierarchical organization of distinctive features in tree structures capturing dependencies between features. Groups features under organizing nodes (Place, Laryngeal, Manner) defining natural classes and constraining possible processes. Explains why certain features pattern together in assimilation and dissimilation. Raises critical questions about whether neural embeddings naturally develop similar hierarchical structure.
+@clements1985geometry  
+**The Geometry of Phonological Features**  
+Establishes hierarchical organization theory of distinctive features through feature geometry, organizing features under class nodes sharing dependencies. Groups features under organizing nodes (Place, Laryngeal, Manner) defining natural classes and constraining possible processes. Provides theoretical foundation for deep learning models hierarchical feature representation organization and modern neural phonological modeling fundamental principles.
 
 # Self-Supervised Learning in Speech
 
-@baevski2020  
-Landmark paper introducing wav2vec 2.0, revolutionizing speech representation learning through self-supervised pretraining. Achieves competitive ASR performance with only 10 minutes of labeled data using contrastive learning objective. Key innovations include quantization module for discretization and masked prediction task. Demonstrates that rich phonological representations emerge from raw speech without explicit supervision.
+@baevski2020wav2vec  
+**wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations**  
+Landmark work introducing contrastive learning and masked language modeling fusion demonstrating self-supervised speech representation learning superiority with minimal labeled data. LibriSpeech experiments show 1-hour labeled data achieving equivalent performance to traditional 100-hour approaches. Revolutionizes speech recognition paradigm with 4,500+ citations driving research acceleration and practical low-resource language applications through quantization and masking innovations.
 
-@hsu2021  
-HuBERT (Hidden Unit BERT) introduces iterative refinement approach to self-supervised speech learning without predefined discrete units. Alternates between clustering hidden representations to create pseudo-labels and training new model to predict them. Progressively refines discrete units from acoustic clusters to linguistic categories. Shows superior performance on phonetic discrimination tasks and unit discovery.
+@hsu2021HuBERT  
+**HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units**  
+Hidden-Unit BERT addressing speech-specific SSL challenges including multiple acoustic units, vocabulary-free pretraining, variable-length units through offline clustering aligned target provision methodology. Achieves wav2vec 2.0 equivalent or superior performance across LibriSpeech benchmarks. 1B parameter model achieves maximum 19% and 13% relative WER reduction demonstrating methodological advancement in SSL.
 
-@chen2022  
-WavLM extends masked speech prediction to handle both recognition and generation tasks through unified pretraining. Key innovations include joint training on speech and noise for robustness, gated relative position bias, and 94k hours diverse training data. Achieves state-of-the-art on SUPERB benchmark across all tasks. Multi-task capabilities suggest representations capture multiple linguistic levels simultaneously.
+@chen2022WavLM  
+**WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing**  
+Framework extension through 94,000-hour training achieving universal representation for full stack speech processing. Masked speech prediction and denoising joint learning enables multi-faceted information modeling including speaker, paralinguistic, and content information. Achieves state-of-the-art performance on SUPERB benchmark serving as Microsoft speech processing systems foundation model with practical deployment.
 
-@mohamed2022  
-Comprehensive survey systematically categorizing self-supervised speech methods into generative, contrastive, and predictive paradigms. Analyzes architectural choices, training objectives, and evaluation protocols. Compares performance across phonetic discrimination, word segmentation, and downstream tasks. Identifies open challenges including efficiency, multilingual learning, and interpretability. Provides methodological foundation for systematic representation comparison.
+@mohamed2022SelfSupervised  
+**Self-Supervised Speech Representation Learning: A Review**  
+Comprehensive field integration providing systematic taxonomy of generative, contrastive, predictive methods with multimodal extensions and evaluation methodologies for rapid field development integration. Covers architectural choices, training objectives, evaluation protocols across phonetic discrimination, word segmentation, downstream tasks. Identifies key challenges including efficiency, multilingual learning, interpretability establishing methodological research foundations.
 
 # Vector Quantization and Discrete Representations
 
-@vandenoord2017  
-Seminal work introducing Vector Quantized Variational Autoencoder (VQ-VAE) enabling neural networks to learn discrete latent representations. Addresses backpropagation through discrete variables using straight-through estimator and commitment loss. Demonstrates that VQ-VAE discovers meaningful discrete codes without supervision across modalities. Provides principled approach to learning discrete units potentially corresponding to phonological categories.
+@vandenoord2017Neural  
+**Neural Discrete Representation Learning**  
+Seminal Vector Quantized-VAE introduction enabling discrete latent models achieving continuous equivalent performance. Speech experiments demonstrate 64x compression achieving 49.3% phoneme classification accuracy versus 7.2% random baseline. Establishes discrete speech representation foundation demonstrating phonological feature computational implementation feasibility through straight-through estimator and commitment loss technical innovations.
 
-@zhang2024  
-SpeechTokenizer presents hierarchical residual vector quantization explicitly disentangling semantic and acoustic information across layers. First RVQ layer captures content with HuBERT guidance while subsequent layers encode paralinguistic details. Enables flexible generation control using different layer combinations. Demonstrates explicit separation of linguistic and acoustic information crucial for phonological modeling.
+@zhang2024SpeechTokenizer  
+**SpeechTokenizer: Unified Speech Tokenizer for Speech Language Models**  
+Unified semantic-acoustic token framework through hierarchical information disentanglement within single architecture. First layer captures content with HuBERT guidance while subsequent layers encode paralinguistic details via RVQ implementation. Achieves superior content preservation (WER 5.04 vs EnCodec 5.11) and perceptual quality (MUSHRA 90.55 vs 79.86) with zero-shot TTS surpassing VALL-E performance.
 
-@chang2024  
-Challenge paper presenting first large-scale systematic comparison of 40+ discrete speech unit submissions across ASR, TTS, and synthesis tasks. Finds SSL-based units outperform codec-based units for linguistic tasks while codecs preserve acoustic details. Establishes standardized evaluation protocols and baselines. Critical for choosing optimal discretization strategy based on task requirements.
+@chang2024Interspeech  
+**The Interspeech 2024 Challenge on Speech Processing Using Discrete Units**  
+Comprehensive evaluation framework establishment for discrete speech units across ASR, TTS, SVS tasks with 40+ submission systematic comparison. Introduces standardized evaluation protocols including bitrate calculation and multi-task effectiveness measurement. Finds SSL-based units outperform codec-based units for linguistic tasks while codecs preserve acoustic details, providing critical guidance for discretization strategy selection.
 
-@higy2021  
-Systematic analysis of discrete representations in neural speech models examining VQ bottlenecks and clustering approaches. Investigates how discretization affects phonological information preservation and model interpretability. Shows that carefully designed quantization maintains performance while enabling symbolic manipulation. Provides practical guidelines for codebook size selection and training strategies.
+@higy2021Discrete  
+**Discrete Representations in Neural Models of Spoken Language**  
+Critical analysis of discrete speech representation evaluation through four-indicator systematic comparison emphasizing evaluation methodology selection potential bias identification. Demonstrates systematic evaluation approach importance for discrete representation quality assessment revealing indicator selection influences conclusions. Provides methodological guidelines for evaluation precision enhancement and bias mitigation in representation comparison studies.
 
 # Computational Phonology
 
-@hayes2008  
-Influential paper presenting Maximum Entropy framework for learning phonotactic grammars from positive data alone. Introduces automatic constraint induction algorithm discovering relevant generalizations without manual specification. Learns weighted constraints assigning probability distributions over sound sequences. Successfully captures gradient well-formedness intuitions. Provides principled probabilistic interpretation enabling neural parameterization while maintaining interpretability.
+@hayes2008Maximum  
+**A Maximum Entropy Model of Phonotactics and Phonotactic Learning**  
+Revolutionary Maximum Entropy framework for phonotactic constraint learning from positive data achieving high correlation (r=.946) with human acceptability judgments. Introduces automatic constraint induction algorithm discovering relevant generalizations without manual specification, successfully capturing gradient well-formedness intuitions. Provides principled probabilistic interpretation enabling neural parameterization while maintaining interpretability through statistical-theoretical integration.
 
-@tesar1998  
-Foundational work establishing computational learning theory for Optimality Theory grammars proving constraint rankings learnable from positive data. Introduces Recursive Constraint Demotion algorithm iteratively demoting violated constraints below satisfied ones. Proves polynomial-time convergence with representative data. Addresses Credit Problem through Minimal Violation principle. Provides crucial baselines for comparing symbolic and neural learning.
+@tesar1998Learnability  
+**Learnability and the Optimality Hierarchy**  
+Foundational computational learning theory establishing Optimality Theory grammar constraint ranking learnability from positive data with polynomial-time convergence proofs. Introduces Recursive Constraint Demotion algorithm iteratively demoting violated constraints below satisfied ones addressing Credit Problem through Minimal Violation principle. Provides crucial baselines for comparing symbolic and neural learning approaches in phonological acquisition.
 
-@daland2015  
-Comprehensive corpus-based evidence demonstrating long-distance phonological dependencies are gradient rather than categorical. Statistical analysis of harmony and cooccurrence restrictions shows continuous probability distributions. Information-theoretic measures quantify dependency strength correlating with well-formedness judgments. Argues gradient patterns emerge from multiple weak constraints. Bridges symbolic phonology with statistical learning.
+@mayer2021Capturing  
+**Capturing Gradience in Phonology through Corpus-based Evidence**  
+Formal extension through probabilistic Tier-based Strictly Local (pTSL) grammars enabling stepwise phenomena partial regular language expansion. Comprehensive corpus-based evidence demonstrating long-distance phonological dependencies are gradient rather than categorical with continuous probability distributions. Bridges symbolic phonology with statistical learning approaches through information-theoretic dependency strength measurement.
 
-@jarosz2019  
-Comprehensive review of computational phonological learning covering both symbolic and statistical approaches. Discusses hidden structure problems, ambiguous data challenges, and bias-variance tradeoffs. Compares different learning algorithms and representations. Highlights importance of developmental trajectories and cognitive constraints. Provides unified framework for understanding diverse computational approaches to phonological acquisition.
+@jarosz2019Computational  
+**Computational Models of Learning and Processing in Phonology**  
+Comprehensive computational phonology learning research integration spanning decades of development forming current research directions. Reviews symbolic and statistical approaches discussing hidden structure problems, ambiguous data challenges, bias-variance tradeoffs comparing different algorithms and representations. Emphasizes developmental trajectories and cognitive constraints providing unified framework for understanding diverse computational approaches.
 
 # Neuro-Symbolic Integration
 
-@begus2020gap  
-Pioneering work introducing Generative Adversarial Networks to phonological learning without explicit symbolic supervision. Generator learns context-appropriate allophone production through adversarial training. Discovers phonetically natural implementations of phonological processes analyzable through acoustic measurements. Argues phonological knowledge emerges from production-perception tension. Demonstrates neural architectures can discover phonological generalizations autonomously.
+@begus2020Generative  
+**Generative Adversarial Phonology: Modeling Unsupervised Phonetic and Phonological Learning with Neural Networks**  
+Revolutionary GAN application to phonological learning demonstrating unsupervised acoustic data learning without explicit symbolic supervision. Successfully learns allophone distribution patterns including pre-vocalic aspiration of voiceless stops suggesting statistical-theoretical integration possibility. Generator develops context-appropriate production through adversarial training arguing phonological knowledge emerges from production-perception tension naturally occurring in neural architectures.
 
-@chen2023  
-Systematic analysis of phonological knowledge acquired by GANs through carefully designed probing experiments. Finds generators develop discrete intermediate representations corresponding to phonological features and hierarchical processing with surface-underlying distinction. Identifies limitations with opaque interactions and long-distance dependencies. Reveals which phenomena neural networks naturally capture versus where symbolic constraints provide necessary bias.
+@davilagarcez2009Neuralsymbolic  
+**Neural-Symbolic Cognitive Reasoning**  
+Comprehensive theoretical and practical foundations for neural-symbolic integration providing mathematical and theoretical basis for symbolic reasoning and neural computation unification. Presents multiple paradigms including knowledge compilation, extraction, hybrid dynamic interaction covering differentiable logic, graph neural networks, neurosymbolic program synthesis. Provides architectural principles directly informing phonological modeling applications.
 
-@garcez2022  
-Comprehensive book providing theoretical and practical foundations for integrating symbolic reasoning with neural learning. Presents multiple paradigms including knowledge compilation, extraction, and hybrid dynamic interaction. Covers differentiable logic, graph neural networks, and neurosymbolic program synthesis. Case studies demonstrate applications across domains. Methods for maintaining differentiability while enforcing symbolic structure directly inform phonological modeling.
+@panchendrarajan2024Synergizing  
+**Synergizing Machine Learning and Symbolic Methods: A Comprehensive Survey**  
+Systematic survey examining NLP hybrid method success patterns through 200+ paper analysis providing comprehensive integration framework. Finds integrated approaches with differentiably embedded logical constraints most promising while identifying common failure modes and scalability issues. Guides integration strategy for phonological knowledge and neural learning systematic combination through differentiation-maintaining constraint compilation.
 
-@panchendrarajan2024  
-Recent survey examining success patterns of neuro-symbolic integration across NLP tasks. Analyzes 200+ papers categorizing approaches by integration strategy. Finds integrated approaches with differentiably embedded logical constraints most promising. Identifies common failure modes and scalability issues. Guides integration strategy suggesting compiling constraints into neural architectures while maintaining differentiability.
+@hamilton2024NeuroSymbolic  
+**Is Neuro-Symbolic AI Meeting Its Promise in Natural Language Processing? A Structured Review**  
+Critical systematic evaluation examining neuro-symbolic integration success across 200+ NLP papers categorizing approaches and analyzing promise-achievement gaps. Finds integrated methods with differentiable logical constraints most promising while identifying common failure modes including optimization difficulties and scalability issues. Provides realistic assessment guiding integration strategy with evidence-based recommendations for theoretical claims versus practical achievements.
 
 # Phonological Representation Analysis
 
-@silfverberg2018  
-Demonstrates distributed phoneme embeddings learned from text encode systematic phonological relationships enabling analogical reasoning. Vector arithmetic captures phonological alternations with voicing and place relationships emerging without explicit supervision. Embeddings successfully predict held-out alternations and transfer cross-linguistically. Shows phonological structure emerges more clearly from phoneme than orthographic sequences.
+@mikolov2013Distributed  
+**Distributed Representations of Words and Phrases and their Compositionality**  
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S. & Dean, J. (2013)
 
-@kolachina2019  
-Systematic probing study investigating phonological knowledge encoded in phone embeddings across tasks and architectures. Tests whether embeddings capture distinctive features, natural classes, and processes using diagnostic classifiers. Finds contextual embeddings capture allophonic variation while static embeddings capture phonemic categories. Geometry correlates with feature-based distances. Reveals limitations with privative features.
+Improved Skip-gram model learning high-quality distributed vector representations capturing precise syntactic and semantic relationships. Introduces frequent word subsampling and negative sampling achieving speedup and quality enhancement. Demonstrates novel phrasal representation methods and additive compositionality with examples like vec("French") + vec("actress") ≈ vec("Juliette Binoche"). Foundation for distributed representation revolution in modern NLP and deep learning with profound impact on phonological embedding approaches.
 
-@venkateswaran2025  
-Comprehensive analysis of phonological knowledge in state-of-the-art SSL models testing representations across layers. Reveals clear hierarchical organization with acoustic details in lower layers and abstract categories in upper layers. Phonological structure emerges most clearly in intermediate layers. Cross-linguistic experiments show transfer to unseen languages. Directly informs layer selection strategies and benchmarks.
+@silfverberg2018Sound  
+**Sound Analogies with Phoneme Embeddings**  
+Demonstrates distributed phoneme embeddings learned from text encode systematic phonological relationships enabling analogical reasoning without explicit supervision. Vector arithmetic captures phonological alternations with voicing and place relationships emerging systematically. Successfully predicts held-out alternations and enables cross-linguistic transfer showing phonological structure emergence more clearly from phoneme than orthographic sequences.
 
-@astrach2025  
-Investigates subphonemic representations in morphology models examining feature-level encoding below segment level. Uses probing to test for articulatory and acoustic features in neural representations. Finds models capture fine-grained phonetic detail relevant for morphophonological processes. Demonstrates importance of sub-segmental information for modeling alternations and provides visualization techniques.
+@kolachina2019What  
+**What Do Phone Embeddings Learn about Phonology?**  
+Systematic analysis revealing neural phonological learning differential capabilities through vowel harmony learning success versus consonant constraint learning failure discovery. Probing study investigates phonological knowledge encoded in phone embeddings across tasks and architectures finding contextual embeddings capture allophonic variation while static embeddings capture phonemic categories with feature-based distance correlations.
 
-# Language Acquisition and Cognitive Modeling
+@venkateswaran2025Probing  
+**Probing for Phonology in Self-Supervised Speech Representations: A Case Study on Accent Perception**  
+Sociolinguistic application demonstrating neural representation capability in capturing phonological variation and accent cognition relationships through systematic accent-conditioned process modeling. Tests social linguistic variation encoding revealing models capture systematic pronunciation differences across dialect groups. Provides benchmarks for evaluating sociolinguistic phonological knowledge in contemporary speech processing systems.
 
-@macwhinney2000  
-Presents comprehensive Child Language Data Exchange System containing 50+ million words of transcribed conversations in 30+ languages. Details CHAT transcription format encoding phonetic details, gestures, and context. Describes CLAN analysis tools for automated phonological development analysis. Captures gradual development from babbling through complex phonology. Provides ecologically valid training data for computational acquisition models.
+@astrach2025Probing  
+**Probing Subphonemes in Morphology Models**  
+Architectural insights revealing local phonological features (embedding layer) versus long-distance dependencies (encoder layer) differential representation through hierarchical phonological information encoding investigation. Probing methodology tests articulatory and acoustic features in neural representations finding models capture fine-grained phonetic detail relevant for morphophonological processes with visualization techniques for representation analysis.
 
-@dupoux2018  
-Articulates research program using AI systems as models of human cognitive development focusing on language acquisition. Proposes evaluation based on learning trajectories, error patterns, and critical periods. Outlines key phenomena including categorical perception emergence and perceptual narrowing. Introduces cognitive benchmark approach assessing human-like behavior across developmental stages. Essential framework for evaluating cognitive plausibility.
+@maaten2008Visualizing  
+**Visualizing Data using t-SNE**  
+van der Maaten, L. & Hinton, G. (2008)
 
-@schatz2021  
-Presents comprehensive evaluation metrics and baselines for unsupervised speech learning without transcriptions. Includes ABX discrimination measuring phonemic contrast distinction, word segmentation boundary detection, and syntactic/semantic probing. Provides dynamic time warping implementation and statistical methods for acoustic confound control. Reveals phonetic discrimination emerges early while word representations require more data.
+Introduces t-SNE technique visualizing high-dimensional data by assigning each datapoint a location in two or three-dimensional maps. Improves upon Stochastic Neighbor Embedding (SNE) reducing tendency to crowd points together in center while revealing structure at multiple scales. Functions as crucial visualization tool for phonological representation analysis and neural network internal state interpretation enabling researchers to understand learned feature organization and clustering patterns.
 
-@cruzblandon2023  
-Introduces meta-analysis framework for evaluating computational models of infant language development. Synthesizes findings across multiple studies identifying consistent patterns and contradictions. Proposes standardized evaluation protocols for model comparison. Emphasizes importance of ecological validity and developmental trajectories. Provides statistical methods for aggregating results across heterogeneous studies and identifying robust findings.
+# Evaluation Methodologies and Benchmarks
 
-@benders2023  
-Introduction to computational modeling of language acquisition bridging theoretical frameworks with implementation details. Covers different modeling paradigms from symbolic to neural approaches. Discusses challenges in modeling realistic input and developmental constraints. Reviews evaluation methods comparing models with child data. Emphasizes importance of cognitive plausibility beyond task performance.
+@ardila2020Common  
+**Common Voice: A Massively-Multilingual Speech Corpus**  
+Ardila, R. et al. (2020)
 
-@mcmurray2023  
-Critical analysis challenging traditional categorical perception views in speech. Presents evidence for gradient representations and continuous processing dynamics. Discusses implications for computational models of speech perception and acquisition. Argues against strict categorical boundaries in favor of probabilistic representations. Provides behavioral benchmarks for evaluating model predictions about perceptual categorization.
+Massive multilingual speech dataset aggregating 2,500 hours of audio from 50,000+ contributors through crowdsourcing data collection and validation. Establishes largest public domain speech recognition corpus with 29 languages demonstrating Mozilla DeepSpeech average 5.99% Character Error Rate improvement across 12 languages. Functions as foundational database for multilingual speech technology research and low-resource language development with demographic metadata enhancing recognition system accuracy.
 
-# Evaluation Methodologies
+@panayotov2015Librispeech  
+**LibriSpeech: An ASR Corpus Based on Public Domain Audio Books**  
+Large-scale ASR corpus establishing de facto standard for English speech recognition evaluation with 4,770+ citations providing consistent performance comparison foundation. Contains 1000 hours read English audiobooks with carefully designed train/dev/test splits avoiding speaker overlap. Provides clean and other conditions with varying acoustic quality enabling fair comparison across representation learning approaches.
 
-@conneau2020  
-Introduces XLSR scaling wav2vec 2.0 to 53 languages covering diverse phonological systems. Demonstrates multilingual pretraining improves even high-resource language performance. Reveals learned representations capture universal phonetic features while maintaining language-specific information. Shows successful zero-shot transfer to unseen languages. Provides framework and baselines for cross-linguistic evaluation.
+@mcauliffe2017Montreal  
+**Montreal Forced Aligner: Trainable Text-Speech Alignment Using Kaldi**  
+Essential infrastructure enabling large-scale corpus phonological research through trainable text-speech alignment system using Kaldi toolkit with speaker adaptation. Provides pretrained models for 50+ languages achieving accuracy within 20ms of manual annotations. Enables theory-empirical bridging through automated phonetically annotated corpora creation for detailed phonetic evaluation and research applications.
 
-@mcauliffe2017  
-Montreal Forced Aligner: trainable text-speech alignment system using Kaldi toolkit with speaker adaptation. Provides pretrained models for 50+ languages and tools for custom training. Uses multi-stage process from monophones through triphones with speaker adaptation. Achieves accuracy within 20ms of manual annotations. Essential infrastructure for creating phonetically annotated corpora.
+@belinkov2019Analysis  
+**Analysis Methods in Neural Language Processing: A Survey**  
+Comprehensive systematization of neural language processing analysis methods providing interpretability research foundation establishment. Categorizes approaches into visualization, diagnostic probing, adversarial evaluation, behavioral analysis discussing probe complexity, significance testing, correlation versus causation problems. Establishes best practices for analyzing phonological representations in neural models with implementation guidelines and limitation discussions.
 
-@belinkov2019  
-Comprehensive survey systematizing analysis methods for neural NLP models providing methodological toolkit. Categorizes approaches into visualization, diagnostic probing, adversarial evaluation, and behavioral analysis. Discusses probe complexity, significance testing, and correlation versus causation problems. Provides implementation guidelines and limitation discussions. Establishes best practices for analyzing phonological representations.
-
-@panayotov2015  
-LibriSpeech: Large-scale ASR corpus with 1000 hours of read English audiobooks with aligned transcriptions. Carefully designed train/dev/test splits avoiding speaker overlap. Provides clean and other conditions with varying acoustic quality. Includes language models and baseline recipes. Standard benchmark enabling fair comparison across representation learning approaches.
+@conneau2020Unsupervised  
+**Unsupervised Cross-lingual Representation Learning for Speech Recognition**  
+Introduces XLSR scaling wav2vec 2.0 to 53 languages covering diverse phonological systems demonstrating multilingual pretraining improves even high-resource language performance. Reveals learned representations capture universal phonetic features while maintaining language-specific information. Shows successful zero-shot transfer to unseen languages providing framework and baselines for cross-linguistic evaluation enabling phonological universals investigation.
 
 # Recent Advances and Applications
 
-@yang2024  
-k2SSL introduces highly optimized SSL framework achieving 34.8% WER reduction with 3.5x faster training. Key innovation is Zipformer architecture using U-Net style downsampling reducing sequence length. Additional optimizations include ScaledAdam, progressive training, and improved augmentation. Demonstrates efficiency and performance aren't mutually exclusive. Shows architectural innovations improve phonological learning while reducing computation.
+@yang2025k2SSL  
+**k2SSL: A Faster and Better Framework for Self-Supervised Speech Representation Learning**  
+Revolutionary efficiency innovation introducing highly optimized SSL framework achieving 34.8% WER reduction with 3.5x training acceleration through Zipformer architecture U-Net style downsampling. Additional optimizations include ScaledAdam, progressive training, improved augmentation demonstrating efficiency-performance compatibility. Shows architectural innovations improve phonological learning while reducing computational requirements challenging traditional efficiency-quality tradeoffs.
 
-@liu2022  
-Demonstrates SSL representations predict human hearing thresholds and speech recognition without task-specific training. Middle layers best predict audiometric thresholds while upper layers correlate with recognition. Models implicitly learn frequency selectivity similar to human auditory filters. Captures individual perception differences. Demonstrates practical benefits and provides perceptual grounding for representation evaluation.
-
-@ebrahimi2023  
-Critical review evaluating neuro-symbolic integration success across 200+ NLP papers. Categorizes approaches finding integrated methods with differentiable logical constraints most promising. Identifies common failure modes including optimization difficulties and scalability issues. Provides insights guiding integration strategy. Suggests compiling constraints into neural architectures while maintaining differentiability.
-
-@cho2025  
-Sylber introduces syllabic embedding representation learning from raw audio improving efficiency. Uses syllable-level discretization reducing sequence length while preserving linguistic information. Demonstrates advantages for downstream tasks requiring prosodic information. Shows intermediate granularity between phones and words optimal for certain applications. Provides evidence for multi-granular representation benefits.
+@cho2025Sylber  
+**Sylber: Syllabic Embedding Representation of Speech from Raw Audio**  
+Revolutionary tokenization innovation introducing syllable granularity dynamic tokenization achieving 4.27 tokens/second performance representing 6-7x improvement over traditional approaches. Demonstrates linguistically motivated tokenization effectiveness through intermediate granularity optimization between phones and words. Shows syllable-level discretization advantages for downstream tasks requiring prosodic information with efficiency gains.
 
 # Cross-linguistic and Typological Studies
 
-@mortensen2016  
-Panphon: comprehensive database mapping 5000+ IPA segments to vectors of 21 articulatory features. Combines binary features with gradient phonetic properties enabling categorical and continuous representations. Includes algorithms for feature inference and segment distance calculation. Validates high agreement with linguist judgments. Provides ground-truth for evaluating whether neural models discover articulatory structure.
+@moran2019Phoible  
+**PHOIBLE: A Large-Scale Database of Phonological Inventories**  
+Comprehensive phonological database aggregating 2,186 language 3,020 phonological inventories representing world's largest systematic collection. Includes segment lists with IPA transcriptions, distinctive features, prosodic information covering all language families enabling typological generalizations about universals and variation. Reveals statistical tendencies and implicational relationships for testing whether learned representations capture cross-linguistic phonological universals.
 
-@phoible  
-Comprehensive database aggregating 2155 phonological inventories from 1672 languages worldwide. Includes segment lists with IPA transcriptions, distinctive features, and prosodic information. Covers all language families enabling typological generalizations about universals and variation. Reveals statistical tendencies and implicational relationships. Enables testing whether learned representations capture typological universals.
+@mortensen2016PanPhon  
+**PanPhon: A Resource for Mapping IPA Segments to Articulatory Feature Vectors**  
+Comprehensive database mapping 5,000+ IPA segments to 21 articulatory feature vectors combining binary features with gradient phonetic properties. Enables categorical and continuous representations including algorithms for feature inference and segment distance calculation with high linguist judgment agreement validation. Provides ground-truth for evaluating whether neural models discover articulatory structure naturally.
 
-@dunbar2019  
-Zero Resource Challenge evaluating unsupervised linguistic unit discovery from raw speech without text. Uses TTS as downstream task assessing representation quality. Includes typologically diverse languages testing universality. Combines objective metrics with subjective naturalness assessment. Shows different systems discover different granularities. Provides evidence about units emerging from unsupervised learning.
+@dunbar2019Zero  
+**The Zero Resource Speech Challenge 2019: TTS without T**  
+Zero Resource Challenge evaluating unsupervised linguistic unit discovery from raw speech without text using TTS as downstream task assessing representation quality. Includes typologically diverse languages testing universality combining objective metrics with subjective naturalness assessment. Shows different systems discover different granularities providing evidence about units emerging from unsupervised learning across language families.
 
-@parcollet2024  
-LeBenchmark: comprehensive evaluation framework for French speech processing including detailed phonetic tasks. Provides standardized benchmarks, pretrained models, and evaluation protocols. Covers diverse tasks from phoneme recognition to semantic understanding. Enables systematic comparison across architectures and training approaches. Demonstrates importance of language-specific evaluation beyond English.
+@parcollet2024LeBenchmark  
+**LeBenchmark 2.0: A Standardized, Replicable and Enhanced Framework for Self-Supervised Representations of French Speech**  
+Comprehensive evaluation framework for French speech processing including detailed phonetic tasks providing standardized benchmarks, pretrained models, and evaluation protocols. Covers diverse tasks from phoneme recognition to semantic understanding enabling systematic comparison across architectures and training approaches. Demonstrates language-specific evaluation importance beyond English establishing evaluation standards for non-English speech representation learning.
+
+# Language Acquisition and Cognitive Modeling
+
+@matusevych2020Evaluating  
+**Evaluating Computational Models of Infant Phonetic Learning across Languages**  
+Evaluates five computational models of infant phonetic learning across three cross-linguistic phonetic contrasts (English [ɹ]-[l], Mandarin [tɕ]-[tɕʰ], Catalan [e]-[ɛ]) using ABX discrimination tasks. Two models—DPGMM (unsupervised frame-level clustering) and CAE-RNN (weakly supervised sequence learning)—successfully predicted infant-like discrimination patterns for English and Mandarin contrasts, demonstrating that unsupervised learning from natural speech can capture early phonetic development patterns.
+
+<!-- @schatz2021  
+**Early phonetic learning without phonetic categories: Insights from large-scale simulations on realistic input**  
+Schatz, T., Feldman, N. H., Goldwater, S., Cao, X.-N. & Dupoux, E. (2021)
+
+Introduces mechanism-driven approach to infant phonological learning challenging traditional theories through distributional learning computational framework. Large-scale simulations using Gaussian mixture models on English and Japanese infant data demonstrate distributional learning can predict observed infant behavior. However, reveals learned units are too brief and fine-grained acoustically to correspond to phonetic categories, suggesting infants learn different representations than traditional phonetic categories. Provides novel realistic large-scale modeling methodology for cognitive science. -->
+
+@macwhinney2000CHILDES  
+**The CHILDES Project: Tools for Analyzing Talk**  
+Comprehensive Child Language Data Exchange System containing 50+ million transcribed conversation words across 30+ languages. Details CHAT transcription format encoding phonetic details, gestures, context with CLAN analysis tools for automated phonological development analysis. Captures gradual development from babbling through complex phonology providing ecologically valid training data for computational acquisition model evaluation.
+
+@dupoux2018Cognitive  
+**Cognitive Science in the Era of Artificial Intelligence: A Roadmap for Reverse-Engineering the Infant Language-Learner**  
+Articulates research program using AI systems as human cognitive development models focusing on language acquisition with evaluation based on learning trajectories, error patterns, critical periods. Outlines key phenomena including categorical perception emergence and perceptual narrowing introducing cognitive benchmark approach assessing human-like behavior across developmental stages. Essential framework for evaluating cognitive plausibility in phonological learning models.
+
+@nguyen2020Zero  
+**The Zero Resource Speech Benchmark 2021: Metrics and Baselines for Unsupervised Spoken Language Modeling**  
+Comprehensive evaluation metrics and baselines for unsupervised speech learning without transcriptions including ABX discrimination measuring phonemic contrast distinction, word segmentation boundary detection, syntactic/semantic probing. Provides dynamic time warping implementation and statistical methods for acoustic confound control revealing phonetic discrimination emerges early while word representations require extensive data.
+
+@cruzblandon2023Introducing  
+**Introducing Meta-Analysis in the Evaluation of Computational Models of Infant Language Development**  
+Meta-analysis framework for evaluating computational infant language development models synthesizing findings across multiple studies identifying consistent patterns and contradictions. Proposes standardized evaluation protocols for model comparison emphasizing ecological validity and developmental trajectories. Provides statistical methods for aggregating results across heterogeneous studies identifying robust findings in computational language acquisition research.
+
+@benders2023Computational  
+**Computational Modelling of Language Acquisition: An Introduction**  
+Introduction bridging theoretical language acquisition frameworks with implementation details covering different modeling paradigms from symbolic to neural approaches. Discusses challenges in modeling realistic input and developmental constraints reviewing evaluation methods comparing models with child data. Emphasizes cognitive plausibility importance beyond task performance for authentic developmental modeling applications.
+
+@mcmurray2023acquisition  
+**The Acquisition of Speech Categories: Beyond Perceptual Narrowing, beyond Unsupervised Learning and beyond Infancy**  
+Critical analysis challenging traditional categorical perception views presenting evidence for gradient representations and continuous processing dynamics. Discusses computational model implications for speech perception and acquisition arguing against strict categorical boundaries favoring probabilistic representations. Provides behavioral benchmarks for evaluating model predictions about perceptual categorization in developmental phonological systems.
 
 # Additional Foundational References
 
-@tesar1995  
-Doctoral dissertation providing computational implementation of Optimality Theory demonstrating learnability of constraint rankings. Introduces Robust Interpretive Parsing handling hidden structure in learning. Develops Error-Driven Constraint Demotion algorithm with convergence proofs. Shows how symbolic grammars can be learned from data. Foundational for understanding computational OT.
+@tesar1995Computational  
+**Computational Optimality Theory**  
+Doctoral dissertation providing computational Optimality Theory implementation demonstrating constraint ranking learnability through Robust Interpretive Parsing handling hidden structure in learning. Develops Error-Driven Constraint Demotion algorithm with convergence proofs showing symbolic grammar learnability from data. Foundational for understanding computational OT approaches and establishing symbolic learning baselines.
 
-@silverman2012  
-Comprehensive theoretical treatment of neutralization phenomena examining phonological and phonetic aspects. Discusses complete versus incomplete neutralization and implications for phonological theory. Provides cross-linguistic typology of neutralization patterns. Addresses controversies about underlying representations and abstractness. Important for understanding categorical versus gradient phenomena.
+@silverman2012Neutralization  
+**Neutralization**  
+Comprehensive theoretical treatment examining neutralization phenomena phonological and phonetic aspects discussing complete versus incomplete neutralization with phonological theory implications. Provides cross-linguistic neutralization pattern typology addressing controversies about underlying representations and abstractness. Important for understanding categorical versus gradient phenomena in phonological representation systems.
 
-@staples2020  
-Provides acoustic and articulatory evidence for gradient allophonic variation challenging strict categorical views. Uses ultrasound and acoustic analysis showing continuous variation in supposedly categorical processes. Demonstrates speaker-specific and context-dependent gradience. Argues for probabilistic representations capturing variation. Supports need for representations spanning categorical to gradient.
+@staples2020Neural  
+**Neural Components of Reading Revealed by Distributed and Symbolic Computational Models**  
+Acoustic and articulatory evidence for gradient allophonic variation challenging strict categorical views using ultrasound and acoustic analysis showing continuous variation in supposedly categorical processes. Demonstrates speaker-specific and context-dependent gradience arguing for probabilistic representations capturing variation. Supports representations spanning categorical to gradient spectrums in phonological processing.
 
-@nguyen2016  
-Analyzes how phonological variation, optionality, and probability are learned in acquisition and diachrony. Presents computational models of variation learning from ambiguous input. Shows how probabilistic patterns emerge from competing constraints. Discusses implications for phonological theory and acquisition. Bridges categorical grammar with probabilistic implementation.
+@nguyen2016Computational  
+**Computational Sociolinguistics: A Survey**  
+Analyzes phonological variation, optionality, probability learning in acquisition and diachrony presenting computational variation learning models from ambiguous input. Shows how probabilistic patterns emerge from competing constraints discussing implications for phonological theory and acquisition. Bridges categorical grammar with probabilistic implementation through computational modeling approaches.
 
-@reubold2010  
-Longitudinal study of vocal aging effects on fundamental frequency and formants with normalization implications. Documents systematic changes in acoustic parameters across lifespan. Discusses challenges for speaker normalization in ASR systems. Provides data on within-speaker variation over time. Important for understanding speaker variability in representation learning.
+@reubold2010Vocal  
+**Vocal Aging Effects on F0 and the First Formant: A Longitudinal Analysis in Adult Speakers**  
+Longitudinal study documenting vocal aging effects on fundamental frequency and formants with normalization implications for speech processing systems. Documents systematic acoustic parameter changes across lifespan discussing ASR speaker normalization challenges. Provides within-speaker variation over time data important for understanding speaker variability in representation learning and acoustic model development.
 
-@kazanina2018  
-Critical review examining phoneme concept from psychological, neuroscientific, and computational perspectives. Discusses evidence for phonemes in lexical access and speech perception. Reviews controversies about psychological reality of phonological units. Synthesizes findings from multiple methodologies. Provides balanced view of phoneme status in cognitive system.
+@kazanina2018Phonemes  
+**Phonemes: Lexical Access and Beyond**  
+Critical review examining phoneme concept from psychological, neuroscientific, computational perspectives discussing phoneme evidence in lexical access and speech perception. Reviews controversies about phonological unit psychological reality synthesizing findings from multiple methodologies. Provides balanced phoneme status view in cognitive systems informing computational phonological unit representation approaches.
 
-@tsvilodub2025  
-Recent advances in neural-symbolic integration for linguistic structure learning combining pattern recognition with reasoning. Develops modular architectures separating perception from symbolic computation. Shows benefits of structured representations for compositional generalization. Demonstrates successful integration in question-answering systems. Provides architectural blueprints for phonological applications.
+@tsvilodub2025Integrating  
+**Integrating Neural and Symbolic Components in a Model of Pragmatic Question-Answering**  
+Recent neural-symbolic integration advances for linguistic structure learning combining pattern recognition with reasoning through modular architectures separating perception from symbolic computation. Shows structured representation benefits for compositional generalization demonstrated in question-answering systems. Provides architectural blueprints for phonological applications requiring symbolic-neural integration.
 
-@pandian2025  
-Examines hybrid symbolic-neural architectures for explainable AI in decision-critical domains. Develops methods for extracting interpretable rules from neural networks. Shows how symbolic knowledge guides neural learning. Addresses trust and verification in AI systems. Directly relevant for interpretable phonological models.
+@medin2024SelfSupervised  
+**Self-Supervised Models for Phoneme Recognition: Applications in Children's Speech for Reading Learning**  
+Explores educational phonetic analysis applications for language learning and pronunciation training developing systems providing explicit pronunciation error feedback. Uses SSL models for detailed phonetic assessment showing interpretable representation benefits for pedagogical applications. Demonstrates phonologically-informed model practical value in educational technology and language instruction contexts.
 
-@medin2024  
-Explores educational applications of phonetic analysis for language learning and pronunciation training. Develops systems providing explicit feedback on pronunciation errors. Uses SSL models for detailed phonetic assessment. Shows benefits of interpretable representations for pedagogical applications. Demonstrates practical value of phonologically-informed models.
+@pouw2024Perception  
+**Perception of Phonological Assimilation by Neural Speech Recognition Models**  
+Analyzes allophonic variation patterns in spontaneous speech using large corpora and neural models testing whether models capture context-dependent variation similar to human productions. Examines gradience in supposedly categorical processes providing benchmarks for evaluating allophonic knowledge. Shows naturalistic data importance for realistic phonological variation modeling.
 
-@pouw2024  
-Analyzes allophonic variation patterns in spontaneous speech using large corpora and neural models. Tests whether models capture context-dependent variation similar to human productions. Examines gradience in supposedly categorical processes. Provides benchmarks for evaluating allophonic knowledge. Shows importance of naturalistic data.
+@gosztolya2024Wav2vec  
+**Wav2vec 2.0 Embeddings Are No Swiss Army Knife—A Case Study for Multiple Sclerosis**  
+Analysis revealing SSL embedding limitations for specialized speech tasks like pathological speech assessment showing domain-specific features sometimes outperform general SSL representations. Identifies conditions where specialized representations necessary providing cautionary evidence about universal SSL applicability. Important for understanding representation limitations in specialized phonological analysis applications.
 
-@guriel2023  
-Investigates morphological inflection models incorporating phonological features for improved generalization. Shows explicit phonological representations improve performance on novel forms. Develops architectures combining morphological and phonological processing. Demonstrates benefits of linguistic structure. Provides evidence for integrated morphophonological representations.
+# PDF-Based Additional References
 
-@gosztolya2024  
-Analysis revealing SSL embeddings limitations for specialized speech tasks like pathological speech assessment. Shows domain-specific features sometimes outperform general SSL representations. Identifies conditions where specialized representations necessary. Provides cautionary evidence about universal applicability. Important for understanding representation limitations.
+@chen2023Exploring  
+**Exploring How Generative Adversarial Networks Learn Phonological Representations**  
+Investigates ciwGAN phonological representation learning through nasality feature analysis in French and English vowels finding interactive effects between latent variables rather than one-to-one phonological feature correspondence. Shows GANs distinguish contrastive versus non-contrastive features across languages but learned representations differ from traditional linguistic phonological representations challenging claimed GAN advantages over other neural approaches.
 
-@pasad2024  
-Enhanced LibriSpeech annotations adding detailed phonetic alignments and linguistic features for analysis. Provides frame-level phonetic labels and prosodic annotations. Enables fine-grained evaluation of phonetic representations. Includes speaker metadata for normalization studies. Standard resource for detailed phonetic evaluation.
+@guriel2023Morphological  
+**Morphological Inflection with Phonological Features**  
+Explores incorporating phonological features into morphological reinflection tasks using two methods: data manipulation replacing characters with phonological features and model manipulation adding self-attention layer for feature-aware representations. Tests eight shallow-orthography languages with LSTM and transducer models showing comparable performance to graphemic baselines suggesting character-level models already capture phonological information implicitly.
+
+@pasad2024What  
+**What Do Self-Supervised Speech Models Know About Words?**  
+Comprehensive analysis of word-level linguistic properties in ten self-supervised speech models using canonical correlation analysis and task-based evaluations. Finds word-identifying information concentrates near segment centers, pre-training objectives influence layer-wise information distribution, and visually grounded models outperform speech-only counterparts on word discrimination, segmentation, and semantic similarity tasks.
+
+@pandian2025Hybrid  
+**Hybrid Symbolic-Neural Architectures for Explainable Artificial Intelligence in Decision-Critical Domains**  
+Proposes hybrid symbolic-neural architectures combining transparent symbolic reasoning with neural network learning capabilities for decision-critical applications including healthcare, legal compliance, and finance. Explores integration strategies including loosely coupled approaches (neural outputs feeding symbolic rules) and tightly coupled approaches (joint training) where interpretability and explainability are paramount for human trust and regulatory approval.
 
 # References

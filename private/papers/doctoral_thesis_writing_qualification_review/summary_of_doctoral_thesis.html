@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sora Nagano">
+<meta name="keywords" content="Phonology, Deep Learning, Self-Supervised Learning, Neuro-Symbolic Integration, Computational Linguistics">
+
+<title>Summary of Proposed Doctoral Thesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="summary_of_doctoral_thesis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="summary_of_doctoral_thesis_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="summary_of_doctoral_thesis_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="summary_of_doctoral_thesis_files/libs/quarto-html/popper.min.js"></script>
+<script src="summary_of_doctoral_thesis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="summary_of_doctoral_thesis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="summary_of_doctoral_thesis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="summary_of_doctoral_thesis_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="summary_of_doctoral_thesis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="summary_of_doctoral_thesis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="summary_of_doctoral_thesis_files/libs/bootstrap/bootstrap-7f0ba2f96fa9c51acdae2b4382975615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-and-research-background" id="toc-introduction-and-research-background" class="nav-link active" data-scroll-target="#introduction-and-research-background"><span class="header-section-number">1</span> Introduction and Research Background</a></li>
+  <li><a href="#research-objectives-and-questions" id="toc-research-objectives-and-questions" class="nav-link" data-scroll-target="#research-objectives-and-questions"><span class="header-section-number">2</span> Research Objectives and Questions</a>
+  <ul class="collapse">
+  <li><a href="#primary-research-question" id="toc-primary-research-question" class="nav-link" data-scroll-target="#primary-research-question"><span class="header-section-number">2.1</span> Primary Research Question</a></li>
+  <li><a href="#specific-research-questions" id="toc-specific-research-questions" class="nav-link" data-scroll-target="#specific-research-questions"><span class="header-section-number">2.2</span> Specific Research Questions</a></li>
+  </ul></li>
+  <li><a href="#theoretical-framework" id="toc-theoretical-framework" class="nav-link" data-scroll-target="#theoretical-framework"><span class="header-section-number">3</span> Theoretical Framework</a>
+  <ul class="collapse">
+  <li><a href="#foundations-in-computational-phonology" id="toc-foundations-in-computational-phonology" class="nav-link" data-scroll-target="#foundations-in-computational-phonology"><span class="header-section-number">3.1</span> Foundations in Computational Phonology</a></li>
+  <li><a href="#multi-dimensional-evaluation-framework" id="toc-multi-dimensional-evaluation-framework" class="nav-link" data-scroll-target="#multi-dimensional-evaluation-framework"><span class="header-section-number">3.2</span> Multi-dimensional Evaluation Framework</a></li>
+  </ul></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">4</span> Methodology</a>
+  <ul class="collapse">
+  <li><a href="#experimental-design" id="toc-experimental-design" class="nav-link" data-scroll-target="#experimental-design"><span class="header-section-number">4.1</span> Experimental Design</a></li>
+  <li><a href="#technical-implementation" id="toc-technical-implementation" class="nav-link" data-scroll-target="#technical-implementation"><span class="header-section-number">4.2</span> Technical Implementation</a></li>
+  <li><a href="#evaluation-protocols" id="toc-evaluation-protocols" class="nav-link" data-scroll-target="#evaluation-protocols"><span class="header-section-number">4.3</span> Evaluation Protocols</a></li>
+  </ul></li>
+  <li><a href="#preliminary-results-and-pilot-studies" id="toc-preliminary-results-and-pilot-studies" class="nav-link" data-scroll-target="#preliminary-results-and-pilot-studies"><span class="header-section-number">5</span> Preliminary Results and Pilot Studies</a>
+  <ul class="collapse">
+  <li><a href="#probing-experiments-on-ssl-representations" id="toc-probing-experiments-on-ssl-representations" class="nav-link" data-scroll-target="#probing-experiments-on-ssl-representations"><span class="header-section-number">5.1</span> Probing Experiments on SSL Representations</a></li>
+  <li><a href="#vector-quantization-studies" id="toc-vector-quantization-studies" class="nav-link" data-scroll-target="#vector-quantization-studies"><span class="header-section-number">5.2</span> Vector Quantization Studies</a></li>
+  <li><a href="#hybrid-model-proof-of-concept" id="toc-hybrid-model-proof-of-concept" class="nav-link" data-scroll-target="#hybrid-model-proof-of-concept"><span class="header-section-number">5.3</span> Hybrid Model Proof-of-Concept</a></li>
+  <li><a href="#developmental-trajectory-modeling" id="toc-developmental-trajectory-modeling" class="nav-link" data-scroll-target="#developmental-trajectory-modeling"><span class="header-section-number">5.4</span> Developmental Trajectory Modeling</a></li>
+  </ul></li>
+  <li><a href="#expected-contributions-and-impact" id="toc-expected-contributions-and-impact" class="nav-link" data-scroll-target="#expected-contributions-and-impact"><span class="header-section-number">6</span> Expected Contributions and Impact</a>
+  <ul class="collapse">
+  <li><a href="#theoretical-contributions" id="toc-theoretical-contributions" class="nav-link" data-scroll-target="#theoretical-contributions"><span class="header-section-number">6.1</span> Theoretical Contributions</a></li>
+  <li><a href="#practical-contributions" id="toc-practical-contributions" class="nav-link" data-scroll-target="#practical-contributions"><span class="header-section-number">6.2</span> Practical Contributions</a></li>
+  <li><a href="#interdisciplinary-impact" id="toc-interdisciplinary-impact" class="nav-link" data-scroll-target="#interdisciplinary-impact"><span class="header-section-number">6.3</span> Interdisciplinary Impact</a></li>
+  <li><a href="#broader-societal-impact" id="toc-broader-societal-impact" class="nav-link" data-scroll-target="#broader-societal-impact"><span class="header-section-number">6.4</span> Broader Societal Impact</a></li>
+  </ul></li>
+  <li><a href="#resources-and-feasibility" id="toc-resources-and-feasibility" class="nav-link" data-scroll-target="#resources-and-feasibility"><span class="header-section-number">7</span> Resources and Feasibility</a>
+  <ul class="collapse">
+  <li><a href="#data-resources" id="toc-data-resources" class="nav-link" data-scroll-target="#data-resources"><span class="header-section-number">7.1</span> Data Resources</a></li>
+  <li><a href="#risk-mitigation" id="toc-risk-mitigation" class="nav-link" data-scroll-target="#risk-mitigation"><span class="header-section-number">7.2</span> Risk Mitigation</a></li>
+  </ul></li>
+  <li><a href="#ethical-considerations-and-broader-impact" id="toc-ethical-considerations-and-broader-impact" class="nav-link" data-scroll-target="#ethical-considerations-and-broader-impact"><span class="header-section-number">8</span> Ethical Considerations and Broader Impact</a>
+  <ul class="collapse">
+  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations"><span class="header-section-number">8.1</span> Ethical Considerations</a></li>
+  <li><a href="#broader-impact-statement" id="toc-broader-impact-statement" class="nav-link" data-scroll-target="#broader-impact-statement"><span class="header-section-number">8.2</span> Broader Impact Statement</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">9</span> Conclusion</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="summary_of_doctoral_thesis.pdf"><i class="bi bi-file-pdf"></i>PDF (arxiv)</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Summary of Proposed Doctoral Thesis</h1>
+<p class="subtitle lead">Phonological Features in the Era of Deep Learning: A Multi-dimensional Investigation into Optimal Representational Units for Language Modeling</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Sora Nagano <a href="mailto:s-oswld-n@g.ecc.u-tokyo.ac.jp" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            The University of Tokyo
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    <p>This document presents a comprehensive summary of the proposed doctoral thesis for the writing qualification review. It outlines the research background, objectives, theoretical framework, methodology, preliminary results, and expected contributions of a multi-dimensional investigation into optimal representational units for language modeling in computational phonology.</p>
+  </div>
+</div>
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Phonology, Deep Learning, Self-Supervised Learning, Neuro-Symbolic Integration, Computational Linguistics</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="introduction-and-research-background" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction and Research Background</h1>
+<p>The fundamental question of how language should be represented computationally has been at the core of linguistic theory since the inception of generative grammar. In the era of deep learning, this question has gained renewed urgency as self-supervised learning models achieve unprecedented performance on speech and language tasks while operating on representations that diverge dramatically from traditional linguistic units. This doctoral thesis addresses the critical gap between symbolic phonological theories and neural representations by investigating the optimal representational units for language modeling through a multi-dimensional empirical and theoretical framework.</p>
+<p>The motivation for this research emerges from a fundamental tension in contemporary computational linguistics. Traditional phonological theory, rooted in the work of <span class="citation" data-cites="chomsky1968sound">Chomsky &amp; Halle (<a href="#ref-chomsky1968sound" role="doc-biblioref">1968</a>)</span> and further developed through Optimality Theory <span class="citation" data-cites="prince2004Optimality">(<a href="#ref-prince2004Optimality" role="doc-biblioref">Prince &amp; Smolensky, 2004</a>)</span>, provides elegant symbolic representations—distinctive features, phonemes, and constraints—that capture linguistic generalizations with remarkable parsimony. These representations offer interpretability and theoretical coherence, enabling linguists to formulate precise hypotheses about phonological patterns across languages. The symbolic tradition has produced sophisticated theoretical frameworks including Autosegmental Phonology <span class="citation" data-cites="goldsmith1976Autosegmental">(<a href="#ref-goldsmith1976Autosegmental" role="doc-biblioref">Goldsmith, 1976</a>)</span>, which revolutionized our understanding of tonal phenomena through multi-tiered representations, and Feature Geometry <span class="citation" data-cites="clements1985geometry">(<a href="#ref-clements1985geometry" role="doc-biblioref">Clements, 1985</a>)</span>, which captures the hierarchical organization of distinctive features and explains natural classes in phonological processes.</p>
+<p>Conversely, modern neural networks, particularly self-supervised models like wav2vec 2.0 <span class="citation" data-cites="baevski2020wav2vec">(<a href="#ref-baevski2020wav2vec" role="doc-biblioref">Baevski et al., 2020</a>)</span> and HuBERT <span class="citation" data-cites="hsu2021HuBERT">(<a href="#ref-hsu2021HuBERT" role="doc-biblioref">Hsu et al., 2021</a>)</span>, learn continuous distributed representations directly from raw speech data, achieving superior empirical performance on downstream tasks while remaining largely opaque to linguistic interpretation. These models have demonstrated remarkable capabilities in learning phonetic and phonological patterns without explicit supervision, raising fundamental questions about the nature of linguistic knowledge. The recent development of WavLM <span class="citation" data-cites="chen2022WavLM">(<a href="#ref-chen2022WavLM" role="doc-biblioref">S. Chen et al., 2022</a>)</span> and other advanced SSL models has further pushed the boundaries of what can be learned from raw acoustic signals, achieving near-human performance on various speech tasks while using representations that bear little resemblance to traditional phonological units.</p>
+<p>This dichotomy raises profound questions about the nature of phonological knowledge and its computational implementation. Are the representational units that emerge from neural learning fundamentally different from those posited by linguistic theory, or do they converge on similar abstractions through different computational pathways? Can we design hybrid architectures that combine the interpretability of symbolic approaches with the learning capabilities of neural networks? How do these different representational choices affect cognitive plausibility, computational efficiency, and cross-linguistic generalization?</p>
+<!-- TODO -->
+<p>The urgency of these questions is amplified by practical considerations in speech technology. Current speech recognition and synthesis systems, while achieving impressive performance, often fail in ways that suggest a lack of genuine phonological understanding. They struggle with out-of-distribution data, show poor cross-linguistic transfer, and provide little insight into their failure modes. A deeper understanding of optimal representational units could lead to more robust, interpretable, and efficient speech processing systems, with particular benefits for low-resource languages where data scarcity makes pure neural approaches less viable.</p>
+<p>Furthermore, this research has implications for our understanding of human language acquisition and processing. The representations learned by neural models provide a computational hypothesis about what information is available in the speech signal and how it might be organized by learning mechanisms. By comparing these learned representations with human behavioral data and developmental trajectories, we can gain insights into the computational principles underlying human phonological knowledge.</p>
+</section>
+<section id="research-objectives-and-questions" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Research Objectives and Questions</h1>
+<p>This thesis pursues three interconnected research objectives that collectively address the fundamental question of optimal representational units for phonological modeling. These objectives are designed to provide both theoretical insights and practical applications, bridging the gap between linguistic theory and computational implementation.</p>
+<section id="primary-research-question" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="primary-research-question"><span class="header-section-number">2.1</span> Primary Research Question</h2>
+<p>What are the optimal representational units for language modeling in the era of deep learning, considering multiple dimensions of evaluation including predictive accuracy, linguistic interpretability, cognitive plausibility, and computational efficiency? This overarching question recognizes that “optimality” is not a monolithic concept but rather a multi-faceted evaluation that must consider the diverse requirements of different applications and theoretical frameworks.</p>
+</section>
+<section id="specific-research-questions" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="specific-research-questions"><span class="header-section-number">2.2</span> Specific Research Questions</h2>
+<p><strong>RQ1: Empirical Landscape Mapping</strong></p>
+<p>How do different representational units—ranging from continuous neural embeddings to discrete symbolic features—perform across diverse phonological tasks including phonotactics, allophonic variation, and morphophonological alternations? This question involves systematic comparison of continuous representations from self-supervised models <span class="citation" data-cites="baevski2020wav2vec hsu2021HuBERT chen2022WavLM">(<a href="#ref-baevski2020wav2vec" role="doc-biblioref">Baevski et al., 2020</a>; <a href="#ref-chen2022WavLM" role="doc-biblioref">S. Chen et al., 2022</a>; <a href="#ref-hsu2021HuBERT" role="doc-biblioref">Hsu et al., 2021</a>)</span>, discrete codes from vector quantization methods <span class="citation" data-cites="higy2021Discrete cho2025Sylber">(<a href="#ref-cho2025Sylber" role="doc-biblioref">Cho et al., 2025</a>; <a href="#ref-higy2021Discrete" role="doc-biblioref">Higy et al., 2021</a>)</span>, traditional symbolic units (phonemes, distinctive features, syllables), and hybrid representations combining neural and symbolic elements.</p>
+<p>The investigation will examine not only overall performance metrics but also the qualitative differences in how different representations handle specific phonological phenomena. For instance, do continuous representations better capture gradient phonetic variation while discrete units excel at categorical phonological processes? How do different representations handle long-distance dependencies, such as vowel harmony or consonant co-occurrence restrictions? These detailed analyses will provide insights into the strengths and limitations of each representational approach.</p>
+<p><strong>RQ2: Neuro-Symbolic Integration</strong></p>
+<!-- TODO -->
+<p>Can we design architectures that effectively integrate symbolic phonological knowledge with neural representations, achieving both high predictive accuracy and linguistic interpretability? This investigation focuses on developing bridge networks that map between continuous and discrete representations, implementing Maximum Entropy Harmonic Grammar with neural parameterization, creating interpretable bottlenecks that enforce phonological structure, and evaluating trade-offs between performance and interpretability.</p>
+<p>The neuro-symbolic integration explores several innovative architectural designs. One approach involves using neural networks to learn constraint weights in Optimality Theory or Harmonic Grammar frameworks, allowing the model to discover phonological generalizations while maintaining the interpretable structure of constraint-based theories. Another approach uses vector quantization techniques to create discrete bottlenecks in neural architectures, forcing the model to compress information into phonologically meaningful units. These hybrid architectures aim to combine the learning power of neural networks with the theoretical insights of symbolic phonology.</p>
+<p><strong>RQ3: Cognitive Plausibility Validation</strong></p>
+<p>To what extent do different representational choices align with human language acquisition and processing patterns? This question examines developmental trajectories using CHILDES corpus simulations <span class="citation" data-cites="cruzblandon2023Introducing benders2023Computational">(<a href="#ref-benders2023Computational" role="doc-biblioref">Benders &amp; Blom, 2023</a>; <a href="#ref-cruzblandon2023Introducing" role="doc-biblioref">Cruz Blandón et al., 2023</a>)</span>, perceptual discrimination patterns through ABX tasks <span class="citation" data-cites="mcmurray2023acquisition">(<a href="#ref-mcmurray2023acquisition" role="doc-biblioref">McMurray, 2023</a>)</span>, cross-linguistic transfer and generalization capabilities <span class="citation" data-cites="venkateswaran2025Probing">(<a href="#ref-venkateswaran2025Probing" role="doc-biblioref">Venkateswaran et al., 2025</a>)</span>, and computational efficiency relative to human processing constraints.</p>
+<p>The cognitive validation component goes beyond simple performance metrics to examine whether models exhibit human-like learning trajectories and processing patterns. This includes investigating whether models show perceptual narrowing effects similar to infants, whether they exhibit similar patterns of overgeneralization and regularization during learning, and whether their internal representations align with neural recordings from human speech processing. These investigations provide crucial constraints on the space of plausible models and offer insights into the computational principles underlying human phonological competence.</p>
+</section>
+</section>
+<section id="theoretical-framework" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Theoretical Framework</h1>
+<section id="foundations-in-computational-phonology" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="foundations-in-computational-phonology"><span class="header-section-number">3.1</span> Foundations in Computational Phonology</h2>
+<p>This research builds upon three theoretical pillars that span traditional and modern approaches to phonological computation, each contributing essential insights to our understanding of optimal representational units.</p>
+<p>The symbolic phonological tradition provides the foundational understanding of phonological structure and organization. The Sound Pattern of English <span class="citation" data-cites="chomsky1968sound">(<a href="#ref-chomsky1968sound" role="doc-biblioref">Chomsky &amp; Halle, 1968</a>)</span> established the framework of distinctive features and rule-based derivations that has influenced all subsequent phonological theorizing. This work demonstrated that complex phonological patterns could be captured through a finite set of binary features and ordered rules, providing a powerful formalism for cross-linguistic generalizations. Autosegmental Phonology <span class="citation" data-cites="goldsmith1976Autosegmental">(<a href="#ref-goldsmith1976Autosegmental" role="doc-biblioref">Goldsmith, 1976</a>)</span> revolutionized this framework by proposing that different types of phonological information exist on separate tiers, connected by association lines. This multi-tiered architecture naturally captures phenomena like tone spreading, vowel harmony, and the independence of various phonological processes. Feature Geometry <span class="citation" data-cites="clements1985geometry">(<a href="#ref-clements1985geometry" role="doc-biblioref">Clements, 1985</a>)</span> further refined our understanding by organizing distinctive features in hierarchical structures, explaining why certain features pattern together in assimilation and dissimilation processes.</p>
+<p>Optimality Theory <span class="citation" data-cites="prince2004Optimality">(<a href="#ref-prince2004Optimality" role="doc-biblioref">Prince &amp; Smolensky, 2004</a>)</span> represents a paradigm shift from rule-based to constraint-based phonology. Instead of serial derivations, OT proposes that phonological patterns emerge from the interaction of ranked, violable constraints. This framework has proven remarkably successful in capturing typological generalizations and explaining the range of variation observed across languages. The computational implementations of OT, particularly Maximum Entropy Harmonic Grammar <span class="citation" data-cites="hayes2008Maximum">(<a href="#ref-hayes2008Maximum" role="doc-biblioref">Hayes &amp; Wilson, 2008</a>)</span>, provide probabilistic extensions that can handle gradient phenomena and variation. These frameworks offer a natural bridge to neural implementation, as constraint weights can be learned through gradient descent while maintaining linguistic interpretability.</p>
+<p>The revolution in neural representation learning has demonstrated that rich phonological representations can emerge from distributional learning without explicit linguistic supervision. The word2vec revolution <span class="citation" data-cites="mikolov2013Distributed">(<a href="#ref-mikolov2013Distributed" role="doc-biblioref">Mikolov et al., 2013</a>)</span> showed that semantic relationships could be captured through vector arithmetic in embedding spaces, and subsequent work demonstrated that similar principles apply to phonological representations <span class="citation" data-cites="silfverberg2018Sound">(<a href="#ref-silfverberg2018Sound" role="doc-biblioref">Silfverberg et al., 2018</a>)</span>. The development of self-supervised learning for speech, particularly through models like wav2vec 2.0 <span class="citation" data-cites="baevski2020wav2vec">(<a href="#ref-baevski2020wav2vec" role="doc-biblioref">Baevski et al., 2020</a>)</span>, HuBERT <span class="citation" data-cites="hsu2021HuBERT">(<a href="#ref-hsu2021HuBERT" role="doc-biblioref">Hsu et al., 2021</a>)</span>, and WavLM <span class="citation" data-cites="chen2022WavLM">(<a href="#ref-chen2022WavLM" role="doc-biblioref">S. Chen et al., 2022</a>)</span>, has shown that neural networks can learn hierarchical representations of speech that capture phonetic and phonological information at different levels of abstraction.</p>
+<p>Recent work on vector quantization <span class="citation" data-cites="higy2021Discrete vandenoord2017Neural">(<a href="#ref-higy2021Discrete" role="doc-biblioref">Higy et al., 2021</a>; <a href="#ref-vandenoord2017Neural" role="doc-biblioref">van den Oord et al., 2017</a>)</span> and neural codecs [@; <span class="citation" data-cites="cho2025Sylber">Cho et al. (<a href="#ref-cho2025Sylber" role="doc-biblioref">2025</a>)</span>] provides methods for creating discrete representations that maintain neural learning capabilities while offering interpretability. These approaches address a fundamental challenge in neural phonology: how to maintain the categorical nature of phonological representations while leveraging the learning power of gradient-based optimization. The development of models like SpeechTokenizer <span class="citation" data-cites="zhang2024SpeechTokenizer">(<a href="#ref-zhang2024SpeechTokenizer" role="doc-biblioref">Zhang et al., 2024</a>)</span> demonstrates that hierarchical discrete representations can effectively separate linguistic content from paralinguistic information, suggesting principled ways to discover phonologically relevant units.</p>
+<p>The emerging field of neuro-symbolic AI <span class="citation" data-cites="panchendrarajan2024Synergizing">(<a href="#ref-panchendrarajan2024Synergizing" role="doc-biblioref">Panchendrarajan &amp; Zubiaga, 2024</a>, <!-- >; @garcez2022-->)</span> provides methodologies for combining symbolic reasoning with neural learning. In phonology, this includes innovative work on Generative Adversarial Phonology <span class="citation" data-cites="begus2020Generative">(<a href="#ref-begus2020Generative" role="doc-biblioref">Beguš, 2020</a>)</span>, which shows that phonological patterns can emerge from the adversarial training dynamics of GANs without explicit symbolic supervision. Studies examining what these models learn <span class="citation" data-cites="chen2023Exploring">(<a href="#ref-chen2023Exploring" role="doc-biblioref">J. Chen &amp; Elsner, 2023</a>)</span> reveal that they discover representations with properties similar to distinctive features, suggesting deep connections between neural and symbolic approaches.</p>
+</section>
+<section id="multi-dimensional-evaluation-framework" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="multi-dimensional-evaluation-framework"><span class="header-section-number">3.2</span> Multi-dimensional Evaluation Framework</h2>
+<p>The thesis employs a comprehensive evaluation framework that recognizes that “optimality” in representational units cannot be reduced to a single metric. This framework draws inspiration from multi-objective optimization in machine learning and the multiple evaluation criteria used in cognitive science.</p>
+<!-- TODO -->
+<p><strong>Predictive Accuracy</strong> encompasses performance on downstream tasks that test different aspects of phonological knowledge. This includes phoneme recognition accuracy, measuring how well representations distinguish phonological categories; word segmentation performance, testing the ability to identify lexical boundaries; morphophonological prediction, evaluating knowledge of alternations and phonological processes; and phonotactic acceptability judgments, assessing knowledge of sound sequence constraints. Each task provides insight into different aspects of phonological competence, and the pattern of performance across tasks reveals the strengths and limitations of different representational approaches.</p>
+<p><strong>Linguistic Interpretability</strong> evaluates how well learned representations align with established phonological theories and whether they enable extraction of linguistic generalizations. This involves analyzing whether neural representations encode distinctive features, natural classes, and phonological processes in ways that correspond to linguistic theory. It also examines whether learned constraints or rules can be interpreted in terms of known phonological principles and whether the models’ errors are phonologically plausible. Interpretability is crucial not only for scientific understanding but also for practical applications where model decisions must be explainable.</p>
+<p><strong>Cognitive Plausibility</strong> assesses consistency with human acquisition patterns, processing limitations, and behavioral data. This includes examining whether models show developmental trajectories similar to human learners, whether they exhibit similar patterns of generalization and error, and whether their processing demands align with human cognitive constraints. Cognitive plausibility provides important constraints on the space of viable models and offers insights into the computational principles underlying human phonological competence.</p>
+<!-- TODO: footnoot for the word "FLOPs" -->
+<p><strong>Computational Efficiency</strong> considers resource requirements, training time, and inference speed relative to task performance. This dimension is crucial for practical applications, particularly in resource-constrained settings or real-time processing scenarios. Efficiency metrics include memory footprint, FLOPs required for training and inference, latency in online processing, and scalability to larger datasets and models. The trade-offs between efficiency and other evaluation dimensions reveal fundamental constraints on phonological computation.</p>
+</section>
+</section>
+<section id="methodology" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Methodology</h1>
+<section id="experimental-design" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="experimental-design"><span class="header-section-number">4.1</span> Experimental Design</h2>
+<p>The research employs a systematic comparative methodology across three empirical studies corresponding to the research questions. Each study is designed to provide complementary insights into the nature of optimal phonological representations, using diverse datasets, tasks, and evaluation metrics.</p>
+<p><strong>Study 1: Representational Landscape Analysis (RQ1)</strong> provides a comprehensive empirical comparison of different representational units across a battery of phonological tasks. The study uses a controlled experimental design where all representations are evaluated on identical data and tasks, ensuring fair comparison.</p>
+<p>The dataset collection includes LibriSpeech <span class="citation" data-cites="panayotov2015Librispeech">(<a href="#ref-panayotov2015Librispeech" role="doc-biblioref">Panayotov et al., 2015</a>)</span> for English phonological analysis, providing 1000 hours of read speech with aligned transcriptions; Common Voice <span class="citation" data-cites="ardila2020Common">(<a href="#ref-ardila2020Common" role="doc-biblioref">Ardila et al., 2020</a>)</span> for multilingual evaluation, covering 50+ languages with diverse phonological systems; specialized corpora like TIMIT for fine-grained phonetic analysis; and custom-collected data for specific phonological phenomena such as tone, stress, and vowel harmony. These diverse datasets ensure that findings generalize across languages and speaking styles.</p>
+<!-- TODO -->
+<p>The experimental tasks span multiple levels of phonological analysis. Phoneme classification tests basic segmental representation using frame-level and segment-level classification accuracy. Allophone prediction <span class="citation" data-cites="pouw2024Perception">(<a href="#ref-pouw2024Perception" role="doc-biblioref">Pouw et al., 2024</a>)</span> evaluates knowledge of context-dependent variation using rule-based and statistical patterns. Phonotactic acceptability judgments <span class="citation" data-cites="guriel2023Morphological">(<a href="#ref-guriel2023Morphological" role="doc-biblioref">Guriel et al., 2023</a>)</span> assess knowledge of sequential constraints through well-formedness ratings and discrimination tasks. Morphophonological alternation modeling tests understanding of systematic sound changes in paradigms through wug-test style generalization and naturalistic alternation prediction.</p>
+<!-- TODO -->
+<p>Evaluation employs multiple metrics to capture different aspects of performance. Accuracy metrics include frame-level and segment-level classification accuracy, F1-scores for imbalanced categories, and confusion matrices revealing systematic errors. Information-theoretic measures <span class="citation" data-cites="kolachina2019What">(<a href="#ref-kolachina2019What" role="doc-biblioref">Kolachina &amp; Magyar, 2019</a>)</span> quantify mutual information between representations and linguistic categories, entropy of learned representations, and compression rates for different unit types. Linguistic analysis examines error patterns for phonological plausibility, generalization to unseen contexts, and cross-linguistic transfer capabilities.</p>
+<p><strong>Study 2: Hybrid Architecture Development (RQ2)</strong> focuses on designing and implementing novel neuro-symbolic integration strategies that combine the strengths of neural and symbolic approaches.</p>
+<!-- TODO -->
+<p>The architectural innovations include several novel designs. The Neural-Symbolic Bridge Network uses a frozen SSL encoder (WavLM-Large) for feature extraction, combined with a trainable bridge network that maps continuous representations to symbolic units, and a MaxEnt HG decoder implementing phonological constraints. The Vector Quantized Phonological Network employs hierarchical VQ-VAE with phonologically-informed codebooks, using separate quantization for different feature types (place, manner, voicing), with disentanglement objectives ensuring interpretable codes. The Constraint Discovery Network implements differentiable OT using Gumbel-softmax for discrete decisions, with automatic constraint induction from data and interpretable constraint weights learned through gradient descent.</p>
+<!-- TODO -->
+<p>Training procedures are carefully designed to balance different objectives. Multi-task learning simultaneously optimizes for reconstruction, classification, and constraint satisfaction. Curriculum learning progresses from simple to complex phonological patterns, starting with individual segments and building to sequences and alternations. Regularization techniques include sparsity constraints on symbolic representations, information bottlenecks enforcing compression, and phonological priors from typological databases <span class="citation" data-cites="moran2019Phoible">(<a href="#ref-moran2019Phoible" role="doc-biblioref">Moran &amp; McCloy, 2019</a>)</span>.</p>
+<!-- TODO -->
+<p>The evaluation focuses on the performance-interpretability trade-off. Pareto frontier analysis identifies models that optimally balance accuracy and interpretability. Ablation studies determine the contribution of different architectural components. Constraint weight analysis examines learned weights for linguistic plausibility and cross-linguistic validity. Human evaluation assesses the interpretability of extracted rules and constraints.</p>
+<p><strong>Study 3: Cognitive Validation (RQ3)</strong> examines whether different representational approaches align with human language acquisition and processing patterns.</p>
+<p>The developmental simulation uses the CHILDES corpus <span class="citation" data-cites="macwhinney2000CHILDES">(<a href="#ref-macwhinney2000CHILDES" role="doc-biblioref">Macwhinney, 2000</a>)</span> to model language acquisition trajectories. Age-stratified training exposes models to data in developmentally appropriate sequences. Milestone tracking monitors the emergence of phonological contrasts, the development of phonotactic knowledge, and the acquisition of morphophonological alternations. Error analysis compares model errors with children’s production patterns, examining overgeneralization, regularization, and U-shaped learning curves.</p>
+<!-- TODO -->
+<p>Perceptual experiments implement computational versions of classic psycholinguistic paradigms. ABX discrimination tasks <span class="citation" data-cites="schatz2021">(<a href="#ref-schatz2021" role="doc-biblioref"><strong>schatz2021?</strong></a>)</span> test categorical perception and perceptual narrowing, comparing native vs.&nbsp;non-native contrasts. Gating paradigms examine incremental processing and predictive capabilities. Priming experiments investigate phonological representation and activation patterns.</p>
+<p>Cross-linguistic evaluation tests transfer and generalization across typologically diverse languages. Zero-shot transfer evaluates performance on unseen languages without additional training. Few-shot learning examines rapid adaptation with minimal target language data. Universal tendency analysis tests whether models exhibit biases toward typologically common patterns, preferences for unmarked structures, and learnability differences for natural vs.&nbsp;unnatural patterns.</p>
+</section>
+<section id="technical-implementation" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="technical-implementation"><span class="header-section-number">4.2</span> Technical Implementation</h2>
+<p>The computational infrastructure is designed for reproducibility, scalability, and efficient experimentation.</p>
+<!-- TODO -->
+<p>The software environment uses Docker containers ensuring reproducible environments across different systems, Poetry for dependency management with locked versions, and Git with DVC for version control of code and data. Experiment tracking uses Weights &amp; Biases for comprehensive logging and visualization. The development follows test-driven practices with continuous integration.</p>
+<!-- TODO -->
+<p>The data processing pipeline employs sophisticated techniques for phonetic analysis. Montreal Forced Aligner <span class="citation" data-cites="mcauliffe2017Montreal">(<a href="#ref-mcauliffe2017Montreal" role="doc-biblioref">McAuliffe et al., 2017</a>)</span> provides automatic phonetic alignment with manual verification. Custom preprocessing handles diverse audio formats, sampling rates, and recording conditions. Data augmentation strategies include speed perturbation, noise addition, and synthetic generation for low-resource scenarios. Quality control involves automatic detection of alignment errors and systematic validation of annotations.</p>
+<!-- TODO -->
+<p>Model implementations leverage state-of-the-art frameworks and architectures. Baseline models include wav2vec 2.0, HuBERT, and WavLM implementations from Hugging Face Transformers, with careful hyperparameter tuning and fair comparison protocols. Custom architectures implement VQ-VAE variants with phonological inductive biases, hybrid networks combining neural encoders with symbolic decoders, and MaxEnt HG implementations with neural constraint discovery. All implementations prioritize efficiency through mixed precision training, gradient checkpointing, and distributed data parallel training.</p>
+</section>
+<section id="evaluation-protocols" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="evaluation-protocols"><span class="header-section-number">4.3</span> Evaluation Protocols</h2>
+<p>The evaluation employs rigorous protocols ensuring reliable and interpretable results.</p>
+<!-- TODO -->
+<p>Quantitative metrics comprehensively assess model performance. Task-specific measures include accuracy, F1-score, and confusion matrices for classification tasks; WER and PER for sequence prediction; and perplexity and bits-per-character for language modeling. Information-theoretic measures <span class="citation" data-cites="maaten2008Visualizing">(<a href="#ref-maaten2008Visualizing" role="doc-biblioref">Maaten &amp; Hinton, 2008</a>)</span> quantify mutual information with linguistic categories, encoding efficiency and compression rates, and disentanglement metrics for interpretable representations. Efficiency metrics track training time and convergence rates, inference latency and throughput, memory usage and model size, and energy consumption for environmental impact.</p>
+<p>Qualitative analysis provides linguistic insights into model behavior. Representation analysis uses probing classifiers to test for specific linguistic information, visualization techniques including t-SNE and attention maps, and correlation analysis with linguistic features. Error analysis categorizes errors by phonological type, examines systematic biases and patterns, and compares with human error patterns. Case studies provide detailed analysis of specific phenomena such as vowel harmony, tone sandhi, and morphophonological alternations.</p>
+<!-- TODO -->
+<p>Statistical validation ensures robust and reliable conclusions. Bootstrap confidence intervals provide uncertainty estimates for all metrics. Permutation tests assess significance of differences between models. Multiple comparison correction controls for false discoveries in extensive evaluations. Effect size estimation quantifies practical significance beyond statistical significance. Cross-validation ensures generalization across data splits.</p>
+</section>
+</section>
+<section id="preliminary-results-and-pilot-studies" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Preliminary Results and Pilot Studies</h1>
+<p>Initial experiments on micro-scale datasets have yielded promising results that validate the research approach and provide crucial insights for the full-scale investigation.</p>
+<section id="probing-experiments-on-ssl-representations" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="probing-experiments-on-ssl-representations"><span class="header-section-number">5.1</span> Probing Experiments on SSL Representations</h2>
+<!-- TODO -->
+<p>Preliminary probing experiments <span class="citation" data-cites="venkateswaran2025Probing">(<a href="#ref-venkateswaran2025Probing" role="doc-biblioref">Venkateswaran et al., 2025</a>)</span> reveal hierarchical organization of phonological information in SSL models. Analysis of wav2vec 2.0 representations shows that lower layers (1-4) primarily encode acoustic-phonetic features such as formant frequencies, voice onset time, and spectral characteristics. Middle layers (5-8) capture phonemic categories and allophonic variation, showing highest accuracy for phoneme classification tasks. Upper layers (9-12) represent more abstract linguistic information including morphological and lexical patterns.</p>
+<!-- TODO -->
+<p>Layer-wise analysis using linear probing reveals interesting patterns in information encoding. Phonetic features like voicing and place of articulation are robustly encoded across multiple layers, with peak performance in layers 6-7. Manner features show more distributed encoding, suggesting they require integration of multiple acoustic cues. Suprasegmental features like stress and tone are better captured in upper layers, indicating they require longer temporal context. These findings suggest a natural progression from signal to symbol, supporting the hypothesis that neural models implicitly discover hierarchical phonological organization.</p>
+</section>
+<section id="vector-quantization-studies" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="vector-quantization-studies"><span class="header-section-number">5.2</span> Vector Quantization Studies</h2>
+<!-- TODO -->
+<p>Initial VQ experiments with 128 clusters demonstrate promising results for bridging continuous and discrete representations. The learned codebooks show interesting phonological structure, with codes clustering according to phonetic similarity. Discrete codes maintain 85% of the performance of continuous representations on phoneme classification while requiring 75% less memory and enabling symbolic manipulation <span class="citation" data-cites="higy2021Discrete">(<a href="#ref-higy2021Discrete" role="doc-biblioref">Higy et al., 2021</a>)</span>.</p>
+<!-- TODO -->
+<p>Analysis of the learned codes reveals emergent phonological organization. Codes corresponding to vowels form a distinct cluster separate from consonants. Within consonants, natural classes emerge with stops, fricatives, and sonorants forming identifiable subclusters. The geometric structure of the codebook space shows correspondence with articulatory features, suggesting that VQ discovers phonetically meaningful discretization. These results indicate that carefully designed quantization can preserve phonological information while providing interpretable discrete units.</p>
+</section>
+<section id="hybrid-model-proof-of-concept" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="hybrid-model-proof-of-concept"><span class="header-section-number">5.3</span> Hybrid Model Proof-of-Concept</h2>
+<p>Proof-of-concept implementations of neural-parameterized MaxEnt HG show that constraint weights can be learned end-to-end while maintaining interpretability. The model successfully learns phonotactic constraints from English data, discovering restrictions on onset clusters, coda sequences, and vowel combinations. Learned constraint weights show meaningful patterns, with markedness constraints generally weighted higher than faithfulness constraints, consistent with linguistic theory <span class="citation" data-cites="jarosz2019Computational">(<a href="#ref-jarosz2019Computational" role="doc-biblioref">Jarosz, 2019</a>)</span>.</p>
+<p>Early results indicate that hybrid models can discover phonologically meaningful constraints without explicit supervision. The model learns that <em>COMPLEX-ONSET is violated by word-initial consonant clusters,</em>CODA-VOICE prohibits voiced obstruents in coda position, and AGREE constraints enforce harmony patterns. These discovered constraints align well with known phonological generalizations, suggesting that the hybrid architecture successfully combines neural learning with symbolic structure <span class="citation" data-cites="begus2020Generative">(<a href="#ref-begus2020Generative" role="doc-biblioref">Beguš, 2020</a>)</span>.</p>
+</section>
+<section id="developmental-trajectory-modeling" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="developmental-trajectory-modeling"><span class="header-section-number">5.4</span> Developmental Trajectory Modeling</h2>
+<p>Pilot studies using a subset of CHILDES data reveal intriguing parallels between model and human developmental trajectories. Models trained on age-stratified data show similar patterns of phonological acquisition, with early mastery of vowel contrasts, gradual acquisition of consonant clusters, and late development of morphophonological alternations. The models exhibit U-shaped learning curves for irregular patterns, initially memorizing specific forms, then overgeneralizing rules, before learning exceptions.</p>
+<!-- TODO: ɔ not rendered -->
+<p>Error analysis shows that model errors resemble children’s production patterns. Common error types include cluster reduction (e.g., “stop” → [tɔp]), final consonant deletion, and stopping of fricatives. The relative frequency of different error types matches developmental data, suggesting that models capture similar learning biases. These preliminary results support the cognitive plausibility of the proposed representational approaches.</p>
+</section>
+</section>
+<section id="expected-contributions-and-impact" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Expected Contributions and Impact</h1>
+<section id="theoretical-contributions" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="theoretical-contributions"><span class="header-section-number">6.1</span> Theoretical Contributions</h2>
+<p>The thesis will advance phonological theory by providing a unified framework for understanding the relationship between symbolic and neural representations. This framework will formally characterize the conditions under which neural and symbolic representations converge, demonstrating that under certain architectural and training constraints, neural models discover representations isomorphic to linguistic features. The framework will also identify fundamental divergences where neural representations capture patterns invisible to traditional symbolic approaches, such as gradient phonetic detail and probabilistic generalizations.</p>
+<!-- TODO -->
+<p>The research will establish optimal granularity principles for phonological representation, showing that different levels of granularity are optimal for different tasks and phenomena. Fine-grained continuous representations excel at capturing phonetic variation and speaker-specific patterns. Intermediate discrete units (phones, allophones) provide the best balance for speech recognition and synthesis. Abstract symbolic features are optimal for capturing phonological generalizations and cross-linguistic patterns. This multi-granular view reconciles apparently contradictory findings in the literature and provides a principled basis for representation selection.</p>
+<p>Novel neuro-symbolic integration methodologies will demonstrate how symbolic phonological knowledge can be incorporated into neural architectures without sacrificing learning flexibility. These methods include differentiable implementations of constraint-based grammars, attention mechanisms that implement phonological processes, and modular architectures that separate phonological computation from phonetic realization. These contributions extend beyond phonology to other areas of linguistics where similar tensions between symbolic and statistical approaches exist.</p>
+</section>
+<section id="practical-contributions" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="practical-contributions"><span class="header-section-number">6.2</span> Practical Contributions</h2>
+<p>The research will yield immediate practical benefits for speech technology applications. Improved speech recognition systems will result from hybrid models that combine neural acoustic modeling with phonological structure, achieving better performance on out-of-distribution data, improved handling of low-frequency words and morphological complexity, and more robust cross-linguistic transfer with less target language data.</p>
+<p>Interpretable AI systems for speech processing will provide explicit phonological knowledge enabling better debugging and error analysis. Constraint weights and symbolic representations offer insights into model decisions, crucial for applications in education, clinical assessment, and forensic phonetics. The ability to examine and modify learned phonological constraints allows for targeted improvements and adaptation to specific domains or speakers.</p>
+<p>Low-resource language applications will particularly benefit from architectures that leverage phonological universals. By incorporating typological knowledge from databases like PHOIBLE <span class="citation" data-cites="moran2019Phoible">(<a href="#ref-moran2019Phoible" role="doc-biblioref">Moran &amp; McCloy, 2019</a>)</span>, models can achieve reasonable performance with minimal training data. Transfer learning from high-resource languages becomes more effective when mediated by phonologically-informed representations. This has important implications for language preservation and documentation efforts.</p>
+</section>
+<section id="interdisciplinary-impact" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="interdisciplinary-impact"><span class="header-section-number">6.3</span> Interdisciplinary Impact</h2>
+<p>For theoretical linguistics, the research provides large-scale empirical validation of phonological theories. Computational experiments test predictions of different theoretical frameworks at a scale impossible with traditional methods. The learned representations offer new insights into phonological organization, potentially revealing patterns invisible to human analysts. The success or failure of different representational approaches provides evidence for fundamental questions about the nature of phonological knowledge.</p>
+<p>Machine learning contributions include novel architectures for discrete representation learning that balance expressiveness with interpretability. Methods for incorporating domain knowledge into neural networks without constraining learning flexibility have applications beyond speech processing. The multi-objective optimization framework for representation learning provides principled approaches to trading off competing desiderata. These contributions advance the broader agenda of interpretable and controllable AI systems.</p>
+<p>The cognitive science community benefits from computational models that can be directly compared with human behavioral and neural data. The models provide testable predictions about acquisition trajectories, processing dynamics, and neural encoding. The relationship between optimal computational solutions and human cognitive patterns offers insights into the evolutionary and developmental pressures shaping phonological systems. These models serve as valuable tools for generating and testing hypotheses about human language processing.</p>
+</section>
+<section id="broader-societal-impact" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="broader-societal-impact"><span class="header-section-number">6.4</span> Broader Societal Impact</h2>
+<p>The research has significant implications for education and accessibility. Improved models of phonological acquisition can inform language teaching methodologies and intervention strategies for speech disorders. Interpretable representations enable development of diagnostic tools that provide explicit feedback about pronunciation and phonological patterns. Applications in computer-assisted language learning can adapt to individual learner profiles and provide targeted practice.</p>
+<p>For language preservation and revitalization efforts, the ability to build effective speech technology with minimal data is crucial. Many endangered languages lack the large corpora required by current neural approaches. Phonologically-informed models can leverage cross-linguistic regularities to bootstrap speech technology for these languages, supporting documentation, education, and community use.</p>
+</section>
+</section>
+<section id="resources-and-feasibility" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Resources and Feasibility</h1>
+<!-- ## Computational Resources
+
+The research requires substantial computational resources, which have been secured through departmental allocations and collaborative agreements. The primary compute cluster provides 8 NVIDIA A100 GPUs (40GB) for large-scale model training, 200TB storage for datasets and model checkpoints, and high-memory nodes for data preprocessing. Additional resources include cloud computing credits from AWS and Google Cloud for burst capacity and distributed experiments. The estimated computational budget of 50,000 GPU-hours is sufficient for all planned experiments. -->
+<section id="data-resources" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="data-resources"><span class="header-section-number">7.1</span> Data Resources</h2>
+<!-- TODO -->
+<p>Access to necessary datasets has been confirmed or is in process. Licensed datasets include LibriSpeech (1000 hours) for English experiments, Common Voice for multilingual studies, and CHILDES (approved access pending) for developmental modeling. Custom data collection is planned for specific phenomena not covered in existing corpora. <!-- Data management follows FAIR principles with proper versioning and documentation. --></p>
+<!-- ## Human Resources
+
+The research benefits from strong supervisory and collaborative support. The primary supervisor brings expertise in computational phonology and speech processing. Committee members provide complementary expertise in machine learning, linguistic theory, and cognitive science. Collaborations with international researchers offer access to additional resources and expertise. Regular participation in lab meetings and reading groups ensures continuous feedback and intellectual exchange. -->
+</section>
+<section id="risk-mitigation" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="risk-mitigation"><span class="header-section-number">7.2</span> Risk Mitigation</h2>
+<p>Several risks have been identified with corresponding mitigation strategies. Technical risks include model training failures and computational bottlenecks, mitigated through incremental development and checkpoint saving. Data risks such as access restrictions or quality issues are addressed through multiple data sources and quality control procedures. Timeline risks from unexpected delays are managed through buffer time and parallel task execution. <!-- Publication risks are minimized through early and frequent submission to venues with different acceptance timelines. --></p>
+</section>
+</section>
+<section id="ethical-considerations-and-broader-impact" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Ethical Considerations and Broader Impact</h1>
+<section id="ethical-considerations" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="ethical-considerations"><span class="header-section-number">8.1</span> Ethical Considerations</h2>
+<p>The research adheres to strict ethical guidelines for responsible AI development. Privacy protection ensures no use of personally identifiable information in speech data, with careful anonymization of any custom-collected data and compliance with relevant privacy regulations. Bias mitigation involves careful attention to demographic representation in training data, evaluation of model fairness across different speaker groups, and transparent reporting of limitations and potential biases.</p>
+<p>Intellectual property considerations include proper attribution and citation of all data sources and prior work, with open-source release of code under permissive licenses and clear documentation of model provenance and training procedures. <!-- Environmental impact is minimized through efficient training procedures to reduce energy consumption, use of renewable energy sources where possible, and transparent reporting of computational costs. --></p>
+</section>
+<section id="broader-impact-statement" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="broader-impact-statement"><span class="header-section-number">8.2</span> Broader Impact Statement</h2>
+<p>This research has the potential for significant positive impact across multiple domains. Scientific advancement through improved understanding of phonological representation and learning, new methodologies for investigating linguistic questions, and tools and resources for the research community will accelerate progress in computational linguistics. Technological innovation in more effective and interpretable speech processing systems, improved support for low-resource languages, and enhanced human-computer interaction through better speech understanding will benefit society broadly.</p>
+<p>Potential negative impacts are acknowledged and addressed. Concerns about AI system interpretability and trust are mitigated through our focus on interpretable representations. Risks of technology misuse are minimized through responsible disclosure and documentation. The potential for reinforcing linguistic biases is addressed through careful data curation and evaluation. Environmental costs of large-scale computation are offset through efficiency improvements and transparent reporting.</p>
+</section>
+</section>
+<section id="conclusion" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Conclusion</h1>
+<p>This doctoral thesis addresses fundamental questions at the intersection of linguistics, computer science, and cognitive science by investigating optimal representational units for phonological modeling in the deep learning era. Through systematic empirical investigation, novel architectural designs, and comprehensive evaluation across multiple dimensions, the research aims to bridge the gap between symbolic linguistic theory and neural representation learning.</p>
+<p>The proposed research program is ambitious yet feasible, building on solid theoretical foundations and preliminary results that demonstrate the viability of the approach. The three-pronged investigation through empirical landscape mapping, neuro-symbolic integration, and cognitive validation provides complementary perspectives on the central question of optimal phonological representation.</p>
+<p>The expected contributions span theoretical advances in our understanding of phonological representation, practical improvements in speech technology, and interdisciplinary insights relevant to cognitive science and machine learning. The multi-dimensional evaluation framework ensures that findings are robust and applicable across different contexts and requirements.</p>
+<p>The preliminary results are encouraging, showing that neural models learn hierarchically organized phonological representations, that vector quantization can effectively bridge continuous and discrete representations, and that hybrid neuro-symbolic architectures can discover meaningful phonological constraints. These findings suggest that the integration of symbolic and neural approaches is not only possible but beneficial, offering a path toward more powerful, interpretable, and cognitively plausible models of phonological processing.</p>
+<p>By pursuing this research program, the thesis will contribute to the development of a new generation of speech processing systems that combine the learning power of neural networks with the interpretability and theoretical grounding of linguistic knowledge. This work has implications not only for technology development but also for our fundamental understanding of how phonological knowledge is represented, learned, and processed.</p>
+<p>The research is particularly timely given the rapid advances in self-supervised learning and the growing recognition of the need for interpretable AI systems. As speech technology becomes increasingly prevalent in daily life, understanding the optimal representations for phonological modeling becomes crucial for developing systems that are not only accurate but also trustworthy, adaptable, and aligned with human cognitive capabilities.</p>
+<p>The ultimate goal of this thesis is to establish principled foundations for phonological representation in the age of deep learning, providing both theoretical insights and practical tools that will benefit researchers and practitioners across multiple disciplines. Through rigorous empirical investigation, innovative architectural design, and careful evaluation, this research aims to advance our understanding of one of the most fundamental aspects of human language while contributing to the development of more effective and interpretable speech technology.</p>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-ardila2020Common" class="csl-entry" role="listitem">
+Ardila, R., Branson, M., Davis, K., Henretty, M., Kohler, M., Meyer, J., Morais, R., Saunders, L., Tyers, F. M., &amp; Weber, G. (2020). <em>Common voice: A massively-multilingual speech corpus</em> (arXiv:1912.06670). arXiv. <a href="https://doi.org/10.48550/arXiv.1912.06670">https://doi.org/10.48550/arXiv.1912.06670</a>
+</div>
+<div id="ref-baevski2020wav2vec" class="csl-entry" role="listitem">
+Baevski, A., Zhou, Y., Mohamed, A., &amp; Auli, M. (2020). Wav2vec 2.0: A framework for self-supervised learning of speech representations. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 12449–12460.
+</div>
+<div id="ref-begus2020Generative" class="csl-entry" role="listitem">
+Beguš, G. (2020). Generative adversarial phonology: Modeling unsupervised phonetic and phonological learning with neural networks. <em>Frontiers in Artificial Intelligence</em>, <em>3</em>. <a href="https://doi.org/10.3389/frai.2020.00044">https://doi.org/10.3389/frai.2020.00044</a>
+</div>
+<div id="ref-benders2023Computational" class="csl-entry" role="listitem">
+Benders, T., &amp; Blom, E. (2023). Computational modelling of language acquisition: An introduction. <em>Journal of Child Language</em>, <em>50</em>(6), 1287–1293. <a href="https://doi.org/10.1017/S0305000923000429">https://doi.org/10.1017/S0305000923000429</a>
+</div>
+<div id="ref-chen2023Exploring" class="csl-entry" role="listitem">
+Chen, J., &amp; Elsner, M. (2023). <em>Exploring how generative adversarial networks learn phonological representations</em> (arXiv:2305.12501). arXiv. <a href="https://doi.org/10.48550/arXiv.2305.12501">https://doi.org/10.48550/arXiv.2305.12501</a>
+</div>
+<div id="ref-chen2022WavLM" class="csl-entry" role="listitem">
+Chen, S., Wang, C., Chen, Z., Wu, Y., Liu, S., Chen, Z., Li, J., Kanda, N., Yoshioka, T., Xiao, X., Wu, J., Zhou, L., Ren, S., Qian, Y., Qian, Y., Wu, J., Zeng, M., Yu, X., &amp; Wei, F. (2022). WavLM: Large-scale self-supervised pre-training for full stack speech processing. <em>IEEE Journal of Selected Topics in Signal Processing</em>, <em>16</em>(6), 1505–1518. <a href="https://doi.org/10.1109/JSTSP.2022.3188113">https://doi.org/10.1109/JSTSP.2022.3188113</a>
+</div>
+<div id="ref-cho2025Sylber" class="csl-entry" role="listitem">
+Cho, C. J., Lee, N., Gupta, A., Agarwal, D., Chen, E., Black, A. W., &amp; Anumanchipalli, G. K. (2025). <em>Sylber: Syllabic embedding representation of speech from raw audio</em> (arXiv:2410.07168). arXiv. <a href="https://doi.org/10.48550/arXiv.2410.07168">https://doi.org/10.48550/arXiv.2410.07168</a>
+</div>
+<div id="ref-chomsky1968sound" class="csl-entry" role="listitem">
+Chomsky, N., &amp; Halle, M. (1968). <em>The sound pattern of english.</em>
+</div>
+<div id="ref-clements1985geometry" class="csl-entry" role="listitem">
+Clements, G. N. (1985). The geometry of phonological features. <em>Phonology</em>, <em>2</em>, 225–252.
+</div>
+<div id="ref-cruzblandon2023Introducing" class="csl-entry" role="listitem">
+Cruz Blandón, M. A., Cristia, A., &amp; Räsänen, O. (2023). Introducing meta-analysis in the evaluation of computational models of infant language development. <em>Cognitive Science</em>, <em>47</em>(7), e13307. <a href="https://doi.org/10.1111/cogs.13307">https://doi.org/10.1111/cogs.13307</a>
+</div>
+<div id="ref-goldsmith1976Autosegmental" class="csl-entry" role="listitem">
+Goldsmith, J. A. (1976). <em>Autosegmental phonology</em> [PhD thesis]. Massachusetts Institute of Technology.
+</div>
+<div id="ref-guriel2023Morphological" class="csl-entry" role="listitem">
+Guriel, D., Goldman, O., &amp; Tsarfaty, R. (2023). <em>Morphological inflection with phonological features</em> (arXiv:2306.12581). arXiv. <a href="https://doi.org/10.48550/arXiv.2306.12581">https://doi.org/10.48550/arXiv.2306.12581</a>
+</div>
+<div id="ref-hayes2008Maximum" class="csl-entry" role="listitem">
+Hayes, B., &amp; Wilson, C. (2008). A maximum entropy model of phonotactics and phonotactic learning. <em>Linguistic Inquiry</em>, <em>39</em>(3), 379–440. <a href="https://doi.org/10.1162/ling.2008.39.3.379">https://doi.org/10.1162/ling.2008.39.3.379</a>
+</div>
+<div id="ref-higy2021Discrete" class="csl-entry" role="listitem">
+Higy, B., Gelderloos, L., Alishahi, A., &amp; Chrupała, G. (2021). Discrete representations in neural models of spoken language. In J. Bastings, Y. Belinkov, E. Dupoux, M. Giulianelli, D. Hupkes, Y. Pinter, &amp; H. Sajjad (Eds.), <em>Proceedings of the fourth BlackboxNLP workshop on analyzing and interpreting neural networks for NLP</em> (pp. 163–176). Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/2021.blackboxnlp-1.11">https://doi.org/10.18653/v1/2021.blackboxnlp-1.11</a>
+</div>
+<div id="ref-hsu2021HuBERT" class="csl-entry" role="listitem">
+Hsu, W.-N., Bolte, B., Tsai, Y.-H. H., Lakhotia, K., Salakhutdinov, R., &amp; Mohamed, A. (2021). <em>HuBERT: Self-supervised speech representation learning by masked prediction of hidden units</em> (arXiv:2106.07447). arXiv. <a href="https://doi.org/10.48550/arXiv.2106.07447">https://doi.org/10.48550/arXiv.2106.07447</a>
+</div>
+<div id="ref-jarosz2019Computational" class="csl-entry" role="listitem">
+Jarosz, G. (2019). Computational modeling of phonological learning. <em>Annual Review of Linguistics</em>, <em>5</em>(1), 67–90. <a href="https://doi.org/10.1146/annurev-linguistics-011718-011832">https://doi.org/10.1146/annurev-linguistics-011718-011832</a>
+</div>
+<div id="ref-kolachina2019What" class="csl-entry" role="listitem">
+Kolachina, S., &amp; Magyar, L. (2019). What do phone embeddings learn about phonology? In G. Nicolai &amp; R. Cotterell (Eds.), <em>Proceedings of the 16th workshop on computational research in phonetics, phonology, and morphology</em> (pp. 160–169). Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/W19-4219">https://doi.org/10.18653/v1/W19-4219</a>
+</div>
+<div id="ref-maaten2008Visualizing" class="csl-entry" role="listitem">
+Maaten, L. van der, &amp; Hinton, G. (2008). Visualizing data using t-SNE. <em>Journal of Machine Learning Research</em>, <em>9</em>(86), 2579–2605.
+</div>
+<div id="ref-macwhinney2000CHILDES" class="csl-entry" role="listitem">
+Macwhinney, B. (2000). <em>The CHILDES project: Tools for analyzing talk: Transcription format and programs</em>. Lawrence Erlbaum Associates Publishers.
+</div>
+<div id="ref-mcauliffe2017Montreal" class="csl-entry" role="listitem">
+McAuliffe, M., Socolof, M., Mihuc, S., Wagner, M., &amp; Sonderegger, M. (2017). Montreal forced aligner: Trainable text-speech alignment using kaldi. <em>Interspeech</em>, <em>2017</em>, 498–502.
+</div>
+<div id="ref-mcmurray2023acquisition" class="csl-entry" role="listitem">
+McMurray, B. (2023). The acquisition of speech categories: Beyond perceptual narrowing, beyond unsupervised learning and beyond infancy. <em>Language, Cognition and Neuroscience</em>, <em>38</em>(4), 419–445. <a href="https://doi.org/10.1080/23273798.2022.2105367">https://doi.org/10.1080/23273798.2022.2105367</a>
+</div>
+<div id="ref-mikolov2013Distributed" class="csl-entry" role="listitem">
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S., &amp; Dean, J. (2013). Distributed representations of words and phrases and their compositionality. <em>Advances in Neural Information Processing Systems</em>, <em>26</em>.
+</div>
+<div id="ref-moran2019Phoible" class="csl-entry" role="listitem">
+Moran, S., &amp; McCloy, D. (Eds.). (2019). <em>Phoible 2.0</em>. Max Planck Institute for the Science of Human History.
+</div>
+<div id="ref-panayotov2015Librispeech" class="csl-entry" role="listitem">
+Panayotov, V., Chen, G., Povey, D., &amp; Khudanpur, S. (2015). Librispeech: An ASR corpus based on public domain audio books. <em>2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>, 5206–5210. <a href="https://doi.org/10.1109/ICASSP.2015.7178964">https://doi.org/10.1109/ICASSP.2015.7178964</a>
+</div>
+<div id="ref-panchendrarajan2024Synergizing" class="csl-entry" role="listitem">
+Panchendrarajan, R., &amp; Zubiaga, A. (2024). <em>Synergizing machine learning &amp; symbolic methods: A survey on hybrid approaches to natural language processing</em> (arXiv:2401.11972). arXiv. <a href="https://doi.org/10.48550/arXiv.2401.11972">https://doi.org/10.48550/arXiv.2401.11972</a>
+</div>
+<div id="ref-pouw2024Perception" class="csl-entry" role="listitem">
+Pouw, C., Kloots, M. de H., Alishahi, A., &amp; Zuidema, W. (2024). Perception of phonological assimilation by neural speech recognition models. <em>Computational Linguistics</em>, <em>50</em>(3), 1557–1585. <a href="https://doi.org/10.1162/coli_a_00526">https://doi.org/10.1162/coli_a_00526</a>
+</div>
+<div id="ref-prince2004Optimality" class="csl-entry" role="listitem">
+Prince, A., &amp; Smolensky, P. (2004). Optimality theory: Constraint interaction in generative grammar. In <em>Optimality theory in phonology</em> (pp. 1–71). John Wiley &amp; Sons, Ltd. <a href="https://doi.org/10.1002/9780470756171.ch1">https://doi.org/10.1002/9780470756171.ch1</a>
+</div>
+<div id="ref-silfverberg2018Sound" class="csl-entry" role="listitem">
+Silfverberg, M. P., Mao, L., &amp; Hulden, M. (2018). Sound Analogies with Phoneme Embeddings. <em>Society for Computation in Linguistics</em>, <em>1</em>(1). <a href="https://doi.org/10.7275/R5NZ85VD">https://doi.org/10.7275/R5NZ85VD</a>
+</div>
+<div id="ref-vandenoord2017Neural" class="csl-entry" role="listitem">
+van den Oord, A., Vinyals, O., &amp; kavukcuoglu, koray. (2017). Neural discrete representation learning. <em>Advances in Neural Information Processing Systems</em>, <em>30</em>.
+</div>
+<div id="ref-venkateswaran2025Probing" class="csl-entry" role="listitem">
+Venkateswaran, N., Tang, K., &amp; Wayland, R. (2025). <em>Probing for phonology in self-supervised speech representations: A case study on accent perception</em> (arXiv:2506.17542). arXiv. <a href="https://doi.org/10.48550/arXiv.2506.17542">https://doi.org/10.48550/arXiv.2506.17542</a>
+</div>
+<div id="ref-zhang2024SpeechTokenizer" class="csl-entry" role="listitem">
+Zhang, X., Zhang, D., Li, S., Zhou, Y., &amp; Qiu, X. (2024). <em>SpeechTokenizer: Unified speech tokenizer for speech large language models</em> (arXiv:2308.16692). arXiv. <a href="https://doi.org/10.48550/arXiv.2308.16692">https://doi.org/10.48550/arXiv.2308.16692</a>
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

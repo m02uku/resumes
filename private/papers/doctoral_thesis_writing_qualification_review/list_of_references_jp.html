@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sora Nagano">
+
+<title>包括的注釈付き参考文献: 深層学習時代における音韻論的素性</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="list_of_references_jp_files/libs/clipboard/clipboard.min.js"></script>
+<script src="list_of_references_jp_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="list_of_references_jp_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="list_of_references_jp_files/libs/quarto-html/popper.min.js"></script>
+<script src="list_of_references_jp_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="list_of_references_jp_files/libs/quarto-html/anchor.min.js"></script>
+<link href="list_of_references_jp_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="list_of_references_jp_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="list_of_references_jp_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="list_of_references_jp_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="list_of_references_jp_files/libs/bootstrap/bootstrap-7f0ba2f96fa9c51acdae2b4382975615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#中核理論基盤" id="toc-中核理論基盤" class="nav-link active" data-scroll-target="#中核理論基盤"><span class="header-section-number">1</span> 中核理論基盤</a></li>
+  <li><a href="#音声における自己教師あり学習" id="toc-音声における自己教師あり学習" class="nav-link" data-scroll-target="#音声における自己教師あり学習"><span class="header-section-number">2</span> 音声における自己教師あり学習</a></li>
+  <li><a href="#ベクトル量子化と離散表象" id="toc-ベクトル量子化と離散表象" class="nav-link" data-scroll-target="#ベクトル量子化と離散表象"><span class="header-section-number">3</span> ベクトル量子化と離散表象</a></li>
+  <li><a href="#計算音韻学" id="toc-計算音韻学" class="nav-link" data-scroll-target="#計算音韻学"><span class="header-section-number">4</span> 計算音韻学</a></li>
+  <li><a href="#ニューロシンボリック統合" id="toc-ニューロシンボリック統合" class="nav-link" data-scroll-target="#ニューロシンボリック統合"><span class="header-section-number">5</span> ニューロシンボリック統合</a></li>
+  <li><a href="#音韻表象分析" id="toc-音韻表象分析" class="nav-link" data-scroll-target="#音韻表象分析"><span class="header-section-number">6</span> 音韻表象分析</a></li>
+  <li><a href="#評価方法論とベンチマーク" id="toc-評価方法論とベンチマーク" class="nav-link" data-scroll-target="#評価方法論とベンチマーク"><span class="header-section-number">7</span> 評価方法論とベンチマーク</a></li>
+  <li><a href="#最新動向と応用" id="toc-最新動向と応用" class="nav-link" data-scroll-target="#最新動向と応用"><span class="header-section-number">8</span> 最新動向と応用</a></li>
+  <li><a href="#言語横断類型論研究" id="toc-言語横断類型論研究" class="nav-link" data-scroll-target="#言語横断類型論研究"><span class="header-section-number">9</span> 言語横断・類型論研究</a></li>
+  <li><a href="#言語獲得と認知モデリング" id="toc-言語獲得と認知モデリング" class="nav-link" data-scroll-target="#言語獲得と認知モデリング"><span class="header-section-number">10</span> 言語獲得と認知モデリング</a></li>
+  <li><a href="#追加基盤文献" id="toc-追加基盤文献" class="nav-link" data-scroll-target="#追加基盤文献"><span class="header-section-number">11</span> 追加基盤文献</a></li>
+  <li><a href="#pdf基盤追加文献" id="toc-pdf基盤追加文献" class="nav-link" data-scroll-target="#pdf基盤追加文献"><span class="header-section-number">12</span> PDF基盤追加文献</a></li>
+  <li><a href="#参考文献" id="toc-参考文献" class="nav-link" data-scroll-target="#参考文献"><span class="header-section-number">13</span> 参考文献</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="list_of_references_jp.pdf"><i class="bi bi-file-pdf"></i>PDF (arxiv)</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">包括的注釈付き参考文献: 深層学習時代における音韻論的素性</h1>
+<p class="subtitle lead">Phonological Features in the Era of Deep Learning: A Multi-dimensional Investigation into Optimal Representational Units for Language Modeling</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Sora Nagano <a href="mailto:s-oswld-n@g.ecc.u-tokyo.ac.jp" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            The University of Tokyo
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="中核理論基盤" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> 中核理論基盤</h1>
+<p><span class="citation" data-cites="chomsky1968sound">Chomsky &amp; Halle (<a href="#ref-chomsky1968sound" role="doc-biblioref">1968</a>)</span><br>
+<strong>英語の音韻パターン</strong> Chomsky, N. &amp; Halle, M. (1968)</p>
+<p>世界の言語の音韻現象の体系的記述のために約20の二項弁別素性を用いて生成音韻論の理論的基盤を確立した基盤的研究。SPE式規則（A→B / [文脈_文脈]）を導入し、形式的な音韻派生を可能にした。現代計算音韻学と深層学習音韻素性表象の理論的基盤を提供し、現代計算音韻研究の出発点として機能する。</p>
+<p><span class="citation" data-cites="prince2004Optimality">Prince &amp; Smolensky (<a href="#ref-prince2004Optimality" role="doc-biblioref">2004</a>)</span><br>
+<strong>最適性理論: 生成文法における制約相互作用</strong> Prince, A. &amp; Smolensky, P. (2004)</p>
+<p>制約相互作用を通じて音韻文法を提案する革命的な制約ベース音韻理論。三要素フレームワーク：生成器（Gen）、制約（Con）、評価器（Eval）が普遍制約の言語固有順位付けを通じて類型論的変異を説明。重み付き制約システムを通じて制約ベース深層学習モデルとニューラルアーキテクチャ制約統合ガイドラインの理論的基盤を提供。</p>
+<p><span class="citation" data-cites="goldsmith1976Autosegmental">Goldsmith (<a href="#ref-goldsmith1976Autosegmental" role="doc-biblioref">1976</a>)</span><br>
+<strong>自律分節音韻学</strong> Goldsmith, J. (1976)</p>
+<p>異なる素性が結合線で結ばれた独立した並行層上に存在する革命的な多層音韻表象理論で、超分節現象を説明。線形配列を超えた音韻表象の複雑さを示す自律分節と結合線の概念を導入。多層ニューラルアーキテクチャと並行情報処理ストリームにおける階層的表象学習の理論的基盤を提供。</p>
+<p><span class="citation" data-cites="clements1985geometry">Clements (<a href="#ref-clements1985geometry" role="doc-biblioref">1985</a>)</span><br>
+<strong>音韻素性の幾何学</strong> Clements, G. N. (1985)</p>
+<p>素性幾何学を通じて弁別素性の階層組織理論を確立し、依存関係を共有するクラスノード下で素性を組織化。場所、喉頭、方法を組織化ノード下でグループ化し、自然クラスを定義し、可能な過程を制約。深層学習モデルの階層的素性表象組織化と現代ニューラル音韻モデリングの基本原理の理論的基盤を提供。</p>
+</section>
+<section id="音声における自己教師あり学習" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> 音声における自己教師あり学習</h1>
+<p><span class="citation" data-cites="baevski2020wav2vec">Baevski et al. (<a href="#ref-baevski2020wav2vec" role="doc-biblioref">2020</a>)</span><br>
+<strong>wav2vec 2.0: 音声表象の自己教師あり学習フレームワーク</strong> Baevski, A., Zhou, Y., Mohamed, A. &amp; Auli, M. (2020)</p>
+<p>対照学習とマスク言語モデリングの融合を導入し、最小限のラベル付きデータで自己教師あり音声表象学習の優位性を実証した画期的研究。LibriSpeechの実験では1時間のラベル付きデータが従来の100時間アプローチと同等の性能を達成。量子化とマスキング革新を通じて4,500以上の引用で研究加速と実用的低資源言語応用を推進し、音声認識パラダイムを革命化。</p>
+<p><span class="citation" data-cites="hsu2021HuBERT">Hsu et al. (<a href="#ref-hsu2021HuBERT" role="doc-biblioref">2021</a>)</span><br>
+<strong>HuBERT: 隠れユニットのマスク予測による音声表象の自己教師あり学習</strong> Hsu, W.-N., Bolte, B., Tsai, Y.-H. H., Lakhotia, K., Salakhutdinov, R. &amp; Mohamed, A. (2021)</p>
+<p>オフラインクラスタリング整列目標提供手法を通じて、複数音響ユニット、語彙なし事前学習、可変長ユニットを含む音声固有SSL課題に対処するHidden-Unit BERT。LibriSpeechベンチマーク全体でwav2vec 2.0と同等以上の性能を達成。1Bパラメータモデルで最大19%と13%の相対WER削減を実現し、SSLにおける方法論的進歩を実証。</p>
+<p><span class="citation" data-cites="chen2022WavLM">S. Chen et al. (<a href="#ref-chen2022WavLM" role="doc-biblioref">2022</a>)</span><br>
+<strong>WavLM: フルスタック音声処理のための大規模自己教師あり事前学習</strong> Chen, S. et al.&nbsp;(2022)</p>
+<p>フルスタック音声処理のための普遍表象を達成する94,000時間学習を通じたフレームワーク拡張。マスク音声予測と雑音除去の共同学習により、話者、パラ言語学、内容情報を含む多面的情報モデリングを実現。SUPERBベンチマークで最先端性能を達成し、実用展開でMicrosoft音声処理システム基盤モデルとして機能。</p>
+<p><span class="citation" data-cites="mohamed2022SelfSupervised">Mohamed et al. (<a href="#ref-mohamed2022SelfSupervised" role="doc-biblioref">2022</a>)</span><br>
+<strong>自己教師あり音声表象学習: レビュー</strong> Mohamed, A. et al.&nbsp;(2022)</p>
+<p>急速な分野発展統合のためのマルチモーダル拡張と評価方法論を伴う生成的、対照的、予測的手法の体系的分類学を提供する包括的分野統合。音素識別、単語分割、下流タスクにわたるアーキテクチャ選択、学習目的、評価プロトコルを網羅。効率性、多言語学習、解釈可能性を含む主要課題を特定し、方法論的研究基盤を確立。</p>
+</section>
+<section id="ベクトル量子化と離散表象" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> ベクトル量子化と離散表象</h1>
+<p><span class="citation" data-cites="vandenoord2017Neural">van den Oord et al. (<a href="#ref-vandenoord2017Neural" role="doc-biblioref">2017</a>)</span><br>
+<strong>ニューラル離散表象学習</strong> van den Oord, A., Vinyals, O. &amp; Kavukcuoglu, K. (2017)</p>
+<p>連続等価性能を達成する離散潜在モデルを可能にするVector Quantized-VAEの画期的導入。音声実験では64倍圧縮で49.3%音素分類精度を達成（ランダムベースライン7.2%に対して）。直通推定器とコミットメント損失の技術革新を通じて音韻素性計算実装可能性を実証する離散音声表象基盤を確立。</p>
+<p><span class="citation" data-cites="zhang2024SpeechTokenizer">Zhang et al. (<a href="#ref-zhang2024SpeechTokenizer" role="doc-biblioref">2024</a>)</span><br>
+<strong>SpeechTokenizer: 音声言語モデルのための統一音声トークナイザー</strong> Zhang, Z. et al.&nbsp;(2024)</p>
+<p>単一アーキテクチャ内での階層的情報分離を通じた統一意味-音響トークンフレームワーク。第一層はHuBERTガイダンスでコンテンツを捕捉し、後続層はRVQ実装を介してパラ言語学詳細を符号化。EnCodecと比較して優れたコンテンツ保存（WER 5.04 vs 5.11）と知覚品質（MUSHRA 90.55 vs 79.86）を達成し、ゼロショットTTSでVALL-E性能を凌駕。</p>
+<p><span class="citation" data-cites="chang2024Interspeech">Chang et al. (<a href="#ref-chang2024Interspeech" role="doc-biblioref">2024</a>)</span><br>
+<strong>離散ユニットを用いた音声処理に関するInterspeech 2024チャレンジ</strong> Chang, H.-J. et al.&nbsp;(2024)</p>
+<p>40以上の提出物の体系的比較を伴うASR、TTS、SVSタスクにわたる離散音声ユニットの包括的評価フレームワーク確立。ビットレート計算と多タスク効果測定を含む標準化評価プロトコルを導入。SSL基盤ユニットが言語学的タスクでコーデック基盤ユニットを上回る一方、コーデックが音響詳細を保存することを発見し、離散化戦略選択の重要な指針を提供。</p>
+<p><span class="citation" data-cites="higy2021Discrete">Higy et al. (<a href="#ref-higy2021Discrete" role="doc-biblioref">2021</a>)</span><br>
+<strong>音話言語のニューラルモデルにおける離散表象</strong> Higy, B., Millet, J. &amp; Dunbar, E. (2021)</p>
+<p>評価方法論選択の潜在的バイアス識別を強調する四指標体系的比較を通じた離散音声表象評価の批判的分析。指標選択が結論に影響することを明らかにし、離散表象品質評価における体系的評価アプローチの重要性を実証。表象比較研究における評価精度向上とバイアス軽減のための方法論ガイドラインを提供。</p>
+</section>
+<section id="計算音韻学" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> 計算音韻学</h1>
+<p><span class="citation" data-cites="hayes2008Maximum">Hayes &amp; Wilson (<a href="#ref-hayes2008Maximum" role="doc-biblioref">2008</a>)</span><br>
+<strong>音韻配列論と音韻配列学習の最大エントロピーモデル</strong> Hayes, B. &amp; Wilson, C. (2008)</p>
+<p>人間の受容可能性判断との高い相関（r=.946）を達成する正例データからの音韻配列制約学習のための革命的最大エントロピーフレームワーク。手動指定なしで関連する一般化を発見する自動制約誘導アルゴリズムを導入し、段階的適格性直観を成功裏に捕捉。統計-理論統合を通じて解釈可能性を維持しながらニューラルパラメータ化を可能にする原理的確率解釈を提供。</p>
+<p><span class="citation" data-cites="tesar1998Learnability">B. Tesar &amp; Smolensky (<a href="#ref-tesar1998Learnability" role="doc-biblioref">1998</a>)</span><br>
+<strong>最適性階層における学習可能性</strong> Tesar, B. &amp; Smolensky, P. (1998)</p>
+<p>多項式時間収束証明を伴う正例データからの最適性理論文法制約順位学習可能性を確立する基盤的計算学習理論。最小違反原理を通じて信用問題に対処し、満足された制約より下に違反制約を反復的に降格する再帰制約降格アルゴリズムを導入。音韻獲得における記号的およびニューラル学習アプローチ比較のための重要なベースラインを提供。</p>
+<p><span class="citation" data-cites="mayer2021Capturing">Mayer (<a href="#ref-mayer2021Capturing" role="doc-biblioref">2021</a>)</span><br>
+<strong>コーパス基盤証拠を通じた音韻学における段階性の捕捉</strong> Mayer, C. (2021)</p>
+<p>段階現象の部分正則言語拡張を可能にする確率的階層ベース厳密局所（pTSL）文法を通じた形式的拡張。遠距離音韻依存が連続確率分布を伴って段階的であることを実証する包括的コーパス基盤証拠。情報理論的依存強度測定を通じて記号的音韻学と統計学習アプローチを架橋。</p>
+<p><span class="citation" data-cites="jarosz2019Computational">Jarosz (<a href="#ref-jarosz2019Computational" role="doc-biblioref">2019</a>)</span><br>
+<strong>音韻学における学習と処理の計算モデル</strong> Jarosz, G. (2019)</p>
+<p>現在の研究方向を形成する数十年の発展にわたる包括的計算音韻学習研究統合。異なるアルゴリズムと表象を比較し、隠れ構造問題、曖昧データ課題、バイアス-分散トレードオフを論じる記号的・統計的アプローチをレビュー。多様な計算アプローチ理解のための統一フレームワークを提供する発達軌跡と認知制約を強調。</p>
+</section>
+<section id="ニューロシンボリック統合" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> ニューロシンボリック統合</h1>
+<p><span class="citation" data-cites="begus2020Generative">Beguš (<a href="#ref-begus2020Generative" role="doc-biblioref">2020</a>)</span><br>
+<strong>生成敵対音韻学: ニューラルネットワークによる無教師音声・音韻学習のモデリング</strong> Beguš, G. (2020)</p>
+<p>明示的記号監督なしで無教師音響データ学習を実証する音韻学習への革命的GAN応用。声なし閉鎖音の前母音気音化を含む異音分布パターンを成功裏に学習し、統計-理論統合の可能性を示唆。生成器は敵対学習を通じて文脈適切産出を発達させ、ニューラルアーキテクチャに自然発生する産出-知覚緊張から音韻知識が創発すると論証。</p>
+<p><span class="citation" data-cites="davilagarcez2009Neuralsymbolic">d’Avila Garcez et al. (<a href="#ref-davilagarcez2009Neuralsymbolic" role="doc-biblioref">2009</a>)</span><br>
+<strong>ニューロシンボリック認知推論</strong> d’Avila Garcez, A. S., Lamb, L. C. &amp; Gabbay, D. M. (2009)</p>
+<p>記号推論とニューラル計算統合の数学的・理論的基盤を提供するニューロシンボリック統合のための包括的理論・実践基盤。微分可能論理、グラフニューラルネットワーク、ニューロシンボリックプログラム合成を網羅する知識編纂、抽出、ハイブリッド動的相互作用を含む複数パラダイムを提示。音韻モデリング応用に直接情報提供するアーキテクチャ原理を提供。</p>
+<p><span class="citation" data-cites="panchendrarajan2024Synergizing">Panchendrarajan &amp; Zubiaga (<a href="#ref-panchendrarajan2024Synergizing" role="doc-biblioref">2024</a>)</span><br>
+<strong>機械学習と記号的手法の相乗効果: 包括的調査</strong> Panchendrarajan, R. &amp; Zubiaga, A. (2024)</p>
+<p>包括的統合フレームワークを提供する200以上の論文分析を通じてNLPハイブリッド手法成功パターンを調査する体系的調査。微分可能埋込論理制約を伴う統合アプローチが最も有望であることを発見する一方、共通失敗モードと拡張性問題を特定。微分保持制約コンパイルを通じて音韻知識とニューラル学習の体系的結合のための統合戦略を指導。</p>
+<p><span class="citation" data-cites="hamilton2024NeuroSymbolic">Hamilton et al. (<a href="#ref-hamilton2024NeuroSymbolic" role="doc-biblioref">2024</a>)</span><br>
+<strong>ニューロシンボリックAIは自然言語処理でその約束を果たしているか？構造化レビュー</strong> Hamilton, K. et al.&nbsp;(2024)</p>
+<p>アプローチを分類し約束-達成格差を分析する200以上のNLP論文にわたるニューロシンボリック統合成功の批判的体系評価。最適化困難と拡張性問題を含む共通失敗モードを特定する一方、微分可能論理制約を伴う統合手法が最も有望であることを発見。理論的主張対実践的達成の証拠基盤推奨で統合戦略を導く現実的評価を提供。</p>
+</section>
+<section id="音韻表象分析" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> 音韻表象分析</h1>
+<p><span class="citation" data-cites="mikolov2013Distributed">Mikolov et al. (<a href="#ref-mikolov2013Distributed" role="doc-biblioref">2013</a>)</span><br>
+<strong>単語とフレーズの分散表現とその合成性</strong> Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S. &amp; Dean, J. (2013)</p>
+<p>精密な統語的・意味的関係を捕捉する高品質分散ベクトル表現を学習するSkip-gramモデルの改良版。頻出単語サブサンプリングと負サンプリングを導入し高速化と品質向上を実現。成語的フレーズ表現の新手法とvec(“フランス”) + vec(“女優”)≈vec(“ジュリエット・ビノシュ”)のような加法合成性を実証。現代NLPと深層学習における分散表現革命の基盤。</p>
+<p><span class="citation" data-cites="silfverberg2018Sound">Silfverberg et al. (<a href="#ref-silfverberg2018Sound" role="doc-biblioref">2018</a>)</span><br>
+<strong>音素埋込による音類推</strong> Silfverberg, M., Mao, L. &amp; Hulden, M. (2018)</p>
+<p>明示的監督なしで類推推論を可能にする体系的音韻関係を符号化する、テキストから学習された分散音素埋込を実証。有声性と調音場所関係が体系的に出現するベクトル算術が音韻交替を捕捉。保留交替を成功裏に予測し、音韻構造が音素配列から正書法配列よりも明確に出現することを示す言語横断転移を実現。</p>
+<p><span class="citation" data-cites="kolachina2019What">Kolachina &amp; Magyar (<a href="#ref-kolachina2019What" role="doc-biblioref">2019</a>)</span><br>
+<strong>音素埋込は音韻学について何を学習するか？</strong> Kolachina, S. &amp; Magyar, B. (2019)</p>
+<p>母音調和学習成功対子音制約学習失敗の発見を通じてニューラル音韻学習の差別能力を明らかにする体系的分析。タスクとアーキテクチャにわたって音素埋込に符号化された音韻知識を調査するプロービング研究で、文脈埋込が異音変異を捕捉し、静的埋込が素性基盤距離相関を伴う音素カテゴリを捕捉することを発見。</p>
+<p><span class="citation" data-cites="venkateswaran2025Probing">Venkateswaran et al. (<a href="#ref-venkateswaran2025Probing" role="doc-biblioref">2025</a>)</span><br>
+<strong>音声表象の自己教師ありモデルにおける音韻学のプロービング: アクセント知覚のケーススタディ</strong> Venkateswaran, A. et al.&nbsp;(2025)</p>
+<p>体系的アクセント条件過程モデリングを通じて音韻変異とアクセント認知関係捕捉におけるニューラル表象能力を実証する社会言語学応用。社会言語変異符号化をテストし、モデルが方言群間の体系的発音差異を捕捉することを明らかにする。現代音声処理システムにおける社会言語学的音韻知識評価のためのベンチマークを提供。</p>
+<p><span class="citation" data-cites="astrach2025Probing">Astrach &amp; Pinter (<a href="#ref-astrach2025Probing" role="doc-biblioref">2025</a>)</span><br>
+<strong>形態学モデルにおける分音素のプロービング</strong> Astrach, N. &amp; Pinter, Y. (2025)</p>
+<p>階層的音韻情報符号化調査を通じて局所音韻素性（埋込層）対遠距離依存（エンコーダ層）差別表象を明らかにするアーキテクチャ洞察。プロービング方法論でニューラル表象における調音・音響素性をテストし、表象分析のための視覚化技術を伴って形態音韻過程に関連する細粒度音声詳細をモデルが捕捉することを発見。</p>
+<p><span class="citation" data-cites="maaten2008Visualizing">Maaten &amp; Hinton (<a href="#ref-maaten2008Visualizing" role="doc-biblioref">2008</a>)</span><br>
+<strong>t-SNEを使用したデータ視覚化</strong> van der Maaten, L. &amp; Hinton, G. (2008)</p>
+<p>各データポイントを二次元または三次元マップ上の位置に割り当てることで高次元データを視覚化するt-SNE技術を導入。確率的近傍埋込（SNE）を改良し、中央部への点集中を減らして違うスケールでの構造を明らかにする視覚化を実現。音韻表象分析やニューラルネットワークの内部状態解釈における重要な可視化ツールとして機能。</p>
+</section>
+<section id="評価方法論とベンチマーク" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> 評価方法論とベンチマーク</h1>
+<p><span class="citation" data-cites="ardila2020Common">Ardila et al. (<a href="#ref-ardila2020Common" role="doc-biblioref">2020</a>)</span><br>
+<strong>Common Voice: 多言語大規模音声コーパス</strong> Ardila, R. et al.&nbsp;(2020)</p>
+<p>クラウドソーシングによるデータ収集・検証を通じて50,000以上の貢献者から2,500時間の音声を集積した多言語音声データセット。29言語を含む公開領域最大音声認識コーパスとしてMozilla DeepSpeechで12言語において平均5.99%文字誤り率改善を実証。多言語音声技術研究と低資源言語開発の基盤データベースとして機能。</p>
+<p><span class="citation" data-cites="panayotov2015Librispeech">Panayotov et al. (<a href="#ref-panayotov2015Librispeech" role="doc-biblioref">2015</a>)</span><br>
+<strong>LibriSpeech: 公共領域オーディオブックに基づくASRコーパス</strong> Panayotov, V., Chen, G., Povey, D. &amp; Khudanpur, S. (2015)</p>
+<p>一貫した性能比較基盤を提供する4,770以上の引用で英語音声認識評価のデファクト標準を確立する大規模ASRコーパス。話者重複を避ける慎重に設計されたtrain/dev/testスプリットを伴う1000時間の読み上げ英語オーディオブックを含有。表象学習アプローチ間の公平比較を可能にする様々な音響品質を伴うcleanとotherの条件を提供。</p>
+<p><span class="citation" data-cites="mcauliffe2017Montreal">McAuliffe et al. (<a href="#ref-mcauliffe2017Montreal" role="doc-biblioref">2017</a>)</span><br>
+<strong>Montreal Forced Aligner: Kaldiを用いた学習可能テキスト-音声アライメント</strong> McAuliffe, M. et al.&nbsp;(2017)</p>
+<p>話者適応を伴うKaldiツールキットを使用する学習可能テキスト-音声アライメントシステムを通じて大規模コーパス音韻研究を可能にする不可欠インフラ。50以上の言語で手動注釈の20ms以内の精度を達成する事前学習モデルを提供。詳細音声評価と研究応用のための自動音声注釈コーパス作成を通じて理論-実証架橋を可能化。</p>
+<p><span class="citation" data-cites="belinkov2019Analysis">Belinkov &amp; Glass (<a href="#ref-belinkov2019Analysis" role="doc-biblioref">2019</a>)</span><br>
+<strong>ニューラル言語処理における分析手法: 調査</strong> Belinkov, Y. &amp; Glass, J. (2019)</p>
+<p>解釈可能性研究基盤確立を提供するニューラル言語処理分析手法の包括的体系化。プローブ複雑性、有意性検定、相関対因果関係問題を論じる視覚化、診断プロービング、敵対評価、行動分析にアプローチを分類。実装ガイドラインと制限論議を伴ってニューラルモデルにおける音韻表象分析の最良実践を確立。</p>
+<p><span class="citation" data-cites="conneau2020Unsupervised">Conneau et al. (<a href="#ref-conneau2020Unsupervised" role="doc-biblioref">2020</a>)</span><br>
+<strong>音声認識のための無教師言語横断表象学習</strong> Conneau, A. et al.&nbsp;(2020)</p>
+<p>多様な音韻システムを網羅する53言語へのwav2vec 2.0スケーリングを導入するXLSRで、多言語事前学習が高資源言語性能をも改善することを実証。学習表象が言語固有情報を維持しながら普遍音声素性を捕捉することを明らかにする。音韻普遍性調査を可能にする言語横断評価のためのフレームワークとベースラインを提供する未見言語への成功ゼロショット転移を示す。</p>
+</section>
+<section id="最新動向と応用" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> 最新動向と応用</h1>
+<p><span class="citation" data-cites="yang2025k2SSL">Yang et al. (<a href="#ref-yang2025k2SSL" role="doc-biblioref">2025</a>)</span><br>
+<strong>k2SSL: 自己教師あり音声表象学習のためのより高速で優れたフレームワーク</strong> Yang, S. et al.&nbsp;(2025)</p>
+<p>ZipformerアーキテクチャU-Netスタイルダウンサンプリングを通じて3.5倍学習加速で34.8% WER削減を達成する高度最適化SSLフレームワークを導入する革命的効率革新。ScaledAdam、progressive学習、改良拡張を含む追加最適化で効率-性能互換性を実証。従来の効率-品質トレードオフに挑戦する計算要件削減と同時に音韻学習改善を示すアーキテクチャ革新。</p>
+<p><span class="citation" data-cites="cho2025Sylber">Cho et al. (<a href="#ref-cho2025Sylber" role="doc-biblioref">2025</a>)</span><br>
+<strong>Sylber: 生音声からの音節埋込表象学習</strong> Cho, H. et al.&nbsp;(2025)</p>
+<p>従来アプローチに対する6-7倍改善を表す4.27トークン/秒性能を達成する音節粒度動的トークン化を導入する革命的トークン化革新。音素と単語間の中間粒度最適化を通じた言語学的動機付けトークン化有効性を実証。効率向上を伴う韻律情報を要求する下流タスクのための音節レベル離散化利点を示す。</p>
+</section>
+<section id="言語横断類型論研究" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> 言語横断・類型論研究</h1>
+<p><span class="citation" data-cites="moran2019Phoible">Moran &amp; McCloy (<a href="#ref-moran2019Phoible" role="doc-biblioref">2019</a>)</span><br>
+<strong>PHOIBLE: 音韻目録の大規模データベース</strong> Moran, S. &amp; McCloy, D. (2019)</p>
+<p>世界最大の体系的収集を表す2,186言語3,020音韻目録を集約する包括的音韻データベース。普遍性と変異について類型論的一般化を可能にするすべての語族を網羅するIPA転写、弁別素性、韻律情報を伴う分節リストを包含。学習表象が言語横断音韻普遍性を捕捉するかをテストするための統計的傾向と含意関係を明らかにする。</p>
+<p><span class="citation" data-cites="mortensen2016PanPhon">Mortensen et al. (<a href="#ref-mortensen2016PanPhon" role="doc-biblioref">2016</a>)</span><br>
+<strong>PanPhon: IPA分節の調音素性ベクトルへのマッピングリソース</strong> Mortensen, D. R. et al.&nbsp;(2016)</p>
+<p>二項素性と段階的音声特性を結合する5,000以上のIPA分節の21調音素性ベクトルへのマッピングの包括的データベース。高い言語学者判断一致検証を伴う分節距離計算と素性推論のためのアルゴリズムを含む分類的・連続的表象を実現。ニューラルモデルが調音構造を自然に発見するかを評価するためのグラウンドトゥルースを提供。</p>
+<p><span class="citation" data-cites="dunbar2019Zero">Dunbar et al. (<a href="#ref-dunbar2019Zero" role="doc-biblioref">2019</a>)</span><br>
+<strong>Zero Resource音声チャレンジ2019: Tのないテキスト音声合成</strong> Dunbar, E. et al.&nbsp;(2019)</p>
+<p>表象品質を評価する下流タスクとしてTTSを使用してテキストなし生音声からの無教師言語学ユニット発見を評価するZero Resourceチャレンジ。普遍性をテストする類型論的多様言語を含み、客観的指標と主観的自然性評価を結合。異なるシステムが異なる粒度を発見することを示し、語族横断無教師学習から出現するユニットについての証拠を提供。</p>
+<p><span class="citation" data-cites="parcollet2024LeBenchmark">Parcollet et al. (<a href="#ref-parcollet2024LeBenchmark" role="doc-biblioref">2024</a>)</span><br>
+<strong>LeBenchmark 2.0: フランス語音声の自己教師あり表象のための標準化された再現可能で拡張されたフレームワーク</strong> Parcollet, T. et al.&nbsp;(2024)</p>
+<p>標準化ベンチマーク、事前学習モデル、評価プロトコルを提供する詳細音声タスクを含むフランス語音声処理のための包括的評価フレームワーク。音素認識から意味理解まで多様なタスクを網羅し、アーキテクチャと学習アプローチ間の体系的比較を可能化。非英語音声表象学習の評価標準を確立する英語を超えた言語固有評価の重要性を実証。</p>
+</section>
+<section id="言語獲得と認知モデリング" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> 言語獲得と認知モデリング</h1>
+<p><span class="citation" data-cites="schatz2021">(<a href="#ref-schatz2021" role="doc-biblioref"><strong>schatz2021?</strong></a>)</span><br>
+<strong>音韻カテゴリを持たない初期音韻学習: 現実的入力による大規模シミュレーションからの洞察</strong> Schatz, T., Feldman, N. H., Goldwater, S., Cao, X.-N. &amp; Dupoux, E. (2021)</p>
+<p>従来理論に挑戦し乳児音韻学習における分布学習のメカニズム駆動アプローチを導入。ガウス混合モデルによる英語・日本語乳児大規模シミュレーションにより、分布学習が乳児観察行動を予測できることを実証。しかし学習された単位が音韻カテゴリに対応するには短く細粒度すぎると示し、乳児が学習するのは音韻カテゴリではなく異なる表象であることを提唱。認知科学における現実的大規模モデリング新手法を提供。</p>
+<p><span class="citation" data-cites="macwhinney2000CHILDES">Macwhinney (<a href="#ref-macwhinney2000CHILDES" role="doc-biblioref">2000</a>)</span><br>
+<strong>CHILDESプロジェクト: 発話分析のためのツール</strong> MacWhinney, B. (2000)</p>
+<p>30以上の言語にわたる5000万以上の転写された会話語を含む包括的児童言語データ交換システム。自動音韻発達分析のためのCLAN分析ツールを伴う音声詳細、ジェスチャー、文脈を符号化するCHAT転写フォーマットを詳述。計算獲得モデル評価のための生態学的妥当な学習データを提供する喃語から複雑音韻学への段階的発達を捕捉。</p>
+<p><span class="citation" data-cites="dupoux2018Cognitive">Dupoux (<a href="#ref-dupoux2018Cognitive" role="doc-biblioref">2018</a>)</span><br>
+<strong>人工知能時代の認知科学: 乳児言語学習者のリバースエンジニアリングロードマップ</strong> Dupoux, E. (2018)</p>
+<p>学習軌跡、エラーパターン、臨界期に基づく評価を伴う言語獲得に焦点を当てた人間認知発達モデルとしてAIシステムを使用する研究プログラムを明確化。発達段階にわたる人間様行動を評価する認知ベンチマークアプローチを導入する分類知覚出現と知覚狭小化を含む主要現象を概説。音韻学習モデルにおける認知妥当性評価のための不可欠フレームワーク。</p>
+<p><span class="citation" data-cites="nguyen2020Zero">T. A. Nguyen et al. (<a href="#ref-nguyen2020Zero" role="doc-biblioref">2020</a>)</span><br>
+<strong>Zero Resource音声ベンチマーク2021: 無教師話言語モデリングのための指標とベースライン</strong> Nguyen, T. A. et al.&nbsp;(2020)</p>
+<p>音素対比区別を測定するABX識別、単語分割境界検出、構文・意味プロービングを含む転写なし無教師音声学習のための包括的評価指標とベースライン。音響交絡統制のための動的時間ワーピング実装と統計手法を提供し、単語表象が豊富なデータを要求する一方で音声識別が早期に出現することを明らかにする。</p>
+<p><span class="citation" data-cites="cruzblandon2023Introducing">Cruz Blandón et al. (<a href="#ref-cruzblandon2023Introducing" role="doc-biblioref">2023</a>)</span><br>
+<strong>乳児言語発達モデル評価におけるメタ分析の導入</strong> Cruz-Blandón, M. A. et al.&nbsp;(2023)</p>
+<p>一貫したパターンと矛盾を特定する複数研究にわたる発見を統合する計算乳児言語発達モデル評価のためのメタ分析フレームワーク。生態学的妥当性と発達軌跡を強調するモデル比較のための標準化評価プロトコルを提案。計算言語獲得研究における堅牢な発見を特定する異質研究にわたる結果集約のための統計手法を提供。</p>
+<p><span class="citation" data-cites="benders2023Computational">Benders &amp; Blom (<a href="#ref-benders2023Computational" role="doc-biblioref">2023</a>)</span><br>
+<strong>言語獲得の計算モデリング: 導入</strong> Benders, T. et al.&nbsp;(2023)</p>
+<p>記号的からニューラルアプローチまで異なるモデリングパラダイムを網羅する実装詳細を伴う理論言語獲得フレームワークを架橋する導入。児童データとモデルを比較する評価手法をレビューし、現実的入力と発達制約モデリングにおける課題を論じる。真正発達モデリング応用のためのタスク性能を超えた認知妥当性の重要性を強調。</p>
+<p><span class="citation" data-cites="mcmurray2023acquisition">McMurray (<a href="#ref-mcmurray2023acquisition" role="doc-biblioref">2023</a>)</span><br>
+<strong>音声カテゴリの獲得: 知覚狭小化を超えて、無教師学習を超えて、乳児期を超えて</strong> McMurray, B. (2023)</p>
+<p>段階的表象と連続処理動態の証拠を提示する従来の分類知覚観を挑戦する批判的分析。確率表象を支持し厳密分類境界に反対する音声知覚と獲得の計算モデル含意を論じる。発達音韻システムにおける知覚分類についてのモデル予測評価のための行動ベンチマークを提供。</p>
+</section>
+<section id="追加基盤文献" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> 追加基盤文献</h1>
+<p><span class="citation" data-cites="tesar1995Computational">B. B. Tesar (<a href="#ref-tesar1995Computational" role="doc-biblioref">1995</a>)</span><br>
+<strong>計算最適性理論</strong> Tesar, B. (1995)</p>
+<p>学習における隠れ構造を扱うRobust Interpretive Parsingを通じて制約順位学習可能性を実証する計算最適性理論実装を提供する博士論文。データからの記号文法学習可能性を示す収束証明を伴うError-Driven Constraint Demotionアルゴリズムを開発。記号学習ベースラインを確立し、計算OTアプローチ理解の基盤。</p>
+<p><span class="citation" data-cites="silverman2012Neutralization">Silverman (<a href="#ref-silverman2012Neutralization" role="doc-biblioref">2012</a>)</span><br>
+<strong>中和</strong> Silverman, D. (2012)</p>
+<p>音韻理論含意を伴う完全対不完全中和を論じる音韻学的・音声学的側面を調査する中和現象の包括的理論処理。基底表象と抽象性についての論争に対処する言語横断中和パターン類型学を提供。音韻表象システムにおける分類的対段階的現象理解にとって重要。</p>
+<p><span class="citation" data-cites="staples2020Neural">Staples &amp; Graves (<a href="#ref-staples2020Neural" role="doc-biblioref">2020</a>)</span><br>
+<strong>分散および記号的計算モデルによって明らかにされた読書のニューラル成分</strong> Staples, R. et al.&nbsp;(2020)</p>
+<p>想定上分類過程における連続変異を示し厳密分類観に挑戦する超音波と音響分析を使用した段階的異音変異の音響・調音証拠。確率表象が変異を捕捉することを論証する話者固有・文脈依存段階性を実証。音韻処理における分類から段階スペクトラムに及ぶ表象を支持。</p>
+<p><span class="citation" data-cites="nguyen2016Computational">D. Nguyen et al. (<a href="#ref-nguyen2016Computational" role="doc-biblioref">2016</a>)</span><br>
+<strong>計算社会言語学: 調査</strong> Nguyen, J. et al.&nbsp;(2016)</p>
+<p>曖昧入力から競合制約が確率パターンを生成する方法を示す計算変異学習モデルを提示し、獲得と通時における音韻変異、任意性、確率学習を分析。音韻理論と獲得への含意を論じ、計算モデリングアプローチを通じて分類文法と確率実装を架橋。</p>
+<p><span class="citation" data-cites="reubold2010Vocal">Reubold et al. (<a href="#ref-reubold2010Vocal" role="doc-biblioref">2010</a>)</span><br>
+<strong>F0と第一フォルマントに対する音声老化効果: 成人話者における縦断分析</strong> Reubold, U. &amp; Harrington, J. (2010)</p>
+<p>音声処理システムの正規化含意を伴う基本周波数とフォルマントに対する音声老化効果を記録する縦断研究。ASR話者正規化課題を論じる生涯にわたる体系的音響パラメータ変化を記録。表象学習と音響モデル開発における話者変動性理解にとって重要な時間経過話者内変異データを提供。</p>
+<p><span class="citation" data-cites="kazanina2018Phonemes">Kazanina et al. (<a href="#ref-kazanina2018Phonemes" role="doc-biblioref">2018</a>)</span><br>
+<strong>音素: 語彙アクセスとその先</strong> Kazanina, N. (2018)</p>
+<p>語彙アクセスと音声知覚における音素証拠を論じる心理学的、神経科学的、計算視点から音素概念を調査する批判的レビュー。複数方法論からの発見を統合し、音韻ユニット心理的現実についての論争をレビュー。計算音韻ユニット表象アプローチに情報提供する認知システムにおける音素地位の均衡視点を提供。</p>
+<p><span class="citation" data-cites="tsvilodub2025Integrating">Tsvilodub et al. (<a href="#ref-tsvilodub2025Integrating" role="doc-biblioref">2025</a>)</span><br>
+<strong>語用論的質問応答モデルにおけるニューラルと記号成分の統合</strong> Tsvilodub, P. et al.&nbsp;(2025)</p>
+<p>知覚を記号計算から分離するモジュラーアーキテクチャを通じてパターン認識と推論を結合する言語構造学習のための最新ニューロシンボリック統合進歩。質問応答システムで実証された構成般化のための構造表象利点を示す。記号-ニューラル統合を要求する音韻応用のためのアーキテクチャ青写真を提供。</p>
+<p><span class="citation" data-cites="medin2024SelfSupervised">Medin et al. (<a href="#ref-medin2024SelfSupervised" role="doc-biblioref">2024</a>)</span><br>
+<strong>子供音声における音素認識のための自己教師ありモデル: 読書学習への応用</strong> Medin, R. et al.&nbsp;(2024)</p>
+<p>明示的発音エラーフィードバックを提供するシステムを開発する言語学習と発音訓練のための教育音声分析応用を探求。教育応用のための解釈可能表象利点を示すSSLモデルを詳細音声評価に使用。教育技術と言語指導文脈における音韻情報モデルの実用価値を実証。</p>
+<p><span class="citation" data-cites="pouw2024Perception">Pouw et al. (<a href="#ref-pouw2024Perception" role="doc-biblioref">2024</a>)</span><br>
+<strong>ニューラル音声認識モデルによる音韻同化の知覚</strong> Pouw, W. et al.&nbsp;(2024)</p>
+<p>モデルが人間産出と類似した文脈依存変異を捕捉するかをテストする大規模コーパスとニューラルモデルを使用した自然発話における異音変異パターンを分析。異音知識評価のためのベンチマークを提供する想定上分類過程における段階性を調査。現実的音韻変異モデリングのための自然主義データの重要性を示す。</p>
+<p><span class="citation" data-cites="gosztolya2024Wav2vec">Gosztolya et al. (<a href="#ref-gosztolya2024Wav2vec" role="doc-biblioref">2024</a>)</span><br>
+<strong>Wav2vec 2.0埋込はスイスアーミーナイフではない—多発性硬化症のケーススタディ</strong> Gosztolya, G. et al.&nbsp;(2024)</p>
+<p>領域固有素性が一般SSL表象を時として上回ることを示す病理音声評価等専門音声タスクにおけるSSL埋込制限を明らかにする分析。普遍SSL適用性についての注意深い証拠を提供し専門表象が必要な条件を特定。専門音韻分析応用における表象制限理解にとって重要。</p>
+</section>
+<section id="pdf基盤追加文献" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> PDF基盤追加文献</h1>
+<p><span class="citation" data-cites="chen2023Exploring">J. Chen &amp; Elsner (<a href="#ref-chen2023Exploring" role="doc-biblioref">2023</a>)</span><br>
+<strong>生成敵対ネットワークが音韻表象をいかに学習するかの探求</strong> Chen, J. &amp; Elsner, M. (2023)</p>
+<p>一対一音韻素性対応ではなく潜在変数間の相互作用効果を発見するフランス語と英語母音における鼻音性素性分析を通じたciwGAN音韻表象学習を調査。GANが言語間で対照的対非対照的素性を区別することを示すが、学習表象が他のニューラルアプローチに対するGANの主張された利点に挑戦する伝統的言語学音韻表象と異なる。</p>
+<p><span class="citation" data-cites="guriel2023Morphological">Guriel et al. (<a href="#ref-guriel2023Morphological" role="doc-biblioref">2023</a>)</span><br>
+<strong>音韻素性を伴う形態変化</strong> Guriel, D., Goldman, O. &amp; Tsarfaty, R. (2023)</p>
+<p>文字を音韻素性で置換するデータ操作と素性認識表象のための自己注意層追加モデル操作の二手法を使用して形態再変化タスクに音韻素性を組込むことを探求。LSTMとtransducerモデルを用いた八浅正書法言語をテストし、文字レベルモデルが既に暗黙的に音韻情報を捕捉することを示唆する文字ベースラインと同等性能を示す。</p>
+<p><span class="citation" data-cites="pasad2024What">Pasad et al. (<a href="#ref-pasad2024What" role="doc-biblioref">2024</a>)</span><br>
+<strong>自己教師あり音声モデルは単語について何を知っているか？</strong> Pasad, A., Chien, C.-M., Settle, S. &amp; Livescu, K. (2024)</p>
+<p>正準相関分析とタスク基盤評価を使用した十の自己教師あり音声モデルにおける単語レベル言語特性の包括的分析。単語識別情報が分節中心近くに集中し、事前学習目的が層別情報分布に影響することを発見し、視覚接地モデルが単語識別、分割、意味類似性タスクで音声のみ対応を上回る。</p>
+<p><span class="citation" data-cites="pandian2025Hybrid">Pandian (<a href="#ref-pandian2025Hybrid" role="doc-biblioref">2025</a>)</span><br>
+<strong>意思決定重要領域における説明可能人工知能のためのハイブリッド記号-ニューラルアーキテクチャ</strong> Pandian, S. M. (2025)</p>
+<p>医療、法的遵守、金融を含む意思決定重要応用のための透明記号推論とニューラルネットワーク学習能力を結合するハイブリッド記号-ニューラルアーキテクチャを提案。人間信頼と規制承認にとって解釈可能性と説明可能性が最重要である疎結合アプローチ（記号規則を供給するニューラル出力）と密結合アプローチ（共同学習）を含む統合戦略を探求。</p>
+</section>
+<section id="参考文献" class="level1 unnumbered" data-number="13">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">13 参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-ardila2020Common" class="csl-entry" role="listitem">
+Ardila, R., Branson, M., Davis, K., Henretty, M., Kohler, M., Meyer, J., Morais, R., Saunders, L., Tyers, F. M., &amp; Weber, G. (2020). <em>Common voice: A massively-multilingual speech corpus</em> (arXiv:1912.06670). arXiv. <a href="https://doi.org/10.48550/arXiv.1912.06670">https://doi.org/10.48550/arXiv.1912.06670</a>
+</div>
+<div id="ref-astrach2025Probing" class="csl-entry" role="listitem">
+Astrach, G., &amp; Pinter, Y. (2025). <em>Probing subphonemes in morphology models</em> (arXiv:2505.11297). arXiv. <a href="https://doi.org/10.48550/arXiv.2505.11297">https://doi.org/10.48550/arXiv.2505.11297</a>
+</div>
+<div id="ref-baevski2020wav2vec" class="csl-entry" role="listitem">
+Baevski, A., Zhou, Y., Mohamed, A., &amp; Auli, M. (2020). Wav2vec 2.0: A framework for self-supervised learning of speech representations. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 12449–12460.
+</div>
+<div id="ref-begus2020Generative" class="csl-entry" role="listitem">
+Beguš, G. (2020). Generative adversarial phonology: Modeling unsupervised phonetic and phonological learning with neural networks. <em>Frontiers in Artificial Intelligence</em>, <em>3</em>. <a href="https://doi.org/10.3389/frai.2020.00044">https://doi.org/10.3389/frai.2020.00044</a>
+</div>
+<div id="ref-belinkov2019Analysis" class="csl-entry" role="listitem">
+Belinkov, Y., &amp; Glass, J. (2019). Analysis methods in neural language processing: A survey. <em>Transactions of the Association for Computational Linguistics</em>, <em>7</em>, 49–72. <a href="https://doi.org/10.1162/tacl_a_00254">https://doi.org/10.1162/tacl_a_00254</a>
+</div>
+<div id="ref-benders2023Computational" class="csl-entry" role="listitem">
+Benders, T., &amp; Blom, E. (2023). Computational modelling of language acquisition: An introduction. <em>Journal of Child Language</em>, <em>50</em>(6), 1287–1293. <a href="https://doi.org/10.1017/S0305000923000429">https://doi.org/10.1017/S0305000923000429</a>
+</div>
+<div id="ref-chang2024Interspeech" class="csl-entry" role="listitem">
+Chang, X., Shi, J., Tian, J., Wu, Y., Tang, Y., Wu, Y., Watanabe, S., Adi, Y., Chen, X., &amp; Jin, Q. (2024). <em>The interspeech 2024 challenge on speech processing using discrete units</em> (arXiv:2406.07725). arXiv. <a href="https://doi.org/10.48550/arXiv.2406.07725">https://doi.org/10.48550/arXiv.2406.07725</a>
+</div>
+<div id="ref-chen2023Exploring" class="csl-entry" role="listitem">
+Chen, J., &amp; Elsner, M. (2023). <em>Exploring how generative adversarial networks learn phonological representations</em> (arXiv:2305.12501). arXiv. <a href="https://doi.org/10.48550/arXiv.2305.12501">https://doi.org/10.48550/arXiv.2305.12501</a>
+</div>
+<div id="ref-chen2022WavLM" class="csl-entry" role="listitem">
+Chen, S., Wang, C., Chen, Z., Wu, Y., Liu, S., Chen, Z., Li, J., Kanda, N., Yoshioka, T., Xiao, X., Wu, J., Zhou, L., Ren, S., Qian, Y., Qian, Y., Wu, J., Zeng, M., Yu, X., &amp; Wei, F. (2022). WavLM: Large-scale self-supervised pre-training for full stack speech processing. <em>IEEE Journal of Selected Topics in Signal Processing</em>, <em>16</em>(6), 1505–1518. <a href="https://doi.org/10.1109/JSTSP.2022.3188113">https://doi.org/10.1109/JSTSP.2022.3188113</a>
+</div>
+<div id="ref-cho2025Sylber" class="csl-entry" role="listitem">
+Cho, C. J., Lee, N., Gupta, A., Agarwal, D., Chen, E., Black, A. W., &amp; Anumanchipalli, G. K. (2025). <em>Sylber: Syllabic embedding representation of speech from raw audio</em> (arXiv:2410.07168). arXiv. <a href="https://doi.org/10.48550/arXiv.2410.07168">https://doi.org/10.48550/arXiv.2410.07168</a>
+</div>
+<div id="ref-chomsky1968sound" class="csl-entry" role="listitem">
+Chomsky, N., &amp; Halle, M. (1968). <em>The sound pattern of english.</em>
+</div>
+<div id="ref-clements1985geometry" class="csl-entry" role="listitem">
+Clements, G. N. (1985). The geometry of phonological features. <em>Phonology</em>, <em>2</em>, 225–252.
+</div>
+<div id="ref-conneau2020Unsupervised" class="csl-entry" role="listitem">
+Conneau, A., Baevski, A., Collobert, R., Mohamed, A., &amp; Auli, M. (2020). <em>Unsupervised cross-lingual representation learning for speech recognition</em> (arXiv:2006.13979). arXiv. <a href="https://doi.org/10.48550/arXiv.2006.13979">https://doi.org/10.48550/arXiv.2006.13979</a>
+</div>
+<div id="ref-cruzblandon2023Introducing" class="csl-entry" role="listitem">
+Cruz Blandón, M. A., Cristia, A., &amp; Räsänen, O. (2023). Introducing meta-analysis in the evaluation of computational models of infant language development. <em>Cognitive Science</em>, <em>47</em>(7), e13307. <a href="https://doi.org/10.1111/cogs.13307">https://doi.org/10.1111/cogs.13307</a>
+</div>
+<div id="ref-davilagarcez2009Neuralsymbolic" class="csl-entry" role="listitem">
+d’Avila Garcez, A. S., Lamb, L. C., &amp; Gabbay, D. M. (2009). <em>Neural-symbolic cognitive reasoning</em>. Springer.
+</div>
+<div id="ref-dunbar2019Zero" class="csl-entry" role="listitem">
+Dunbar, E., Algayres, R., Karadayi, J., Bernard, M., Benjumea, J., Cao, X.-N., Miskic, L., Dugrain, C., Ondel, L., Black, A. W., Besacier, L., Sakti, S., &amp; Dupoux, E. (2019). <em>The zero resource speech challenge 2019: TTS without t</em> (arXiv:1904.11469). arXiv. <a href="https://doi.org/10.48550/arXiv.1904.11469">https://doi.org/10.48550/arXiv.1904.11469</a>
+</div>
+<div id="ref-dupoux2018Cognitive" class="csl-entry" role="listitem">
+Dupoux, E. (2018). Cognitive science in the era of artificial intelligence: A roadmap for reverse-engineering the infant language-learner. <em>Cognition</em>, <em>173</em>, 43–59. <a href="https://doi.org/10.1016/j.cognition.2017.11.008">https://doi.org/10.1016/j.cognition.2017.11.008</a>
+</div>
+<div id="ref-goldsmith1976Autosegmental" class="csl-entry" role="listitem">
+Goldsmith, J. A. (1976). <em>Autosegmental phonology</em> [PhD thesis]. Massachusetts Institute of Technology.
+</div>
+<div id="ref-gosztolya2024Wav2vec" class="csl-entry" role="listitem">
+Gosztolya, G., Kiss-Vetráb, M., Svindt, V., Bóna, J., &amp; Hoffmann, I. (2024). <em>Wav2vec 2.0 embeddings are no swiss army knife-a case study for multiple sclerosis</em>.
+</div>
+<div id="ref-guriel2023Morphological" class="csl-entry" role="listitem">
+Guriel, D., Goldman, O., &amp; Tsarfaty, R. (2023). <em>Morphological inflection with phonological features</em> (arXiv:2306.12581). arXiv. <a href="https://doi.org/10.48550/arXiv.2306.12581">https://doi.org/10.48550/arXiv.2306.12581</a>
+</div>
+<div id="ref-hamilton2024NeuroSymbolic" class="csl-entry" role="listitem">
+Hamilton, K., Nayak, A., Božić, B., &amp; Longo, L. (2024). Is neuro-symbolic AI meeting its promise in natural language processing? A structured review. <em>Semantic Web</em>, <em>15</em>(4), 1265–1306. <a href="https://doi.org/10.3233/SW-223228">https://doi.org/10.3233/SW-223228</a>
+</div>
+<div id="ref-hayes2008Maximum" class="csl-entry" role="listitem">
+Hayes, B., &amp; Wilson, C. (2008). A maximum entropy model of phonotactics and phonotactic learning. <em>Linguistic Inquiry</em>, <em>39</em>(3), 379–440. <a href="https://doi.org/10.1162/ling.2008.39.3.379">https://doi.org/10.1162/ling.2008.39.3.379</a>
+</div>
+<div id="ref-higy2021Discrete" class="csl-entry" role="listitem">
+Higy, B., Gelderloos, L., Alishahi, A., &amp; Chrupała, G. (2021). Discrete representations in neural models of spoken language. In J. Bastings, Y. Belinkov, E. Dupoux, M. Giulianelli, D. Hupkes, Y. Pinter, &amp; H. Sajjad (Eds.), <em>Proceedings of the fourth BlackboxNLP workshop on analyzing and interpreting neural networks for NLP</em> (pp. 163–176). Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/2021.blackboxnlp-1.11">https://doi.org/10.18653/v1/2021.blackboxnlp-1.11</a>
+</div>
+<div id="ref-hsu2021HuBERT" class="csl-entry" role="listitem">
+Hsu, W.-N., Bolte, B., Tsai, Y.-H. H., Lakhotia, K., Salakhutdinov, R., &amp; Mohamed, A. (2021). <em>HuBERT: Self-supervised speech representation learning by masked prediction of hidden units</em> (arXiv:2106.07447). arXiv. <a href="https://doi.org/10.48550/arXiv.2106.07447">https://doi.org/10.48550/arXiv.2106.07447</a>
+</div>
+<div id="ref-jarosz2019Computational" class="csl-entry" role="listitem">
+Jarosz, G. (2019). Computational modeling of phonological learning. <em>Annual Review of Linguistics</em>, <em>5</em>(1), 67–90. <a href="https://doi.org/10.1146/annurev-linguistics-011718-011832">https://doi.org/10.1146/annurev-linguistics-011718-011832</a>
+</div>
+<div id="ref-kazanina2018Phonemes" class="csl-entry" role="listitem">
+Kazanina, N., Bowers, J. S., &amp; Idsardi, W. (2018). Phonemes: Lexical access and beyond. <em>Psychonomic Bulletin &amp; Review</em>, <em>25</em>(2), 560–585. <a href="https://doi.org/10.3758/s13423-017-1362-0">https://doi.org/10.3758/s13423-017-1362-0</a>
+</div>
+<div id="ref-kolachina2019What" class="csl-entry" role="listitem">
+Kolachina, S., &amp; Magyar, L. (2019). What do phone embeddings learn about phonology? In G. Nicolai &amp; R. Cotterell (Eds.), <em>Proceedings of the 16th workshop on computational research in phonetics, phonology, and morphology</em> (pp. 160–169). Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/W19-4219">https://doi.org/10.18653/v1/W19-4219</a>
+</div>
+<div id="ref-maaten2008Visualizing" class="csl-entry" role="listitem">
+Maaten, L. van der, &amp; Hinton, G. (2008). Visualizing data using t-SNE. <em>Journal of Machine Learning Research</em>, <em>9</em>(86), 2579–2605.
+</div>
+<div id="ref-macwhinney2000CHILDES" class="csl-entry" role="listitem">
+Macwhinney, B. (2000). <em>The CHILDES project: Tools for analyzing talk: Transcription format and programs</em>. Lawrence Erlbaum Associates Publishers.
+</div>
+<div id="ref-mayer2021Capturing" class="csl-entry" role="listitem">
+Mayer, C. (2021). Capturing gradience in long-distance phonology using probabilistic tier-based strictly local grammars. <em>Proceedings of the Society for Computation in Linguistics 2021</em>, 39–50.
+</div>
+<div id="ref-mcauliffe2017Montreal" class="csl-entry" role="listitem">
+McAuliffe, M., Socolof, M., Mihuc, S., Wagner, M., &amp; Sonderegger, M. (2017). Montreal forced aligner: Trainable text-speech alignment using kaldi. <em>Interspeech</em>, <em>2017</em>, 498–502.
+</div>
+<div id="ref-mcmurray2023acquisition" class="csl-entry" role="listitem">
+McMurray, B. (2023). The acquisition of speech categories: Beyond perceptual narrowing, beyond unsupervised learning and beyond infancy. <em>Language, Cognition and Neuroscience</em>, <em>38</em>(4), 419–445. <a href="https://doi.org/10.1080/23273798.2022.2105367">https://doi.org/10.1080/23273798.2022.2105367</a>
+</div>
+<div id="ref-medin2024SelfSupervised" class="csl-entry" role="listitem">
+Medin, L. B., Pellegrini, T., &amp; Gelin, L. (2024). Self-supervised models for phoneme recognition: Applications in children’s speech for reading learning. <em>Interspeech 2024</em>, 5168–5172. <a href="https://doi.org/10.21437/Interspeech.2024-1095">https://doi.org/10.21437/Interspeech.2024-1095</a>
+</div>
+<div id="ref-mikolov2013Distributed" class="csl-entry" role="listitem">
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S., &amp; Dean, J. (2013). Distributed representations of words and phrases and their compositionality. <em>Advances in Neural Information Processing Systems</em>, <em>26</em>.
+</div>
+<div id="ref-mohamed2022SelfSupervised" class="csl-entry" role="listitem">
+Mohamed, A., Lee, H., Borgholt, L., Havtorn, J. D., Edin, J., Igel, C., Kirchhoff, K., Li, S.-W., Livescu, K., Maaløe, L., Sainath, T. N., &amp; Watanabe, S. (2022). Self-supervised speech representation learning: A review. <em>IEEE Journal of Selected Topics in Signal Processing</em>, <em>16</em>(6), 1179–1210. <a href="https://doi.org/10.1109/JSTSP.2022.3207050">https://doi.org/10.1109/JSTSP.2022.3207050</a>
+</div>
+<div id="ref-moran2019Phoible" class="csl-entry" role="listitem">
+Moran, S., &amp; McCloy, D. (Eds.). (2019). <em>Phoible 2.0</em>. Max Planck Institute for the Science of Human History.
+</div>
+<div id="ref-mortensen2016PanPhon" class="csl-entry" role="listitem">
+Mortensen, D. R., Littell, P., Bharadwaj, A., Goyal, K., Dyer, C., &amp; Levin, L. (2016). PanPhon: A resource for mapping IPA segments to articulatory feature vectors. In Y. Matsumoto &amp; R. Prasad (Eds.), <em>Proceedings of COLING 2016, the 26th international conference on computational linguistics: Technical papers</em> (pp. 3475–3484). The COLING 2016 Organizing Committee.
+</div>
+<div id="ref-nguyen2016Computational" class="csl-entry" role="listitem">
+Nguyen, D., Doğruöz, A. S., Rosé, C. P., &amp; de Jong, F. (2016). Computational sociolinguistics: A survey. <em>Computational Linguistics</em>, <em>42</em>(3), 537–593. <a href="https://doi.org/10.1162/COLI_a_00258">https://doi.org/10.1162/COLI_a_00258</a>
+</div>
+<div id="ref-nguyen2020Zero" class="csl-entry" role="listitem">
+Nguyen, T. A., Seyssel, M. de, Rozé, P., Rivière, M., Kharitonov, E., Baevski, A., Dunbar, E., &amp; Dupoux, E. (2020). <em>The zero resource speech benchmark 2021: Metrics and baselines for unsupervised spoken language modeling</em> (arXiv:2011.11588). arXiv. <a href="https://doi.org/10.48550/arXiv.2011.11588">https://doi.org/10.48550/arXiv.2011.11588</a>
+</div>
+<div id="ref-panayotov2015Librispeech" class="csl-entry" role="listitem">
+Panayotov, V., Chen, G., Povey, D., &amp; Khudanpur, S. (2015). Librispeech: An ASR corpus based on public domain audio books. <em>2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>, 5206–5210. <a href="https://doi.org/10.1109/ICASSP.2015.7178964">https://doi.org/10.1109/ICASSP.2015.7178964</a>
+</div>
+<div id="ref-panchendrarajan2024Synergizing" class="csl-entry" role="listitem">
+Panchendrarajan, R., &amp; Zubiaga, A. (2024). <em>Synergizing machine learning &amp; symbolic methods: A survey on hybrid approaches to natural language processing</em> (arXiv:2401.11972). arXiv. <a href="https://doi.org/10.48550/arXiv.2401.11972">https://doi.org/10.48550/arXiv.2401.11972</a>
+</div>
+<div id="ref-pandian2025Hybrid" class="csl-entry" role="listitem">
+Pandian, S. M. (2025). <em>Hybrid symbolic-neural architectures for explainable artificial intelligence in decision-critical domains</em>.
+</div>
+<div id="ref-parcollet2024LeBenchmark" class="csl-entry" role="listitem">
+Parcollet, T., Nguyen, H., Evain, S., Boito, M. Z., Pupier, A., Mdhaffar, S., Le, H., Alisamir, S., Tomashenko, N., Dinarelli, M., Zhang, S., Allauzen, A., Coavoux, M., Esteve, Y., Rouvier, M., Goulian, J., Lecouteux, B., Portet, F., Rossato, S., … Besacier, L. (2024). <em>LeBenchmark 2.0: A standardized, replicable and enhanced framework for self-supervised representations of french speech</em> (arXiv:2309.05472). arXiv. <a href="https://doi.org/10.48550/arXiv.2309.05472">https://doi.org/10.48550/arXiv.2309.05472</a>
+</div>
+<div id="ref-pasad2024What" class="csl-entry" role="listitem">
+Pasad, A., Chien, C.-M., Settle, S., &amp; Livescu, K. (2024). What do self-supervised speech models know about words? <em>Transactions of the Association for Computational Linguistics</em>, <em>12</em>, 372–391. <a href="https://doi.org/10.1162/tacl_a_00656">https://doi.org/10.1162/tacl_a_00656</a>
+</div>
+<div id="ref-pouw2024Perception" class="csl-entry" role="listitem">
+Pouw, C., Kloots, M. de H., Alishahi, A., &amp; Zuidema, W. (2024). Perception of phonological assimilation by neural speech recognition models. <em>Computational Linguistics</em>, <em>50</em>(3), 1557–1585. <a href="https://doi.org/10.1162/coli_a_00526">https://doi.org/10.1162/coli_a_00526</a>
+</div>
+<div id="ref-prince2004Optimality" class="csl-entry" role="listitem">
+Prince, A., &amp; Smolensky, P. (2004). Optimality theory: Constraint interaction in generative grammar. In <em>Optimality theory in phonology</em> (pp. 1–71). John Wiley &amp; Sons, Ltd. <a href="https://doi.org/10.1002/9780470756171.ch1">https://doi.org/10.1002/9780470756171.ch1</a>
+</div>
+<div id="ref-reubold2010Vocal" class="csl-entry" role="listitem">
+Reubold, U., Harrington, J., &amp; Kleber, F. (2010). Vocal aging effects on <span><em>F</em></span>0 and the first formant: A longitudinal analysis in adult speakers. <em>Speech Communication</em>, <em>52</em>(7), 638–651. <a href="https://doi.org/10.1016/j.specom.2010.02.012">https://doi.org/10.1016/j.specom.2010.02.012</a>
+</div>
+<div id="ref-silfverberg2018Sound" class="csl-entry" role="listitem">
+Silfverberg, M. P., Mao, L., &amp; Hulden, M. (2018). Sound Analogies with Phoneme Embeddings. <em>Society for Computation in Linguistics</em>, <em>1</em>(1). <a href="https://doi.org/10.7275/R5NZ85VD">https://doi.org/10.7275/R5NZ85VD</a>
+</div>
+<div id="ref-silverman2012Neutralization" class="csl-entry" role="listitem">
+Silverman, D. (2012). <em>Neutralization</em>. Cambridge University Press.
+</div>
+<div id="ref-staples2020Neural" class="csl-entry" role="listitem">
+Staples, R., &amp; Graves, W. W. (2020). Neural components of reading revealed by distributed and symbolic computational models. <em>Neurobiology of Language (Cambridge, Mass.)</em>, <em>1</em>(4), 381–401. <a href="https://doi.org/10.1162/nol_a_00018">https://doi.org/10.1162/nol_a_00018</a>
+</div>
+<div id="ref-tesar1995Computational" class="csl-entry" role="listitem">
+Tesar, B. B. (1995). <em>Computational optimality theory</em> [PhD thesis]. University of Colorado at Boulder.
+</div>
+<div id="ref-tesar1998Learnability" class="csl-entry" role="listitem">
+Tesar, B., &amp; Smolensky, P. (1998). Learnability in optimality theory. <em>Linguistic Inquiry</em>, <em>29</em>(2), 229–268. <a href="https://doi.org/10.1162/002438998553734">https://doi.org/10.1162/002438998553734</a>
+</div>
+<div id="ref-tsvilodub2025Integrating" class="csl-entry" role="listitem">
+Tsvilodub, P., Hawkins, R. D., &amp; Franke, M. (2025). <em>Integrating neural and symbolic components in a model of pragmatic question-answering</em> (arXiv:2506.01474). arXiv. <a href="https://doi.org/10.48550/arXiv.2506.01474">https://doi.org/10.48550/arXiv.2506.01474</a>
+</div>
+<div id="ref-vandenoord2017Neural" class="csl-entry" role="listitem">
+van den Oord, A., Vinyals, O., &amp; kavukcuoglu, koray. (2017). Neural discrete representation learning. <em>Advances in Neural Information Processing Systems</em>, <em>30</em>.
+</div>
+<div id="ref-venkateswaran2025Probing" class="csl-entry" role="listitem">
+Venkateswaran, N., Tang, K., &amp; Wayland, R. (2025). <em>Probing for phonology in self-supervised speech representations: A case study on accent perception</em> (arXiv:2506.17542). arXiv. <a href="https://doi.org/10.48550/arXiv.2506.17542">https://doi.org/10.48550/arXiv.2506.17542</a>
+</div>
+<div id="ref-yang2025k2SSL" class="csl-entry" role="listitem">
+Yang, Y., Zhuo, J., Jin, Z., Ma, Z., Yang, X., Yao, Z., Guo, L., Kang, W., Kuang, F., Lin, L., Povey, D., &amp; Chen, X. (2025). <em>k2SSL: A faster and better framework for self-supervised speech representation learning</em> (arXiv:2411.17100). arXiv. <a href="https://doi.org/10.48550/arXiv.2411.17100">https://doi.org/10.48550/arXiv.2411.17100</a>
+</div>
+<div id="ref-zhang2024SpeechTokenizer" class="csl-entry" role="listitem">
+Zhang, X., Zhang, D., Li, S., Zhou, Y., &amp; Qiu, X. (2024). <em>SpeechTokenizer: Unified speech tokenizer for speech large language models</em> (arXiv:2308.16692). arXiv. <a href="https://doi.org/10.48550/arXiv.2308.16692">https://doi.org/10.48550/arXiv.2308.16692</a>
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
